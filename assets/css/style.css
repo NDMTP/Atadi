@@ -63,7 +63,7 @@
 * Global Settings       *
 *************************/
 body{
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 15px;
     line-height: 24px;
     font-weight: 400;
@@ -2411,7 +2411,7 @@ body.open-mobile-search .header-area.layout-02{
 .biolife-banner.layout-01 .bottomm-title{
     font-size: 20px;
     color: #333333;
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-weight: 700;
     font-style: italic;
     line-height: 1;
@@ -4957,7 +4957,7 @@ body.open-overlay #overlay{
     font-size: 15px;
     color: #666666;
     line-height: 1;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Manrope', serif;
     font-style: italic;
 }
 .biolife-title-box .main-title{
@@ -4969,7 +4969,7 @@ body.open-overlay #overlay{
     line-height: 1;
 }
 .biolife-title-box.style-02 .subtitle{
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 14px;
     font-weight: 600;
     text-transform: uppercase;
@@ -4989,7 +4989,7 @@ body.open-overlay #overlay{
 .biolife-title-box.style-02 .desc{
     font-size: 15px;
     color: #666666;
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-style: italic;
     display: inline-block;
     line-height: 18px;
@@ -5945,7 +5945,7 @@ body.open-overlay #overlay{
     margin: 49px 0 0;
 }
 .why-choose-us-block .subtitle{
-    font-family: 'Playfair Display', serif;
+    font-family: 'Manrope', serif;
     font-style: italic;
     color: #666666;
     font-size: 15px;
@@ -6031,7 +6031,7 @@ body.open-overlay #overlay{
     line-height: 1;
     display: block;
     margin: 7px 0 0;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Manrope', serif;
     font-style: italic;
 }
 .why-choose-us-block .sc-element .txt-content .desc{
@@ -6866,7 +6866,7 @@ body.open-overlay #overlay{
     transform: scale(1);
 }
 .slider-opt03__layout01 .text-content .first-line{
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 30px;
     line-height: 1;
     color: #000000;
@@ -6971,7 +6971,7 @@ body.open-overlay #overlay{
     color: #666666;
     display: block;
     margin: 0;
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'Manrope', sans-serif;
 }
 .slider-opt04__layout01 .text-content .second-line,
 .slider-opt03__layout02 .text-content .second-line{
@@ -7120,7 +7120,7 @@ li.slick-current .slider-opt04__layout01 .buttons .btn{
     margin: 0;
     font-size: 26px;
     color: #666666;
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'Manrope', sans-serif;
 }
 .slider-opt05 .text-content .second-line{
     display: block;
@@ -7262,7 +7262,7 @@ li.slick-current .slider-opt04__layout01 .buttons .btn{
 .biolife-banner__special .text-content .third-line i{
     font-weight: 700;
     color: #222222;
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 40px;
 }
 .biolife-banner__special .product-detail{
@@ -7336,7 +7336,7 @@ li.slick-current .slider-opt04__layout01 .buttons .btn{
     display: block;
     margin: 0;
     color: #da840f;
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'Manrope', sans-serif;
     opacity: 0.11;
     filter: alpha(opacity=11);
     margin-bottom: -31px;
@@ -7361,7 +7361,7 @@ li.slick-current .slider-opt04__layout01 .buttons .btn{
     margin: 17px 0 -1px;
 }
 .biolife-banner__special-02 .text-content .text04 i{
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-weight: 700;
     color: #222222;
     font-size: 40px;
@@ -7502,7 +7502,7 @@ li.slick-current .slider-opt04__layout01 .buttons .btn{
 .biolife-service__type01 .txt-show-02{
     font-size: 100px;
     line-height: 1;
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'Manrope', sans-serif;
     display: block;
     text-align: center;
     position: absolute;
@@ -7836,7 +7836,7 @@ li.slick-current .slider-opt04__layout01 .buttons .btn{
 .biolife-banner__promotion .text-content .first-line{
     font-size: 30px;
     line-height: 35px;
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'Manrope', sans-serif;
     color: #ffffff;
     display: block;
     margin: 0;
@@ -7993,7 +7993,7 @@ li.slick-current .slider-opt04__layout01 .buttons .btn{
     margin-top: -1px;
 }
 .biolife-banner__promotion2 .text-content .second-line i{
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 40px;
     font-weight: 700;
 }
@@ -8021,7 +8021,7 @@ li.slick-current .slider-opt04__layout01 .buttons .btn{
 .biolife-banner__promotion2.advance .text-content .second-line i{
     font-weight: 600;
     font-style: normal;
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Manrope', sans-serif;
     text-transform: uppercase;
 }
 .biolife-banner__promotion3{
@@ -8245,7 +8245,7 @@ li.slick-current .slider-opt04__layout01 .buttons .btn{
 }
 .biolife-banner__promotion5 .text-content .text1{
     font-size: 30px;
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'Manrope', sans-serif;
     color: #ffffff;
     display: block;
     margin: 0;
@@ -8287,7 +8287,7 @@ li.slick-current .slider-opt04__layout01 .buttons .btn{
     display: block;
     margin: 0;
     line-height: 1;
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-weight: 400;
 }
 .biolife-banner__promotion6 .text-content .text2{
@@ -8799,7 +8799,7 @@ li.slick-current .slider-opt04__layout01 .buttons .btn{
 }
 .biolife-banner__style-15 .text-content .third-line,
 .biolife-banner__style-01 .text-content .third-line{
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'Manrope', sans-serif;
     text-transform: unset;
     margin-top: -2px;
 }
@@ -9241,7 +9241,7 @@ li.slick-current .slider-opt04__layout01 .buttons .btn{
 .biolife-banner__style-08 .text1,
 .biolife-banner__style-02 .text1{
     color: #eeeeee;
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 20px;
     line-height: 1;
     display: block;
@@ -9574,7 +9574,7 @@ li.slick-current .slider-opt04__layout01 .buttons .btn{
 .biolife-cat-box-item .cat-number{
     font-size: 14px;
     color: #666666;
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-style: italic;
     background-color: #ffffff;
     display: inline-block;
@@ -9758,7 +9758,7 @@ li.slick-current .slider-opt04__layout01 .buttons .btn{
     display: block;
     margin: 0;
     line-height: 1;
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'Manrope', sans-serif;
 }
 .biolife-banner__style-12 .text2{
     font-size: 30px;
@@ -10027,7 +10027,7 @@ li.slick-current .slider-opt04__layout01 .buttons .btn{
 }
 .biolife-banner__detail-product .head-info h3 i{
     font-size: 40px;
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-weight: 700;
 }
 .biolife-banner__detail-product .midle-info{
@@ -10200,7 +10200,7 @@ li.slick-current .slider-opt04__layout01 .buttons .btn{
     margin: 0;
     font-size: 15px;
     color: #666666;
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'Manrope', sans-serif;
     line-height: 1;
 }
 .biolife-instagram-block .wrap-title .title{
@@ -12872,7 +12872,7 @@ body.open-quickview-block .biolife-quickview-block{
         font-size: 22px;
     }
     .biolife-banner__promotion2.advance .text-content .second-line i{
-        font-family: 'Playfair Display', sans-serif;
+        font-family: 'Manrope', sans-serif;
         font-weight: 700;
         font-style: italic;
         text-transform: unset;
