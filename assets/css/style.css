@@ -72,6 +72,7 @@ body{
     -ms-word-wrap: break-word;
     word-wrap: break-word;
 }
+
 label{
     font-weight: 400;
     color: #333333;
@@ -4366,6 +4367,25 @@ body.open-overlay #overlay{
 .sumary-product .action-form .buttons .add-to-cart-btn:hover{
     background-color: #444444;
 }
+
+.sumary-product .action-form .buttons .buy-now-btn{
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 24px;
+    border: 2px solid #ff9702 !important;
+    background-color: white;
+    color: #ff9702;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+    border-radius: 999px;
+    border: none;
+    padding: 12px 10px 11px;
+}
+.sumary-product .action-form .buttons .buy-now-btn:hover{
+    background-color: whitesmoke;
+}
+
 .sumary-product .action-form .buttons .pull-row{
     display: block;
     text-align: center;
@@ -4474,6 +4494,14 @@ body.open-overlay #overlay{
 }
 .sumary-product .action-form .acepted-payment-methods ul li:not(:last-child){
     margin-right: 14px;
+}
+.form_combobox {
+    display: inline-block;
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #b8b8b8;
+    padding: 0 5px;
+    border-radius: 9999px;
 }
 .single-layout.product-related-box,
 .single-layout.product-tabs{
@@ -7276,6 +7304,7 @@ li.slick-current .slider-opt04__layout01 .buttons .btn{
 .biolife-banner__special .product-detail .add-to-cart-btn:hover{
     background-color: #444444;
 }
+
 .biolife-banner__special-02{
     text-align: right;
     position: relative;
