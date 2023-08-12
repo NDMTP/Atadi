@@ -7,7 +7,7 @@
                     <div class="col-lg-7 col-md-7 hidden-sm hidden-xs m-2">
                         <div class="primary-menu">
                             <ul class="menu biolife-menu clone-main-menu clone-primary-menu" id="primary-menu" data-menuname="main menu">
-                                <li class="menu-item"><a href="#">Trang chủ</a></li>
+                                <li class="menu-item"><a href="index.php">Trang chủ</a></li>
                                 <li class="menu-item menu-item-has-children has-megamenu">
                                     <a href="#" class="menu-name" data-title="Shop" >Thực đơn</a>
                                     <div class="wrap-megamenu lg-width-900 md-width-750">
@@ -137,7 +137,7 @@
                     </div>
                     <div class="col-lg-3 col-md-3 col-md-6 col-xs-6">
                         <div class="" style="text-align: right !important">
-                            <a href="login.html" class="login-link"><i class="biolife-icon icon-login"></i>
+                            <a href="login.php" class="login-link"><i class="biolife-icon icon-login"></i>
                                 <span 
                                     style="font-size: 14px;
                                             font-weight: 400;
