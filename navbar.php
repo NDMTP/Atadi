@@ -130,8 +130,8 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="menu-item"><a href="#">Hóa đơn</a></li>
-                                <li class="menu-item"><a href="contact.html">Liên hệ</a></li>
+                                <li class="menu-item"><a href="hoadon.php">Hóa đơn</a></li>
+                                <li class="menu-item"><a href="contact.php">Liên hệ</a></li>
                             </ul>
                         </div>
                     </div>
