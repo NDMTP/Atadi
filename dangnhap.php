@@ -3,7 +3,7 @@
 include("connect.php");
                 if(isset($_POST["sb1"])){
                     
-                    $sql="SELECT * FROM nguoidung where email='".$_POST["email"]."' AND matkhau='".md5($_POST["psw1"])."'";
+                    $sql="SELECT * FROM nguoidung where email='".$_POST["email"]."' AND matkhau='".md5($_POST["password"])."'";
                     $result1 = $conn->query($sql);
                   // print_r($result1);
                     if($result1->num_rows>0){
@@ -12,7 +12,7 @@ include("connect.php");
                         
                         session_start();
                         $_SESSION["email"] = $row["EMAIL"];
-                        $_SESSION["matkhau"]=$row["MATKHAU"];
+                        $_SESSION["password"]=$row["MATKHAU"];
                         $_SESSION["diachi"]=$row["DIACHI"];
                         $_SESSION["hoten"]=$row["TEN"];
                         $_SESSION["sdt"]=$row["SDT"];

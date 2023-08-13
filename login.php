@@ -40,11 +40,11 @@ include "head.php"
                             <form action="dangnhap.php" name="frm-login" method="post">
                                 <p class="form-row">
                                     <label for="fid-name">Email:<span class="requite">*</span></label>
-                                    <input type="email" id="fid-email" name="email" value="" class="txt-input">
+                                    <input type="email" id="email" name="email" value="" class="txt-input">
                                 </p>
                                 <p class="form-row">
                                     <label for="fid-pass">Mật khẩu:<span class="requite">*</span></label>
-                                    <input type="password" id="fid-pass" name="psw1" value="" class="txt-input">
+                                    <input type="password" id="matkhau" name="password" value="" class="txt-input">
                                 </p>
                                 <p class="form-row wrap-btn">
                                     <button class="btn btn-submit btn-bold" type="submit" name="sb1">Đăng nhập</button>
@@ -62,11 +62,11 @@ include "head.php"
                             <form action="dangki.php" name="frm-login" method="post">
                                 <p class="form-row">
                                     <label for="fid-name">Email:<span class="requite">*</span></label>
-                                    <input type="text" id="fid-name" name="email" value="" class="txt-input">
+                                    <input type="email" id="fid-name" name="email" value="" class="txt-input">
                                 </p>
                                 <p class="form-row">
                                     <label for="fid-pass">Mật khẩu:<span class="requite">*</span></label>
-                                    <input type="email" id="fid-pass" name="matkhau" value="" class="txt-input">
+                                    <input type="password" id="fid-pass" name="matkhau" value="" class="txt-input">
                                 </p>
                                 <p class="form-row">
                                     <label for="fid-name">Họ tên:<span class="requite">*</span></label>
@@ -82,7 +82,7 @@ include "head.php"
                                 </p>
 
                                 <p class="form-row wrap-btn">
-                                    <button class="btn btn-submit btn-bold" type="submit">Đăng ký</button>
+                                    <button class="btn btn-submit btn-bold" type="submit" name="sb">Đăng ký</button>
                                 </p>
                             </form>
                         </div>
