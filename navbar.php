@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <div class="header-middle biolife-sticky-object ">
             <div class="container">
                 <div class="row">
@@ -136,16 +140,21 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-md-6 col-xs-6">
-                        <div class="" style="text-align: right !important">
-                            <a href="login.php" class="login-link"><i class="biolife-icon icon-login"></i>
-                                <span 
-                                    style="font-size: 14px;
-                                            font-weight: 400;
-                                            color: black;
-                                            font-family: 'Manrope', sans-serif;">Đăng nhập/Đăng ký
-                                </span>
-                            </a>
-                        </div>
+    <div class="" style="text-align: right !important">
+        <?php
+
+        $is_logged_in = isset($_SESSION["email"]);
+
+        if ($is_logged_in) {
+            echo '<span style="font-size: 14px; font-weight: 400; color: black; font-family: \'Manrope\', sans-serif;">Chào mừng, ' . $_SESSION["hoten"] . '</span>';
+            echo '<br><a href="dangxuat.php" class="login-link"></br><i class="biolife-icon icon-login"></i><span style="font-size: 14px; font-weight: 400; color: black; font-family: \'Manrope\', sans-serif;">Đăng xuất</span></a>';
+        } else {
+            echo '<a href="login.php" class="login-link"><i class="biolife-icon icon-login"></i><span style="font-size: 14px; font-weight: 400; color: black; font-family: \'Manrope\', sans-serif;">Đăng nhập/Đăng ký</span></a>';
+        }
+        ?>
+    </div>
+</div>
+
                         <div class="biolife-cart-info">
                             <div class="mobile-search">
                                 <a href="javascript:void(0)" class="open-searchbox"><i class="biolife-icon icon-search"></i></a>
