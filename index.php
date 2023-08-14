@@ -326,7 +326,7 @@
                             <div class="biolife-banner biolife-banner__style-08">
                                 <div class="banner-contain">
                                     <div class="media">
-                                        <a href="#" class="bn-link"><img src="assets/images/home-04/bn_style08.png" width="193" height="185" alt=""></a>
+                                        <a href="#" class="bn-link"><img src="assets/images/products/p-33.jpg" width="400" height="300" alt=""></a>
                                     </div>
                                     <div class="text-content">
                                         <span class="text1">Mì cay</span>
@@ -339,7 +339,7 @@
                             <div class="biolife-banner biolife-banner__style-09">
                                 <div class="banner-contain">
                                     <div class="media">
-                                        <a href="#" class="bn-link"><img src="assets/images/home-04/bn_style09.png" width="191" height="185" alt=""></a>
+                                        <a href="#" class="bn-link"><img src="assets/images/products/p-34.jpg" width="400" height="300" alt=""></a>
                                     </div>
                                     <div class="text-content">
                                         <span class="text1">Món Hàn</span>
@@ -353,11 +353,12 @@
                             <div class="biolife-banner biolife-banner__style-10">
                                 <div class="banner-contain">
                                     <div class="media">
-                                        <a href="#" class="bn-link"><img src="assets/images/home-04/bn_style10.png" width="185" height="185" alt=""></a>
+                                        <a href="#" class="bn-link"><img src="assets/images/products/p-35.jpg" width="500" height="300" alt=""></a>
                                     </div>
                                     <div class="text-content">
-                                        <span class="text1">Naturally fresh taste</span>
-                                        <p class="text2">With <span>25% Off</span> All Teas</p>
+                                    <span class="text1">Món Hàn</span>
+                                        <b class="text2">Bánh gạo cay</b>
+                                        <span class="text3">Nguyên liệu tươi ngon từng vị</span>
                                     </div>
                                 </div>
                             </div>
