@@ -146,9 +146,11 @@ session_start();
         $is_logged_in = isset($_SESSION["email"]);
 
         if ($is_logged_in) {
-            echo '<span style="font-size: 14px; font-weight: 400; color: black; font-family: \'Manrope\', sans-serif;">Chào mừng, ' . $_SESSION["hoten"] . '</span>';
-            echo '<br><a href="dangxuat.php" class="login-link"></br><i class="biolife-icon icon-login"></i><span style="font-size: 14px; font-weight: 400; color: black; font-family: \'Manrope\', sans-serif;">Đăng xuất</span></a>';
-        } else {
+            echo '<span style="font-size: 14px; font-weight: 400; color: black; font-family: \'Manrope\', sans-serif;">Chào mừng, ' . $_SESSION["hoten"] . '</span><i class="biolife-icon icon-login">';
+            echo '<br><a href="doimk.php" class="login-link"></br><span style="font-size: 14px; font-weight: 400; color: black; font-family: \'Manrope\', sans-serif;">Đổi mật khẩu     </span></a>';
+            echo '<a href="dangxuat.php" class="login-link"></i><span style="font-size: 14px; font-weight: 400; color: black; font-family: \'Manrope\', sans-serif;">    Đăng xuất</span></a>';
+        }
+         else {
             echo '<a href="login.php" class="login-link"><i class="biolife-icon icon-login"></i><span style="font-size: 14px; font-weight: 400; color: black; font-family: \'Manrope\', sans-serif;">Đăng nhập/Đăng ký</span></a>';
         }
         ?>
