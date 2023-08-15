@@ -9434,6 +9434,26 @@ li.slick-current .slider-opt04__layout01 .buttons .btn{
     padding: 12px 10px 11px;
     margin: 12px 0 0;
 }
+
+.btn-fill{
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1;
+    color: #ffffff;
+    background-color: #ff9702;
+    min-width: 80px;
+    text-align: center;
+    border-radius: 999px;
+    border: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 10px 10px 9px;
+}
+
+.btn-fill:hover{
+    background-color: #444444;
+}
+
 .biolife-banner__style-05 .btn-shopnow:hover,
 .biolife-banner__style-06 .btn-shopnow:hover,
 .biolife-banner__style-07 .btn-shopnow:hover{

@@ -6,7 +6,7 @@ session_start();
     <div class="container">
         <div class="row">
             <div class="col-lg-2 col-md-2 col-md-6 col-xs-6">
-                <a href="home-04-light.html" class="biolife-logo"><img src="assets/images/organic-4.png" alt="biolife logo" width="135" height="36"></a>
+                <a href="index.php" class="biolife-logo"><img src="assets/images/organic-4.png" alt="biolife logo" width="135" height="36"></a>
             </div>
             <div class="col-lg-7 col-md-7 hidden-sm hidden-xs m-2">
                 <div class="primary-menu">
