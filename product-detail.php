@@ -31,11 +31,11 @@
     <!--Navigation section-->
     <div class="container">
         <nav class="biolife-nav">
-            <ul>
+            <!-- <ul>
                 <li class="nav-item"><a href="index-2.html" class="permal-link">Home</a></li>
                 <li class="nav-item"><a href="#" class="permal-link">Natural Organic</a></li>
                 <li class="nav-item"><span class="current-page">Fresh Fruit</span></li>
-            </ul>
+            </ul> -->
         </nav>
     </div>
 
@@ -85,6 +85,7 @@
                         <p class="excerpt"><?php echo $row['MOTA'] ?></p>
                         <div class="price">
                             <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']) ?> đ</span></ins>
+                            <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']+10000) ?> đ</span></del>
                         </div>
                         <!-- <div class="shipping-info">
                             <p class="shipping-day">3-Day Shipping</p>
@@ -140,8 +141,8 @@
                             </div>
                         </div>
                         <div class="buttons">
-                            <a href="#" class="btn add-to-cart-btn">Thêm vào giỏ hàng</a>
-                            <a href="#" class="btn buy-now-btn">Đặt hàng ngay</a>
+                            <a href="<?php echo $hr1 ?>" class="btn add-to-cart-btn">Thêm vào giỏ hàng</a>
+                            <a href="<?php echo $hr1 ?>" class="btn buy-now-btn">Đặt hàng ngay</a>
                         </div>
                         <!-- <div class="location-shipping-to">
                             <span class="title">Ship to:</span>
@@ -457,8 +458,8 @@
                                     <div class="info">
                                         <h4 class="product-title"><a href="#" class="pr-name"><?php echo $row1['TENSP'] ?></a></h4>
                                         <div class="price">
-                                            <ins><span class="price-amount"><span class="currencySymbol">£</span><?php echo number_format($row1['DONGIABANSP']) ?></span></ins>
-                                            <!-- <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del> -->
+                                            <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row1['DONGIABANSP']) ?> đ</span></ins>
+                                            <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row1['DONGIABANSP']+10000) ?> đ</span></del>
                                         </div>
                                         <div class="slide-down-box">
                                             <p class="message"><?php echo $row1['MOTA'] ?></p>

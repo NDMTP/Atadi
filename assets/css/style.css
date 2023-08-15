@@ -4362,7 +4362,7 @@ body.open-overlay #overlay{
     display: block;
     border-radius: 999px;
     border: none;
-    padding: 12px 10px 11px;
+    padding: 10px 8px 10px;
 }
 .sumary-product .action-form .buttons .add-to-cart-btn:hover{
     background-color: #444444;
@@ -7297,7 +7297,7 @@ li.slick-current .slider-opt04__layout01 .buttons .btn{
     border: none;
     padding: 17px 10px 16px;
     line-height: 1;
-    min-width: 197px;
+    min-width: 170px;
     outline: none;
     box-shadow: none;
 }
@@ -14269,7 +14269,7 @@ body.open-quickview-block .biolife-quickview-block{
         padding: 0;
     }
     .col-lg-2>.contain-product.layout-default .slide-down-box .buttons .add-to-cart-btn{
-        padding: 10px;
+        padding: 6px;
     }
     .col-lg-12>.pr-detail-layout .info .categories,
     .col-lg-12>.pr-detail-layout .info .product-title,
