@@ -111,7 +111,16 @@
                             <ul class="products-list">
 
                             <?php
-                                $sql = "SELECT * FROM sanpham WHERE 1";
+                                // Số sản phẩm trên mỗi trang
+                                $productsPerPage = 12;
+
+                                // Xác định trang hiện tại từ biến GET
+                                $current_page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+
+                                // Truy vấn lấy dữ liệu sản phẩm từ cơ sở dữ liệu
+                                $offset = ($current_page - 1) * $productsPerPage;
+
+                                $sql = " WHERE 1";
                                 if (isset($_GET['loai']) && $_GET['loai'] != "all"){
                                     $sql = $sql." AND MALOAI = ".$_GET['loai'];
                                 }
@@ -134,9 +143,14 @@
                                     }
                                     
                                 }
-                                $result = $conn->query($sql);
+
+                                $sql = $sql." LIMIT $offset, $productsPerPage";
+
+                                $query = "SELECT * FROM sanpham".$sql;
+
+                                $result = $conn->query($query);
                                     if ($result->num_rows > 0) {
-                                    $result = $conn->query($sql);
+                                    $result = $conn->query($query);
                                     $result_all = $result -> fetch_all(MYSQLI_ASSOC);
                                     foreach ($result_all as $row) {
                                         $string = $row['MASP'];
@@ -185,11 +199,24 @@
 
                         <div class="biolife-panigations-block">
                             <ul class="panigation-contain">
-                                <li><span class="current-page">1</span></li>
-                                <li><a href="#" class="link-page">2</a></li>
-                                <li><a href="#" class="link-page">3</a></li>
-                                <li><span class="sep">....</span></li>
-                                <li><a href="#" class="link-page">20</a></li>
+                                <li><a href="#" class="link-page next"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+                                <?php
+                                     // Tính số trang dựa trên tổng số sản phẩm
+                                    $q = "SELECT COUNT(*) AS total FROM sanpham";
+                                    $rs = $conn->query($q);
+
+                                    if ($rs->num_rows > 0) {
+                                        $r = $rs->fetch_assoc();
+                                        $total_products = $r['total'];
+                                    } else {
+                                        $total_products = 0;
+                                    }
+                                    $total_pages = ceil($total_products / $productsPerPage);
+                                    for ($i = 1; $i <= $total_pages; $i++) {
+                                        $active_class = ($i == $current_page) ? 'active' : 'link-page';
+                                        echo '<li><a href="?page='.$i.'" class="'. $active_class .'">'.$i.'</a></li>';
+                                    }
+                                ?>
                                 <li><a href="#" class="link-page next"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
