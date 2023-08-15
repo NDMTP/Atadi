@@ -328,7 +328,7 @@
                             <div class="biolife-banner biolife-banner__style-08">
                                 <div class="banner-contain">
                                     <div class="media">
-                                        <a href="#" class="bn-link"><img src="assets/images/products/p-33.jpg" width="400" height="300" alt=""></a>
+                                        <a href="http://localhost/atadi/category-grid.php?loai=01" class="bn-link"><img src="assets/images/products/p-33.jpg" width="400" height="300" alt=""></a>
                                     </div>
                                     <div class="text-content">
                                         <span class="text1">Mì cay</span>
@@ -341,7 +341,7 @@
                             <div class="biolife-banner biolife-banner__style-09">
                                 <div class="banner-contain">
                                     <div class="media">
-                                        <a href="#" class="bn-link"><img src="assets/images/products/p-34.jpg" width="400" height="300" alt=""></a>
+                                        <a href="http://localhost/atadi/category-grid.php?gia=&loai=04#" class="bn-link"><img src="assets/images/products/p-34.jpg" width="400" height="300" alt=""></a>
                                     </div>
                                     <div class="text-content">
                                         <span class="text1">Món Hàn</span>
@@ -355,7 +355,7 @@
                             <div class="biolife-banner biolife-banner__style-10">
                                 <div class="banner-contain">
                                     <div class="media">
-                                        <a href="#" class="bn-link"><img src="assets/images/products/p-35.jpg" width="500" height="300" alt=""></a>
+                                        <a href="http://localhost/atadi/category-grid.php?gia=&loai=04#" class="bn-link"><img src="assets/images/products/p-35.jpg" width="500" height="300" alt=""></a>
                                     </div>
                                     <div class="text-content">
                                     <span class="text1">Món Hàn</span>
