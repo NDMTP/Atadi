@@ -1,3 +1,18 @@
+.fit-image{
+	width: 100%;
+  	height: 100%;
+  	object-fit: cover;
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    height: 270px !important;  /* Đặt chiều cao cho các thẻ div */
+    width: 270px !important;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Cairo', sans-serif;
     font-size: 14px;
@@ -47,6 +62,7 @@ h6 {
 }
 img {
     max-width: 100%;
+    object-fit: cover;
 }
 
 .container-inner{

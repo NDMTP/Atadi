@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 
-<?php require 'head.php' ?>
+<?php 
+    require 'head.php' ;
+    require 'connect.php';    
+?>
 <body class="biolife-body">
 
     <!-- Preloader -->
-    <div id="biof-loading">
+    <!-- <div id="biof-loading">
         <div class="biof-loading-center">
             <div class="biof-loading-center-absolute">
                 <div class="dot dot-one"></div>
@@ -13,7 +16,7 @@
                 <div class="dot dot-three"></div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- HEADER -->
     <?php require 'header.php' ?>
@@ -268,16 +271,28 @@
                         <div class="row">
                             <ul class="products-list">
 
+                            <?php
+                                $sql = "SELECT * FROM sanpham";
+                                $result = $conn->query($sql);
+                                    if ($result->num_rows > 0) {
+                                    $result = $conn->query($sql);
+                                    $result_all = $result -> fetch_all(MYSQLI_ASSOC);
+                                    foreach ($result_all as $row) {
+                                        $string = $row['MASP'];
+                                        // Loại bỏ các kí tự số khỏi chuỗi
+                                        $masp = preg_replace('/[0-9]/', '', $string);
+                            ?>
                                 <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
                                     <div class="contain-product layout-default">
-                                        <div class="product-thumb">
-                                            <a href="#" class="link-to-product">
-                                                <img src="assets/images/products/p-11.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                            </a>
+                                        <div class="image-container">
+                                            <div class="product-thumb">
+                                                <a href="#" class="link-to-product">
+                                                    <img class="fit-image" src="assets/images/products/<?php echo $masp ?>/<?php echo $row['LINKANH'] ?>" alt="dd" width="270" height="270" class="product-thumnail">
+                                                </a>
+                                            </div>
                                         </div>
                                         <div class="info">
-                                            <b class="categories">Fresh Fruit</b>
-                                            <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
+                                            <h4 class="product-title"><a href="#" class="pr-name"><?php echo $row['TENSP'] ?></a></h4>
                                             <div class="price">
                                                 <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
                                                 <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
@@ -297,444 +312,10 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                    <div class="contain-product layout-default">
-                                        <div class="product-thumb">
-                                            <a href="#" class="link-to-product">
-                                                <img src="assets/images/products/p-13.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                            </a>
-                                        </div>
-                                        <div class="info">
-                                            <b class="categories">Fresh Fruit</b>
-                                            <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
-                                            <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                            </div>
-                                            <div class="shipping-info">
-                                                <p class="shipping-day">3-Day Shipping</p>
-                                                <p class="for-today">Pree Pickup Today</p>
-                                            </div>
-                                            <div class="slide-down-box">
-                                                <p class="message">All products are carefully selected to ensure food safety.</p>
-                                                <div class="buttons">
-                                                    <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                    <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
-                                                    <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                    <div class="contain-product layout-default">
-                                        <div class="product-thumb">
-                                            <a href="#" class="link-to-product">
-                                                <img src="assets/images/products/p-21.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                            </a>
-                                        </div>
-                                        <div class="info">
-                                            <b class="categories">Fresh Fruit</b>
-                                            <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
-                                            <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                            </div>
-                                            <div class="shipping-info">
-                                                <p class="shipping-day">3-Day Shipping</p>
-                                                <p class="for-today">Pree Pickup Today</p>
-                                            </div>
-                                            <div class="slide-down-box">
-                                                <p class="message">All products are carefully selected to ensure food safety.</p>
-                                                <div class="buttons">
-                                                    <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                    <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
-                                                    <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                    <div class="contain-product layout-default">
-                                        <div class="product-thumb">
-                                            <a href="#" class="link-to-product">
-                                                <img src="assets/images/products/p-14.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                            </a>
-                                        </div>
-                                        <div class="info">
-                                            <b class="categories">Fresh Fruit</b>
-                                            <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
-                                            <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                            </div>
-                                            <div class="shipping-info">
-                                                <p class="shipping-day">3-Day Shipping</p>
-                                                <p class="for-today">Pree Pickup Today</p>
-                                            </div>
-                                            <div class="slide-down-box">
-                                                <p class="message">All products are carefully selected to ensure food safety.</p>
-                                                <div class="buttons">
-                                                    <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                    <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
-                                                    <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                    <div class="contain-product layout-default">
-                                        <div class="product-thumb">
-                                            <a href="#" class="link-to-product">
-                                                <img src="assets/images/products/p-15.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                            </a>
-                                        </div>
-                                        <div class="info">
-                                            <b class="categories">Fresh Fruit</b>
-                                            <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
-                                            <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                            </div>
-                                            <div class="shipping-info">
-                                                <p class="shipping-day">3-Day Shipping</p>
-                                                <p class="for-today">Pree Pickup Today</p>
-                                            </div>
-                                            <div class="slide-down-box">
-                                                <p class="message">All products are carefully selected to ensure food safety.</p>
-                                                <div class="buttons">
-                                                    <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                    <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
-                                                    <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                    <div class="contain-product layout-default">
-                                        <div class="product-thumb">
-                                            <a href="#" class="link-to-product">
-                                                <img src="assets/images/products/p-16.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                            </a>
-                                        </div>
-                                        <div class="info">
-                                            <b class="categories">Fresh Fruit</b>
-                                            <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
-                                            <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                            </div>
-                                            <div class="shipping-info">
-                                                <p class="shipping-day">3-Day Shipping</p>
-                                                <p class="for-today">Pree Pickup Today</p>
-                                            </div>
-                                            <div class="slide-down-box">
-                                                <p class="message">All products are carefully selected to ensure food safety.</p>
-                                                <div class="buttons">
-                                                    <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                    <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
-                                                    <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                    <div class="contain-product layout-default">
-                                        <div class="product-thumb">
-                                            <a href="#" class="link-to-product">
-                                                <img src="assets/images/products/p-17.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                            </a>
-                                        </div>
-                                        <div class="info">
-                                            <b class="categories">Fresh Fruit</b>
-                                            <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
-                                            <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                            </div>
-                                            <div class="shipping-info">
-                                                <p class="shipping-day">3-Day Shipping</p>
-                                                <p class="for-today">Pree Pickup Today</p>
-                                            </div>
-                                            <div class="slide-down-box">
-                                                <p class="message">All products are carefully selected to ensure food safety.</p>
-                                                <div class="buttons">
-                                                    <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                    <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
-                                                    <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                    <div class="contain-product layout-default">
-                                        <div class="product-thumb">
-                                            <a href="#" class="link-to-product">
-                                                <img src="assets/images/products/p-18.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                            </a>
-                                        </div>
-                                        <div class="info">
-                                            <b class="categories">Fresh Fruit</b>
-                                            <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
-                                            <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                            </div>
-                                            <div class="shipping-info">
-                                                <p class="shipping-day">3-Day Shipping</p>
-                                                <p class="for-today">Pree Pickup Today</p>
-                                            </div>
-                                            <div class="slide-down-box">
-                                                <p class="message">All products are carefully selected to ensure food safety.</p>
-                                                <div class="buttons">
-                                                    <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                    <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
-                                                    <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                    <div class="contain-product layout-default">
-                                        <div class="product-thumb">
-                                            <a href="#" class="link-to-product">
-                                                <img src="assets/images/products/p-10.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                            </a>
-                                        </div>
-                                        <div class="info">
-                                            <b class="categories">Fresh Fruit</b>
-                                            <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
-                                            <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                            </div>
-                                            <div class="shipping-info">
-                                                <p class="shipping-day">3-Day Shipping</p>
-                                                <p class="for-today">Pree Pickup Today</p>
-                                            </div>
-                                            <div class="slide-down-box">
-                                                <p class="message">All products are carefully selected to ensure food safety.</p>
-                                                <div class="buttons">
-                                                    <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                    <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
-                                                    <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                    <div class="contain-product layout-default">
-                                        <div class="product-thumb">
-                                            <a href="#" class="link-to-product">
-                                                <img src="assets/images/products/p-11.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                            </a>
-                                        </div>
-                                        <div class="info">
-                                            <b class="categories">Fresh Fruit</b>
-                                            <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
-                                            <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                            </div>
-                                            <div class="shipping-info">
-                                                <p class="shipping-day">3-Day Shipping</p>
-                                                <p class="for-today">Pree Pickup Today</p>
-                                            </div>
-                                            <div class="slide-down-box">
-                                                <p class="message">All products are carefully selected to ensure food safety.</p>
-                                                <div class="buttons">
-                                                    <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                    <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
-                                                    <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                    <div class="contain-product layout-default">
-                                        <div class="product-thumb">
-                                            <a href="#" class="link-to-product">
-                                                <img src="assets/images/products/p-09.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                            </a>
-                                        </div>
-                                        <div class="info">
-                                            <b class="categories">Fresh Fruit</b>
-                                            <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
-                                            <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                            </div>
-                                            <div class="shipping-info">
-                                                <p class="shipping-day">3-Day Shipping</p>
-                                                <p class="for-today">Pree Pickup Today</p>
-                                            </div>
-                                            <div class="slide-down-box">
-                                                <p class="message">All products are carefully selected to ensure food safety.</p>
-                                                <div class="buttons">
-                                                    <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                    <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
-                                                    <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                    <div class="contain-product layout-default">
-                                        <div class="product-thumb">
-                                            <a href="#" class="link-to-product">
-                                                <img src="assets/images/products/p-08.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                            </a>
-                                        </div>
-                                        <div class="info">
-                                            <b class="categories">Fresh Fruit</b>
-                                            <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
-                                            <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                            </div>
-                                            <div class="shipping-info">
-                                                <p class="shipping-day">3-Day Shipping</p>
-                                                <p class="for-today">Pree Pickup Today</p>
-                                            </div>
-                                            <div class="slide-down-box">
-                                                <p class="message">All products are carefully selected to ensure food safety.</p>
-                                                <div class="buttons">
-                                                    <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                    <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
-                                                    <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                    <div class="contain-product layout-default">
-                                        <div class="product-thumb">
-                                            <a href="#" class="link-to-product">
-                                                <img src="assets/images/products/p-10.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                            </a>
-                                        </div>
-                                        <div class="info">
-                                            <b class="categories">Fresh Fruit</b>
-                                            <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
-                                            <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                            </div>
-                                            <div class="shipping-info">
-                                                <p class="shipping-day">3-Day Shipping</p>
-                                                <p class="for-today">Pree Pickup Today</p>
-                                            </div>
-                                            <div class="slide-down-box">
-                                                <p class="message">All products are carefully selected to ensure food safety.</p>
-                                                <div class="buttons">
-                                                    <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                    <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
-                                                    <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                    <div class="contain-product layout-default">
-                                        <div class="product-thumb">
-                                            <a href="#" class="link-to-product">
-                                                <img src="assets/images/products/p-17.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                            </a>
-                                        </div>
-                                        <div class="info">
-                                            <b class="categories">Fresh Fruit</b>
-                                            <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
-                                            <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                            </div>
-                                            <div class="shipping-info">
-                                                <p class="shipping-day">3-Day Shipping</p>
-                                                <p class="for-today">Pree Pickup Today</p>
-                                            </div>
-                                            <div class="slide-down-box">
-                                                <p class="message">All products are carefully selected to ensure food safety.</p>
-                                                <div class="buttons">
-                                                    <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                    <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
-                                                    <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                    <div class="contain-product layout-default">
-                                        <div class="product-thumb">
-                                            <a href="#" class="link-to-product">
-                                                <img src="assets/images/products/p-14.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                            </a>
-                                        </div>
-                                        <div class="info">
-                                            <b class="categories">Fresh Fruit</b>
-                                            <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
-                                            <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                            </div>
-                                            <div class="shipping-info">
-                                                <p class="shipping-day">3-Day Shipping</p>
-                                                <p class="for-today">Pree Pickup Today</p>
-                                            </div>
-                                            <div class="slide-down-box">
-                                                <p class="message">All products are carefully selected to ensure food safety.</p>
-                                                <div class="buttons">
-                                                    <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                    <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
-                                                    <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                    <div class="contain-product layout-default">
-                                        <div class="product-thumb">
-                                            <a href="#" class="link-to-product">
-                                                <img src="assets/images/products/p-21.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                            </a>
-                                        </div>
-                                        <div class="info">
-                                            <b class="categories">Fresh Fruit</b>
-                                            <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
-                                            <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                            </div>
-                                            <div class="shipping-info">
-                                                <p class="shipping-day">3-Day Shipping</p>
-                                                <p class="for-today">Pree Pickup Today</p>
-                                            </div>
-                                            <div class="slide-down-box">
-                                                <p class="message">All products are carefully selected to ensure food safety.</p>
-                                                <div class="buttons">
-                                                    <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                    <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
-                                                    <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                            <?php
+                                    }
+                                }
+                            ?>
 
                             </ul>
                         </div>
