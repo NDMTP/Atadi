@@ -213,7 +213,7 @@
                                     }
                                     $total_pages = ceil($total_products / $productsPerPage);
                                     for ($i = 1; $i <= $total_pages; $i++) {
-                                        $active_class = ($i == $current_page) ? 'active' : 'link-page';
+                                        $active_class = ($i == $current_page) ? 'current-page' : 'link-page';
                                         echo '<li><a href="?page='.$i.'" class="'. $active_class .'">'.$i.'</a></li>';
                                     }
                                 ?>
