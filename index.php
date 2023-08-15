@@ -468,14 +468,14 @@
                                 <div class="service-inner color-reverse">
                                     <span class="number">2</span>
                                     <span class="biolife-icon icon-schedule"></span>
-                                    <a class="srv-name" href="#">Địa điểm và giao hàng đúng thời gian</a>
+                                    <a class="srv-name" href="#">Giao hàng đúng giờ</a>
                                 </div>
                             </li>
                             <li>
                                 <div class="service-inner color-reverse">
                                     <span class="number">3</span>
                                     <span class="biolife-icon icon-car"></span>
-                                    <a class="srv-name" href="#">Miễn phí vận chuyển trong thành phố</a>
+                                    <a class="srv-name" href="#">Miễn phí vận chuyển</a>
                                 </div>
                             </li>
                         </ul>
