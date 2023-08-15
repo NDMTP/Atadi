@@ -36,16 +36,19 @@
                         $row = $result1->fetch_assoc();
                         
                         session_start();
-                        $_SESSION["email"] = $row["HOTEN"];
-                        $_SESSION["matkhau"]=$row["NAMSINH"];
-                        $_SESSION["ten"]=$row["EMAIL"];
-                        $_SESSION["diachi"]=$row["SDT"];
-                        $_SESSION["sdt"]=$row["DIACHI"];
+                        $_SESSION["email"] = $row["EMAIL"];
+                        $_SESSION["password"]=$row["MATKHAU"];
+                        $_SESSION["diachi"]=$row["DIACHI"];
+                        $_SESSION["hoten"]=$row["TEN"];
+                        $fullname = explode(' ', $row['TEN']);
+                        $lastname = end($fullname);
+                        $_SESSION["lname"] = $lastname;
+                        $_SESSION["sdt"]=$row["SDT"];
 
                     
                         header('Location: index.php');
                    
-                      //  header('Location: index.php');
+                      
                    }
                    else{
                        echo"Lỗi không thể đăng ký";

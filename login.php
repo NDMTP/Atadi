@@ -51,14 +51,14 @@ include "head.php"
                                     <a href="doimk.php" class="link-to-help">Quên mật khẩu</a>
                                 </p>
                             </form>
-                            
-                            
+
+
                         </div>
                     </div>
                     <!--Form Đăng kí-->
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="signin-container">
-                        <h2>Đăng kí</h2>
+                            <h2>Đăng kí</h2>
                             <form action="dangki.php" name="frm-login" method="post">
                                 <p class="form-row">
                                     <label for="fid-name">Email:<span class="requite  text-danger"> *</span></label>
@@ -66,6 +66,11 @@ include "head.php"
                                 </p>
                                 <p class="form-row">
                                     <label for="fid-pass">Mật khẩu:<span class="requite  text-danger"> *</span></label>
+                                    <input type="password" id="fid-pass" name="matkhau" value="" class="txt-input">
+                                </p>
+                                <p class="form-row">
+                                    <label for="fid-pass">Mật khẩu nhập lại:<span class="requite  text-danger">
+                                            *</span></label>
                                     <input type="password" id="fid-pass" name="matkhau" value="" class="txt-input">
                                 </p>
                                 <p class="form-row">
@@ -113,4 +118,3 @@ include "head.php"
 </body>
 
 </html>
-

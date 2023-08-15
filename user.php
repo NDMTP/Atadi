@@ -38,7 +38,7 @@ include "head.php"
                     <!--Form Thông tin tài khoản-->
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="signin-container">
-                        <h2>Thông tin cá nhân</h2>
+                            <h2>Thông tin cá nhân</h2>
                             <form action="updateuser.php" name="frm-login" method="post">
 
                                 <p class="form-row">
@@ -46,33 +46,37 @@ include "head.php"
                                 </p></label>
                                 <p class="form-row">
                                     <label for="fid-name">Tên:<span class="requite">*</span></label>
-                                    <input type="text" id="fid-name" name="hoten" value="" class="txt-input">
+                                    <input type="text" id="fid-name" name="hoten"
+                                        value="<?php echo  $_SESSION["hoten"] ?>" class="txt-input">
                                 </p>
                                 <p class="form-row">
                                     <label for="fid-pass">Số điện thoại:<span class="requite">*</span></label>
-                                    <input type="text" id="fid-sdt" name="sdt" value="" class="txt-input">
+                                    <input type="text" id="fid-sdt" name="sdt" value="<?php echo $_SESSION["sdt"]?>"
+                                        class="txt-input">
                                 </p>
                                 <p class="form-row">
                                     <label for="fid-name">Địa chỉ:<span class="requite">*</span></label>
-                                    <input type="text" id="fid-name" name="diachi" value="" class="txt-input">
+                                    <input type="text" id="fid-name" name="diachi"
+                                        value="<?php echo $_SESSION["diachi"]?>" class="txt-input">
                                 </p>
                                 <p class="form-row wrap-btn">
-                                    <button class="btn btn-submit btn-bold" type="submit" name="sb">Lưu thông tin</button>
+                                    <button class="btn btn-submit btn-bold" type="submit" name="sb">Lưu thông
+                                        tin</button>
                                 </p>
                             </form>
                         </div>
                     </div>
 
-                    <!--Form -->                    
+                    <!--Form -->
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="signin-container">
-                        <h2>&emsp;</h2>
+                            <h2>&emsp;</h2>
                             <form action="dangnhap.php" name="frm-login" method="post">
 
-                                    
+
                             </form>
-                            
-                            
+
+
                         </div>
                     </div>
 
@@ -101,4 +105,3 @@ include "head.php"
 </body>
 
 </html>
-
