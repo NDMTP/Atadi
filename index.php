@@ -487,21 +487,21 @@
                                 <div class="service-inner color-reverse">
                                     <span class="number">1</span>
                                     <span class="biolife-icon icon-beer"></span>
-                                    <a class="srv-name" href="#">full stamped product</a>
+                                    <a class="srv-name" href="#">Sản phẩm đầy đủ</a>
                                 </div>
                             </li>
                             <li>
                                 <div class="service-inner color-reverse">
                                     <span class="number">2</span>
                                     <span class="biolife-icon icon-schedule"></span>
-                                    <a class="srv-name" href="#">place and delivery on time</a>
+                                    <a class="srv-name" href="#">Địa điểm và giao hàng đúng thời gian</a>
                                 </div>
                             </li>
                             <li>
                                 <div class="service-inner color-reverse">
                                     <span class="number">3</span>
                                     <span class="biolife-icon icon-car"></span>
-                                    <a class="srv-name" href="#">Free shipping in the city</a>
+                                    <a class="srv-name" href="#">Miễn phí vận chuyển trong thành phố</a>
                                 </div>
                             </li>
                         </ul>
@@ -513,20 +513,20 @@
             <div class="product-tab z-index-20 sm-margin-top-59px xs-margin-top-20px">
                 <div class="container">
                     <div class="biolife-title-box slim-item">
-                        <span class="subtitle">All the best item for You</span>
-                        <h3 class="main-title">Our Products</h3>
+                        <span class="subtitle">Tất cả các mặt hàng tốt nhất cho bạn</span>
+                        <h3 class="main-title">Sản phẩm của chúng tôi</h3>
                     </div>
                     <div class="biolife-tab biolife-tab-contain sm-margin-top-23px">
                         <div class="tab-head tab-head__sample-layout">
                             <ul class="tabs">
                                 <li class="tab-element active">
-                                    <a href="#tab01_1st" class="tab-link">Featured</a>
+                                    <a href="#tab01_1st" class="tab-link">Đặc sắc</a>
                                 </li>
                                 <li class="tab-element" >
-                                    <a href="#tab01_2nd" class="tab-link">Top Rated</a>
+                                    <a href="#tab01_2nd" class="tab-link">Bán chạy nhất</a>
                                 </li>
                                 <li class="tab-element" >
-                                    <a href="#tab01_3rd" class="tab-link">On Sale</a>
+                                    <a href="#tab01_3rd" class="tab-link">Đang khuyến mãi</a>
                                 </li>
                             </ul>
                         </div>
@@ -537,22 +537,22 @@
                                         <div class="contain-product layout-default">
                                             <div class="product-thumb">
                                                 <a href="#" class="link-to-product">
-                                                    <img src="assets/images/products/p-05.jpg" alt="Vegetables" width="270" height="270" class="product-thumnail">
+                                                    <img src="assets/images/products/p-36.jpg" alt="Vegetables" width="270" height="270" class="product-thumnail">
                                                 </a>
                                                 <a class="lookup btn_call_quickview" href="#"><i class="biolife-icon icon-search"></i></a>
                                             </div>
                                             <div class="info">
-                                                <b class="categories">Vegetables</b>
-                                                <h4 class="product-title"><a href="#" class="pr-name">Organic Hass Avocado, Large</a></h4>
+                                                
+                                                <h4 class="product-title"><a href="#" class="pr-name">Mì Bò Mỹ</a></h4>
                                                 <div class="price ">
-                                                    <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                    <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
+                                                    <ins><span class="price-amount"><span class="currencySymbol">đ</span>45.000</span></ins>
+                                                    <del><span class="price-amount"><span class="currencySymbol">đ</span>55.000</span></del>
                                                 </div>
                                                 <div class="slide-down-box">
-                                                    <p class="message">All products are carefully selected to ensure food safety.</p>
+                                                    <p class="message">Sản phẩm tươi ngon, nguyên liệu tươi sạch, vị đậm đà đến từng sợi mì.</p>
                                                     <div class="buttons">
                                                         <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                        <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
+                                                        <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Thêm vào giỏ hàng</a>
                                                         <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
                                                     </div>
                                                 </div>
@@ -563,22 +563,22 @@
                                         <div class="contain-product layout-default">
                                             <div class="product-thumb">
                                                 <a href="#" class="link-to-product">
-                                                    <img src="assets/images/products/p-07.jpg" alt="Vegetables" width="270" height="270" class="product-thumnail">
+                                                    <img src="assets/images/products/p-37.jpg" alt="Vegetables" width="270" height="270" class="product-thumnail">
                                                 </a>
                                                 <a class="lookup btn_call_quickview" href="#"><i class="biolife-icon icon-search"></i></a>
                                             </div>
                                             <div class="info">
-                                                <b class="categories">Vegetables</b>
-                                                <h4 class="product-title"><a href="#" class="pr-name">13 Healing Powers of Lemons</a></h4>
+                                                
+                                                <h4 class="product-title"><a href="#" class="pr-name">Mì trộn đùi gà</a></h4>
                                                 <div class="price ">
-                                                    <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                    <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
+                                                    <ins><span class="price-amount"><span class="currencySymbol">đ</span>45.000</span></ins>
+                                                    <del><span class="price-amount"><span class="currencySymbol">đ</span>55.000</span></del>
                                                 </div>
                                                 <div class="slide-down-box">
-                                                    <p class="message">All products are carefully selected to ensure food safety.</p>
+                                                    <p class="message">Cùng với gia vị đậm đà kết hợp với những miếng gà tươi ngon pha trộn với từng sợi mì .</p>
                                                     <div class="buttons">
                                                         <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                        <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
+                                                        <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Thêm vào giỏ hàng</a>
                                                         <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
                                                     </div>
                                                 </div>
@@ -589,22 +589,22 @@
                                         <div class="contain-product layout-default">
                                             <div class="product-thumb">
                                                 <a href="#" class="link-to-product">
-                                                    <img src="assets/images/products/p-02.jpg" alt="Vegetables" width="270" height="270" class="product-thumnail">
+                                                    <img src="assets/images/products/p-38.jpg" alt="Vegetables" width="270" height="270" class="product-thumnail">
                                                 </a>
                                                 <a class="lookup btn_call_quickview" href="#"><i class="biolife-icon icon-search"></i></a>
                                             </div>
                                             <div class="info">
-                                                <b class="categories">Vegetables</b>
-                                                <h4 class="product-title"><a href="#" class="pr-name">Hot Chili Peppers Magnetic Salt</a></h4>
+                                                
+                                                <h4 class="product-title"><a href="#" class="pr-name">Gà sốt tương Hàn</a></h4>
                                                 <div class="price ">
-                                                    <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                    <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
+                                                    <ins><span class="price-amount"><span class="currencySymbol">đ</span>45.000</span></ins>
+                                                    <del><span class="price-amount"><span class="currencySymbol">đ</span>55.000</span></del>
                                                 </div>
                                                 <div class="slide-down-box">
-                                                    <p class="message">All products are carefully selected to ensure food safety.</p>
+                                                    <p class="message">Những miếng gà tươi ngon cùng với nước sốt đặc biệt của chúng tôi</p>
                                                     <div class="buttons">
                                                         <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                        <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
+                                                        <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Thêm vào giỏ hàng</a>
                                                         <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
                                                     </div>
                                                 </div>
@@ -615,22 +615,22 @@
                                         <div class="contain-product layout-default">
                                             <div class="product-thumb">
                                                 <a href="#" class="link-to-product">
-                                                    <img src="assets/images/products/p-03.jpg" alt="Vegetables" width="270" height="270" class="product-thumnail">
+                                                    <img src="assets/images/products/p-39.jpg" alt="Vegetables" width="270" height="270" class="product-thumnail">
                                                 </a>
                                                 <a class="lookup btn_call_quickview" href="#"><i class="biolife-icon icon-search"></i></a>
                                             </div>
                                             <div class="info">
-                                                <b class="categories">Vegetables</b>
-                                                <h4 class="product-title"><a href="#" class="pr-name">Passover Cauliflower Kugel</a></h4>
+                                                
+                                                <h4 class="product-title"><a href="#" class="pr-name">Bánh gạo lắc phô mai</a></h4>
                                                 <div class="price ">
-                                                    <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                    <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
+                                                    <ins><span class="price-amount"><span class="currencySymbol">đ</span>45.000</span></ins>
+                                                    <del><span class="price-amount"><span class="currencySymbol">đ</span>55.000</span></del>
                                                 </div>
                                                 <div class="slide-down-box">
-                                                    <p class="message">All products are carefully selected to ensure food safety.</p>
+                                                    <p class="message">Những miếng bánh gạo tươi ngon từ Hàn Quốc</p>
                                                     <div class="buttons">
                                                         <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                        <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
+                                                        <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Thêm vào giỏ hàng</a>
                                                         <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
                                                     </div>
                                                 </div>
@@ -1331,7 +1331,7 @@
 
 
             <!--Block 06: Advance Box-->
-            <div class="container z-index-20 xs-margin-top-80px sm-margin-top-0">
+            <div class="container z-index-20 xs-margin-top-80px sm-margin-top-300">
                 <div class="row">
                     <div class="col-lg-4 sm-margin-top-60px ">
                         <div class="row">
