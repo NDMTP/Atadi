@@ -18,7 +18,7 @@
                                 <div class="form-content">
                                     <form action="#" name="new-letter-foter">
                                         <input type="email" class="input-text email" value="" placeholder="Nhập email của bạn...">
-                                        <button type="submit" class="bnt-submit" name="ok">Sign up</button>
+                                        <button type="submit" class="bnt-submit" name="ok">Đăng kí</button>
                                     </form>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@
                                     <li>
                                         <p class="info-item">
                                             <i class="biolife-icon icon-clock"></i>
-                                            <b class="desc">Giờ làm việc: 6 Days a week from 08:00 am</b>
+                                            <b class="desc">Giờ làm việc: 6 ngày trên tuần từ 08:00</b>
                                         </p>
                                     </li>
                                 </ul>

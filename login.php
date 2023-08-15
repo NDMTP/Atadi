@@ -39,11 +39,11 @@ include "head.php"
                             <h2>Đăng nhập</h2>
                             <form action="dangnhap.php" name="frm-login" method="post">
                                 <p class="form-row">
-                                    <label for="fid-name">Email:<span class="requite">*</span></label>
+                                    <label for="fid-name">Email:<span class="requite text-danger"> *</span></label>
                                     <input type="email" id="email" name="email" value="" class="txt-input">
                                 </p>
                                 <p class="form-row">
-                                    <label for="fid-pass">Mật khẩu:<span class="requite">*</span></label>
+                                    <label for="fid-pass">Mật khẩu:<span class="requite  text-danger"> *</span></label>
                                     <input type="password" id="matkhau" name="password" value="" class="txt-input">
                                 </p>
                                 <p class="form-row wrap-btn">
@@ -61,23 +61,23 @@ include "head.php"
                         <h2>Đăng kí</h2>
                             <form action="dangki.php" name="frm-login" method="post">
                                 <p class="form-row">
-                                    <label for="fid-name">Email:<span class="requite">*</span></label>
+                                    <label for="fid-name">Email:<span class="requite  text-danger"> *</span></label>
                                     <input type="email" id="fid-name" name="email" value="" class="txt-input">
                                 </p>
                                 <p class="form-row">
-                                    <label for="fid-pass">Mật khẩu:<span class="requite">*</span></label>
+                                    <label for="fid-pass">Mật khẩu:<span class="requite  text-danger"> *</span></label>
                                     <input type="password" id="fid-pass" name="matkhau" value="" class="txt-input">
                                 </p>
                                 <p class="form-row">
-                                    <label for="fid-name">Họ tên:<span class="requite">*</span></label>
+                                    <label for="fid-name">Họ tên:<span class="requite"></span></label>
                                     <input type="text" id="fid-name" name="hoten" value="" class="txt-input">
                                 </p>
                                 <p class="form-row">
-                                    <label for="fid-name">Địa chỉ:<span class="requite">*</span></label>
+                                    <label for="fid-name">Địa chỉ:<span class="requite"></span></label>
                                     <input type="text" id="fid-name" name="diachi" value="" class="txt-input">
                                 </p>
                                 <p class="form-row">
-                                    <label for="fid-name">Số điện thoại:<span class="requite">*</span></label>
+                                    <label for="fid-name">Số điện thoại:<span class="requite"></span></label>
                                     <input type="text" id="fid-name" name="sdt" value="" class="txt-input">
                                 </p>
 
