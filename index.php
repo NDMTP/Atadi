@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 
-<?php
-    include "head.php";
+<?php 
+    require 'head.php' ;
+    require 'connect.php';    
 ?>
+
 <body class="biolife-body">
 
     <!-- Preloader -->
@@ -379,7 +381,7 @@
                         <li>
                             <div class="biolife-cat-box-item">
                                 <div class="cat-thumb">
-                                    <a href="#" class="cat-link">
+                                    <a href="category-grid.php?loai=01" class="cat-link">
                                         <img src="assets/images/products/MC/micay1.jpg" width="277" height="185" alt="">
                                     </a>
                                 </div>
@@ -392,65 +394,65 @@
                         <li>
                             <div class="biolife-cat-box-item">
                                 <div class="cat-thumb">
-                                    <a href="#" class="cat-link">
+                                    <a href="category-grid.php?loai=03" class="cat-link">
                                         <img src="assets/images/products/MT/mientron4.jpg" width="277" height="185" alt="">
                                     </a>
                                 </div>
                                 <a class="cat-info" href="#">
                                     <h4 class="cat-name">Miến trộn</h4>
-                                    <span class="cat-number">(6 món)</span>
+                                    <span class="cat-number">(06 món)</span>
                                 </a>
                             </div>
                         </li>
                         <li>
                             <div class="biolife-cat-box-item">
                                 <div class="cat-thumb">
-                                    <a href="#" class="cat-link">
+                                    <a href="category-grid.php?loai=04" class="cat-link">
                                         <img src="assets/images/products/MH/banhbachtuot.jpg" width="277" height="185" alt="">
                                     </a>
                                 </div>
                                 <a class="cat-info" href="#">
                                     <h4 class="cat-name">Món hàn</h4>
-                                    <span class="cat-number">(4 món)</span>
+                                    <span class="cat-number">(04 món)</span>
                                 </a>
                             </div>
                         </li>
                         <li>
                             <div class="biolife-cat-box-item">
                                 <div class="cat-thumb">
-                                    <a href="#" class="cat-link">
+                                    <a href="category-grid.php?loai=02" class="cat-link">
                                         <img src="assets/images/products/L/lau3.jpg" width="277" height="185" alt="">
                                     </a>
                                 </div>
                                 <a class="cat-info" href="#">
                                     <h4 class="cat-name">Lẩu</h4>
-                                    <span class="cat-number">(6 món)</span>
+                                    <span class="cat-number">(06 món)</span>
                                 </a>
                             </div>
                         </li>
                         <li>
                             <div class="biolife-cat-box-item">
                                 <div class="cat-thumb">
-                                    <a href="#" class="cat-link">
+                                    <a href="category-grid.php?loai=05" class="cat-link">
                                         <img src="assets/images/products/CT/comtron4.jpg" width="277" height="185" alt="">
                                     </a>
                                 </div>
                                 <a class="cat-info" href="#">
                                     <h4 class="cat-name">Cơm trộn</h4>
-                                    <span class="cat-number">(4 món)</span>
+                                    <span class="cat-number">(04 món)</span>
                                 </a>
                             </div>
                         </li>
                         <li>
                             <div class="biolife-cat-box-item">
                                 <div class="cat-thumb">
-                                    <a href="#" class="cat-link">
+                                    <a href="category-grid.php?loai=07" class="cat-link">
                                         <img src="assets/images/products/N/nuoc6.jpg" width="277" height="185" alt="">
                                     </a>
                                 </div>
                                 <a class="cat-info" href="#">
                                     <h4 class="cat-name">Nước giải khát</h4>
-                                    <span class="cat-number">(10 món)</span>
+                                    <span class="cat-number">(08 món)</span>
                                 </a>
                             </div>
                         </li>
@@ -507,70 +509,106 @@
                         <div class="tab-content">
                             <div id="tab01_1st" class="tab-contain active">
                                 <ul class="products-list biolife-carousel nav-center-02 nav-none-on-mobile eq-height-contain" data-slick='{"rows":1 ,"arrows":true,"dots":false,"infinite":true,"speed":400,"slidesMargin":10,"slidesToShow":4, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 4}},{"breakpoint":992, "settings":{ "slidesToShow": 3, "slidesMargin":20 }},{"breakpoint":768, "settings":{ "slidesToShow": 2,"rows":2, "slidesMargin":15 }}]}'>
+                            <?php
+                                $sql = "SELECT * FROM sanpham where maloai='01'" ;
+                                $result = $conn->query($sql);
+                                    if ($result->num_rows > 0) {
+                                    $result = $conn->query($sql);
+                                    $result_all = $result -> fetch_all(MYSQLI_ASSOC);
+                                    foreach ($result_all as $row) {
+                                        $string = $row['MASP'];
+                                        // Loại bỏ các kí tự số khỏi chuỗi
+                                        $masp = preg_replace('/[0-9]/', '', $string);
+                            ?>
                                     <li class="product-item">
-                                        <div class="contain-product layout-default">
+                                    <div class="contain-product layout-default">
+                                        <div class="image-container">
                                             <div class="product-thumb">
-                                                <a href="#" class="link-to-product">
-                                                    <img src="assets/images/products/p-36.jpg" alt="Vegetables" width="270" height="270" class="product-thumnail">
+                                                <a href="product-detail.php?id=<?php echo $row['MASP'] ?>" class="link-to-product">
+                                                    <img class="fit-image" src="assets/images/products/<?php echo $masp ?>/<?php echo $row['LINKANH'] ?>" alt="dd" width="270" height="270" class="product-thumnail">
                                                 </a>
-                                                <a class="lookup btn_call_quickview" href="#"><i class="biolife-icon icon-search"></i></a>
                                             </div>
-                                            <div class="info">
-                                                
-                                                <h4 class="product-title"><a href="#" class="pr-name">Mì Bò Mỹ</a></h4>
-                                                <div class="price ">
-                                                    <ins><span class="price-amount"><span class="currencySymbol">đ</span>45.000</span></ins>
-                                                    <del><span class="price-amount"><span class="currencySymbol">đ</span>55.000</span></del>
-                                                </div>
-                                                <div class="slide-down-box">
-                                                    <p class="message">Sản phẩm tươi ngon, nguyên liệu tươi sạch, vị đậm đà đến từng sợi mì.</p>
-                                                    <div class="buttons">
-                                                        <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                        <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Thêm vào giỏ hàng</a>
-                                                        <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
-                                                    </div>
+                                        </div>
+                                        <div class="info">
+                                            <h4 class="product-title"><a href="#" class="pr-name"><?php echo $row['TENSP'] ?></a></h4>
+                                            <div class="price">
+                                                <ins><span class="price-amount"><span class="currencySymbol">đ</span><?php echo number_format($row['DONGIABANSP']) ?> đ</span></ins>
+                                                <del><span class="price-amount"><span class="currencySymbol">đ</span><?php echo number_format($row['DONGIABANSP']+10000) ?> đ</span></del>
+                                            </div>
+                                            <div class="shipping-info">
+                                                <p class="shipping-day">15 phút giao Hàng</p>
+                                                <p class="for-today">Đặt món ngay</p>
+                                            </div>
+                                            <div class="slide-down-box">
+                                                <p class="message">Sợi mì được chọn lọc kĩ, cùng với gia vị thơm ngon kết hợp với nước sốt đậm đà</p>
+                                                <div class="buttons">
+                                                    <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                                    <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Thêm vào giỏ hàng</a>
+                                                    <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
                                     </li>
-
+                                    <?php
+                                    }
+                                }
+                                ?>
                                 </ul>
                             </div>
-                            <div id="tab01_2nd" class="tab-contain ">
+                            <div id="tab01_2nd" class="tab-contain active">
                                 <ul class="products-list biolife-carousel nav-center-02 nav-none-on-mobile eq-height-contain" data-slick='{"rows":1 ,"arrows":true,"dots":false,"infinite":true,"speed":400,"slidesMargin":10,"slidesToShow":4, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 4}},{"breakpoint":992, "settings":{ "slidesToShow": 3, "slidesMargin":20 }},{"breakpoint":768, "settings":{ "slidesToShow": 2,"rows":2, "slidesMargin":15 }}]}'>
+                            <?php
+                                $sql = "SELECT * FROM sanpham where maloai='01'" ;
+                                $result = $conn->query($sql);
+                                    if ($result->num_rows > 0) {
+                                    $result = $conn->query($sql);
+                                    $result_all = $result -> fetch_all(MYSQLI_ASSOC);
+                                    foreach ($result_all as $row) {
+                                        $string = $row['MASP'];
+                                        // Loại bỏ các kí tự số khỏi chuỗi
+                                        $masp = preg_replace('/[0-9]/', '', $string);
+                            ?>
                                     <li class="product-item">
-                                        <div class="contain-product layout-default">
+                                    <div class="contain-product layout-default">
+                                        <div class="image-container">
                                             <div class="product-thumb">
-                                                <a href="#" class="link-to-product">
-                                                    <img src="assets/images/products/p-20.jpg" alt="Vegetables" width="270" height="270" class="product-thumnail">
+                                                <a href="product-detail.php?id=<?php echo $row['MASP'] ?>" class="link-to-product">
+                                                    <img class="fit-image" src="assets/images/products/<?php echo $masp ?>/<?php echo $row['LINKANH'] ?>" alt="dd" width="270" height="270" class="product-thumnail">
                                                 </a>
-                                                <a class="lookup btn_call_quickview" href="#"><i class="biolife-icon icon-search"></i></a>
                                             </div>
-                                            <div class="info">
-                                                <b class="categories">Vegetables</b>
-                                                <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
-                                                <div class="price ">
-                                                    <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                    <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                                </div>
-                                                <div class="slide-down-box">
-                                                    <p class="message">All products are carefully selected to ensure food safety.</p>
-                                                    <div class="buttons">
-                                                        <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                        <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
-                                                        <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
-                                                    </div>
+                                        </div>
+                                        <div class="info">
+                                            <h4 class="product-title"><a href="#" class="pr-name"><?php echo $row['TENSP'] ?></a></h4>
+                                            <div class="price">
+                                                <ins><span class="price-amount"><span class="currencySymbol">đ</span><?php echo number_format($row['DONGIABANSP']) ?> đ</span></ins>
+                                                <del><span class="price-amount"><span class="currencySymbol">đ</span><?php echo number_format($row['DONGIABANSP']+10000) ?> đ</span></del>
+                                            </div>
+                                            <div class="shipping-info">
+                                                <p class="shipping-day">15 phút giao Hàng</p>
+                                                <p class="for-today">Đặt món ngay</p>
+                                            </div>
+                                            <div class="slide-down-box">
+                                                <p class="message">Sợi mì được chọn lọc kĩ, cùng với gia vị thơm ngon kết hợp với nước sốt đậm đà</p>
+                                                <div class="buttons">
+                                                    <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                                    <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Thêm vào giỏ hàng</a>
+                                                    <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
                                     </li>
-
-
+                                    <?php
+                                    }
+                                }
+                                ?>
                                 </ul>
                             </div>
                             <div id="tab01_3rd" class="tab-contain ">
                                 <ul class="products-list biolife-carousel nav-center-02 nav-none-on-mobile eq-height-contain" data-slick='{"rows":1 ,"arrows":true,"dots":false,"infinite":true,"speed":400,"slidesMargin":10,"slidesToShow":4, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 4}},{"breakpoint":992, "settings":{ "slidesToShow": 3, "slidesMargin":20 }},{"breakpoint":768, "settings":{ "slidesToShow": 2,"rows":2, "slidesMargin":15 }}]}'>
                                     <li class="product-item">
+ 
                                         <div class="contain-product layout-default">
                                             <div class="product-thumb">
                                                 <a href="#" class="link-to-product">
