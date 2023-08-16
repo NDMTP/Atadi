@@ -12,32 +12,41 @@ session_start();
                 <div class="primary-menu">
                     <ul class="menu biolife-menu clone-main-menu clone-primary-menu" id="primary-menu" data-menuname="main menu">
                     <li class="menu-item"><a href="index.php">Trang chủ</a></li>
-                    <li class="menu-item"><a href="category-grid.php">Món ăn</a></li>
                         <li class="menu-item menu-item-has-children has-megamenu">
-                            <a href="#" class="menu-name" data-title="Shop" >Thực đơn</a>
+                            <a href="category-grid.php" class="menu-name" data-title="Shop" >Thực đơn</a>
                             <div class="wrap-megamenu lg-width-900 md-width-750">
                                 <div class="mega-content">
                                     <div class="col-lg-3 col-md-3 col-xs-12 md-margin-bottom-0 xs-margin-bottom-25">
                                         <div class="wrap-custom-menu vertical-menu">
                                             <h4 class="menu-title">Mì cay</h4>
                                             <ul class="menu">
-                                                <li><a href="#">Mì Cay thập cẩm</a></li>
-                                                <li><a href="#">Mì Cay hải sản</a></li>
-                                                <li><a href="#">Mì Kimchi Bò Mỹ</a></li>
-                                                <li><a href="#">Mì Kimchi Bò Úc</a></li>
-                                                <li><a href="#">Mì Kimchi Bạch Tuộc</a></li>
+                                                <?php
+                                                    $sql = "SELECT * FROM sanpham where maloai='01'";
+                                                    $result = $conn->query($sql);
+                                                        if ($result->num_rows > 0) {
+                                                        $result = $conn->query($sql);
+                                                        $result_all = $result -> fetch_all(MYSQLI_ASSOC);
+                                                        foreach ($result_all as $row) {
+                                                ?>
+                                                <li><a href="product-detail.php?id=<?php echo $row['MASP'] ?>"><?php echo $row['TENSP'] ?></a></li>
+                                                <?php }} ?>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-xs-12 md-margin-bottom-0 xs-margin-bottom-25">
                                         <div class="wrap-custom-menu vertical-menu">
-                                            <h4 class="menu-title">Mì trộn</h4>
+                                            <h4 class="menu-title">Miến trộn</h4>
                                             <ul class="menu">
-                                                <li><a href="#">Mì Trộn Chanh Nghệ Đùi Gà</a></li>
-                                                <li><a href="#">Mì Trộn Tương Hàn Đùi Gà</a></li>
-                                                <li><a href="#">Mì Trộn Tương Hàn Hải Sản</a></li>
-                                                <li><a href="#">Mì Trộn Muối Ớt Đùi Gà</a></li>
-                                                <li><a href="#">Mì Trộn Muối Ớt Hải Sản</a></li>
+                                                <?php
+                                                    $sql = "SELECT * FROM sanpham where maloai='03'";
+                                                    $result = $conn->query($sql);
+                                                        if ($result->num_rows > 0) {
+                                                        $result = $conn->query($sql);
+                                                        $result_all = $result -> fetch_all(MYSQLI_ASSOC);
+                                                        foreach ($result_all as $row) {
+                                                ?>
+                                                <li><a href="product-detail.php?id=<?php echo $row['MASP'] ?>"><?php echo $row['TENSP'] ?></a></li>
+                                                <?php }} ?>
                                                 
                                             </ul>
                                         </div>
@@ -46,11 +55,16 @@ session_start();
                                         <div class="wrap-custom-menu vertical-menu ">
                                             <h4 class="menu-title">Món Hàn</h4>
                                             <ul class="menu">
-                                                <li><a href="#">Gà Sốt Cay</a></li>
-                                                <li><a href="#">Kimbap Chiên</a></li>
-                                                <li><a href="#">Bánh Gạo Cay</a></li>
-                                                <li><a href="#">Bánh Gạo Lắc Phô Mai</a></li>
-                                                <li><a href="#">Bánh Bạch Tuộc</a></li>
+                                                <?php
+                                                    $sql = "SELECT * FROM sanpham where maloai='03'";
+                                                    $result = $conn->query($sql);
+                                                        if ($result->num_rows > 0) {
+                                                        $result = $conn->query($sql);
+                                                        $result_all = $result -> fetch_all(MYSQLI_ASSOC);
+                                                        foreach ($result_all as $row) {
+                                                ?>
+                                                <li><a href="product-detail.php?id=<?php echo $row['MASP'] ?>"><?php echo $row['TENSP'] ?></a></li>
+                                                <?php }} ?>
                                             </ul>
                                         </div>
                                     </div>
@@ -58,11 +72,16 @@ session_start();
                                         <div class="wrap-custom-menu vertical-menu">
                                             <h4 class="menu-title">Lẩu</h4>
                                             <ul class="menu">
-                                                <li><a href="#">Lẩu Kimchi Bò</a></li>
-                                                <li><a href="#">Lẩu Kimchi 9 Tầng Mây</a></li>
-                                                <li><a href="#">Lẩu kimchi Hải Sản</a></li>
-                                                <li><a href="#">Lẩu kimchi Bạch Tuộc</a></li>
-                                                <li><a href="#">Lẩu tokbokki</a></li>
+                                                <?php
+                                                    $sql = "SELECT * FROM sanpham where maloai='02'";
+                                                    $result = $conn->query($sql);
+                                                        if ($result->num_rows > 0) {
+                                                        $result = $conn->query($sql);
+                                                        $result_all = $result -> fetch_all(MYSQLI_ASSOC);
+                                                        foreach ($result_all as $row) {
+                                                ?>
+                                                <li><a href="product-detail.php?id=<?php echo $row['MASP'] ?>"><?php echo $row['TENSP'] ?></a></li>
+                                                <?php }} ?>
                                             </ul>
                                         </div>
                                     </div>

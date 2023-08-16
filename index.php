@@ -759,12 +759,11 @@
                 <div class="row">
                     <div class="col-lg-4 sm-margin-top-60px ">
                         <div class="row">
-                            <div
-                                class="col-lg-12 col-md-4 col-sm-6 col-xs-12 xs-margin-top-30px sm-margin-top-0 lg-margin-top-30px">
+                            <div class="col-lg-12 col-md-4 col-sm-6 col-xs-12 xs-margin-top-30px sm-margin-top-0 lg-margin-top-30px">
                                 <div class="biolife-banner style-06 biolife-banner__style-06">
                                     <div class="banner-contain">
                                         <div class="media">
-                                            <a href="#" class="bn-link"><img src="assets/images/products/p-33.jpg"
+                                            <a href="product-detail.php?id=MC6" class="bn-link"><img src="assets/images/products/p-33.jpg"
                                                     width="400" height="400" alt=""></a>
                                         </div>
                                         <div class="text-content"
@@ -772,17 +771,16 @@
                                             <b class="text1">Mì kimchi bạch tuột</b>
 
                                             <b class="text-pr"><span>Giá chỉ:</span>đ45.000</b>
-                                            <a href="#" class="btn btn-shopnow">Đặt món ngay</a>
+                                            <a href="product-detail.php?id=MC6" class="btn btn-shopnow">Đặt món ngay</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div
-                                class="col-lg-12 col-md-4 col-sm-6 col-xs-12 xs-margin-top-30px sm-margin-top-0 lg-margin-top-30px">
+                            <div class="col-lg-12 col-md-4 col-sm-6 col-xs-12 xs-margin-top-30px sm-margin-top-0 lg-margin-top-30px">
                                 <div class="biolife-banner style-06 biolife-banner__style-06">
                                     <div class="banner-contain">
                                         <div class="media">
-                                            <a href="#" class="bn-link"><img src="assets/images/products/p-31.jpg"
+                                            <a href="product-detail.php?id=L4" class="bn-link"><img src="assets/images/products/p-31.jpg"
                                                     width="400" height="400" alt=""></a>
                                         </div>
                                         <div class="text-content"
@@ -790,17 +788,16 @@
                                             <b class="text1">Lẩu 2 ngăn</b>
 
                                             <b class="text-pr"><span>Giá chỉ:</span>đ79.000</b>
-                                            <a href="#" class="btn btn-shopnow">Đặt món ngay</a>
+                                            <a href="product-detail.php?id=L4" class="btn btn-shopnow">Đặt món ngay</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div
-                                class="col-lg-12 col-md-4 col-sm-6 col-xs-12 xs-margin-top-30px sm-margin-top-0 lg-margin-top-30px">
+                            <div class="col-lg-12 col-md-4 col-sm-6 col-xs-12 xs-margin-top-60px sm-margin-top-30 lg-margin-top-60px">
                                 <div class="biolife-banner style-06 biolife-banner__style-06">
                                     <div class="banner-contain">
                                         <div class="media">
-                                            <a href="#" class="bn-link"><img src="assets/images/products/p-40.jpg"
+                                            <a href="product-detail.php?id=MC6" class="bn-link"><img src="assets/images/products/p-40.jpg"
                                                     width="400" height="400" alt=""></a>
                                         </div>
                                         <div class="text-content"
@@ -808,7 +805,7 @@
                                             <b class="text1">Gà cay phô mai</b>
 
                                             <b class="text-pr"><span>Giá chỉ:</span>đ40.000</b>
-                                            <a href="#" class="btn btn-shopnow">Đặt món ngay</a>
+                                            <a href="product-detail.php?id=MC6" class="btn btn-shopnow">Đặt món ngay</a>
                                         </div>
                                     </div>
                                 </div>
