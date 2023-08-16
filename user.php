@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <?php
-include "head.php"
+include "head.php";
+include "connect.php"
 ?>
 
 <body class="biolife-body">
