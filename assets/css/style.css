@@ -1571,7 +1571,7 @@ body.open-mobile-search .header-area.layout-02{
     margin: 0;
     color: #7faf51;
     font-weight: 600;
-    padding-top: 7px;
+    padding-top: 2px;
 }
 .shipping-info p.for-today{
     color: #666666;
@@ -10604,7 +10604,7 @@ body.open-quickview-block .biolife-quickview-block{
     content: "\f105";
 }
 .contain-product.layout-default .slide-down-box .buttons .add-to-cart-btn i{
-    display: none;
+    display: inline-block;
 }
 /*-------------------------------*/
 .background-fafafa{
@@ -11447,6 +11447,19 @@ body.open-quickview-block .biolife-quickview-block{
     }
     .contain-product.layout-default .slide-down-box .buttons .btn{
         display: block;
+    }
+    .add-to-cart-btn1{
+        padding: 10px 5px;
+        color: #444444;
+        font-weight: 700;
+        font-size: 15px;
+        text-transform: capitalize;
+        -webkit-box-shadow: 0 0 2px 0 rgba(0,0,0,0.2);
+        -moz-box-shadow: 0 0 2px 0 rgba(0,0,0,0.2);
+        box-shadow: 0 0 2px 0 rgba(0,0,0,0.2);
+        background-color: #fafafa !important;
+        width: calc(100% - 4px);
+        margin-left: 2px;
     }
     .contain-product.layout-default .slide-down-box .buttons .add-to-cart-btn{
         padding: 10px 5px;
