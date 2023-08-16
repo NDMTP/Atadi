@@ -172,12 +172,11 @@
                                                 <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']) ?> đ</span></ins>
                                                 <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']+10000) ?> đ</span></del>
                                             </div>
-                                            <div class="shipping-info">
+                                            <!-- <div class="shipping-info">
                                                 <p class="shipping-day">3-Day Shipping</p>
                                                 <p class="for-today">Pree Pickup Today</p>
-                                            </div>
+                                            </div> -->
                                             <div class="slide-down-box">
-                                                <p class="message">All products are carefully selected to ensure food safety.</p>
                                                 <div class="buttons">
                                                     <a href="#" style="padding: 10px 5px !important; margin-right: 5px !important;" class="btn add-to-cart-btn">đặt hàng ngay</a>
                                                     <a href="#" style="padding: 0 !important; width: 10px !important;" class="btn"></a>

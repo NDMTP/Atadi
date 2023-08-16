@@ -635,7 +635,6 @@
                                                         <p class="shipping-day">Sản phẩm đặc sắc</p>
                                                     </div>
                                                     <div class="slide-down-box">
-                                                        <p class="message">All products are carefully selected to ensure food safety.</p>
                                                         <div class="buttons">
                                                             <a href="#" style="padding: 10px 5px !important; margin-right: 5px !important;" class="btn add-to-cart-btn">đặt hàng ngay</a>
                                                             <a href="#" style="padding: 0 !important; width: 10px !important;" class="btn"></a>
@@ -684,7 +683,7 @@
                                                         <p class="for-today">Sản phẩm bán chạy</p>
                                                     </div>
                                                     <div class="slide-down-box">
-                                                        <p class="message">All products are carefully selected to ensure food safety.</p>
+                                                        
                                                         <div class="buttons">
                                                             <a href="#" style="padding: 10px 5px !important; margin-right: 5px !important;" class="btn add-to-cart-btn">đặt hàng ngay</a>
                                                             <a href="#" style="padding: 0 !important; width: 10px !important;" class="btn"></a>
@@ -733,7 +732,7 @@
                                                         <p class="shipping-day">Sản phẩm khuyến mãi</p>
                                                     </div>
                                                     <div class="slide-down-box">
-                                                        <p class="message">All products are carefully selected to ensure food safety.</p>
+                                                        
                                                         <div class="buttons">
                                                             <a href="#" style="padding: 10px 5px !important; margin-right: 5px !important;" class="btn add-to-cart-btn">đặt hàng ngay</a>
                                                             <a href="#" style="padding: 0 !important; width: 10px !important;" class="btn"></a>
@@ -859,7 +858,7 @@
 
                                             </div>
                                             <div class="slide-down-box">
-                                                <p class="message">All products are carefully selected to ensure food safety.</p>
+                                                
                                                 <div class="buttons">
                                                     <a href="#" style="padding: 10px 5px !important; margin-right: 5px !important;" class="btn add-to-cart-btn">đặt hàng ngay</a>
                                                     <a href="#" style="padding: 0 !important; width: 10px !important;" class="btn"></a>
