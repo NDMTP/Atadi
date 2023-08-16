@@ -11,7 +11,8 @@ session_start();
             <div class="col-lg-7 col-md-7 hidden-sm hidden-xs m-2">
                 <div class="primary-menu">
                     <ul class="menu biolife-menu clone-main-menu clone-primary-menu" id="primary-menu" data-menuname="main menu">
-                        <li class="menu-item"><a href="index.php">Trang chủ</a></li>
+                    <li class="menu-item"><a href="index.php">Trang chủ</a></li>
+                    <li class="menu-item"><a href="category-grid.php">Món ăn</a></li>
                         <li class="menu-item menu-item-has-children has-megamenu">
                             <a href="#" class="menu-name" data-title="Shop" >Thực đơn</a>
                             <div class="wrap-megamenu lg-width-900 md-width-750">

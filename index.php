@@ -598,165 +598,152 @@
                             </ul>
                         </div>
 
-                        <!-- line 1================================================== -->
                         <div class="tab-content">
+                            <!-- line 1================================================== -->
                             <div id="tab01_1st" class="tab-contain active">
                                 <ul class="products-list biolife-carousel nav-center-02 nav-none-on-mobile eq-height-contain"
                                     data-slick='{"rows":1 ,"arrows":true,"dots":false,"infinite":true,"speed":400,"slidesMargin":10,"slidesToShow":4, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 4}},{"breakpoint":992, "settings":{ "slidesToShow": 3, "slidesMargin":20 }},{"breakpoint":768, "settings":{ "slidesToShow": 2,"rows":2, "slidesMargin":15 }}]}'>
                                     <?php
-                                $sql = "SELECT * FROM sanpham WHERE maloai = '01' LIMIT 4;" ;
-                                $result = $conn->query($sql);
-                                    if ($result->num_rows > 0) {
-                                    $result = $conn->query($sql);
-                                    $result_all = $result -> fetch_all(MYSQLI_ASSOC);
-                                    foreach ($result_all as $row) {
-                                        $string = $row['MASP'];
-                                        // Loại bỏ các kí tự số khỏi chuỗi
-                                        $masp = preg_replace('/[0-9]/', '', $string);
-                            ?>
-                                    <li class="product-item">
-                                        <div class="contain-product layout-default">
-                                            <div class="image-container">
-                                                <div class="product-thumb">
-                                                    <a href="product-detail.php?id=<?php echo $row['MASP'] ?>"
-                                                        class="link-to-product">
-                                                        <img class="fit-image"
-                                                            src="assets/images/products/<?php echo $masp ?>/<?php echo $row['LINKANH'] ?>"
-                                                            alt="dd" width="270" height="270" class="product-thumnail">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="info">
-                                                <h4 class="product-title"><a href="#"
-                                                        class="pr-name"><?php echo $row['TENSP'] ?></a></h4>
-                                                <div class="price">
-                                                    <ins><span class="price-amount"><span
-                                                                class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']) ?>
-                                                            đ</span></ins>
 
-                                                </div>
-                                                <div class="row m-4">
-                                                    <div class="col-lg-6">
-                                                        <a href="#" class="btn add-to-cart-btn"><i
-                                                                class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-                                                            Thêm vào giỏ</a>
+                                        $query = "SELECT * FROM sanpham limit 4";
+
+                                        $result = $conn->query($query);
+                                            if ($result->num_rows > 0) {
+                                            $result = $conn->query($query);
+                                            $result_all = $result -> fetch_all(MYSQLI_ASSOC);
+                                            foreach ($result_all as $row) {
+                                                $string = $row['MASP'];
+                                                // Loại bỏ các kí tự số khỏi chuỗi
+                                                $masp = preg_replace('/[0-9]/', '', $string);
+                                    ?>
+                                        <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                                            <div class="contain-product layout-default">
+                                                <div class="image-container">
+                                                    <div class="product-thumb">
+                                                        <a href="product-detail.php?id=<?php echo $row['MASP'] ?>" class="link-to-product">
+                                                            <img class="fit-image" src="assets/images/products/<?php echo $masp ?>/<?php echo $row['LINKANH'] ?>" alt="dd" width="270" height="270" class="product-thumnail">
+                                                        </a>
                                                     </div>
-                                                    <div class="col-lg-6">
-                                                        <a href="#" class="btn add-to-cart-btn"><i
-                                                                class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-                                                            Mua
-                                                            Hàng</a>
+                                                </div>
+                                                <div class="info">
+                                                    <h4 class="product-title"><a href="#" class="pr-name"><?php echo $row['TENSP'] ?></a></h4>
+                                                    <div class="price">
+                                                        <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']) ?> đ</span></ins>
+                                                        <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']+10000) ?> đ</span></del>
+                                                    </div>
+                                                    <div class="shipping-info">
+                                                        <p class="shipping-day">Sản phẩm đặc sắc</p>
+                                                    </div>
+                                                    <div class="slide-down-box">
+                                                        <p class="message">All products are carefully selected to ensure food safety.</p>
+                                                        <div class="buttons">
+                                                            <a href="#" style="padding: 10px 5px !important; margin-right: 5px !important;" class="btn add-to-cart-btn">đặt hàng ngay</a>
+                                                            <a href="#" style="padding: 0 !important; width: 10px !important;" class="btn"></a>
+                                                            <a href="#" style="padding: 10px 5px !important; " class="btn add-to-cart-btn">thêm vào giỏ</a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <?php
-                                    }
-                                }
-                                ?>
+                                        </li>
+                                        <?php  }} ?>
                                 </ul>
                             </div>
                             <!-- line 2======================================-->
-                            <div id="tab01_2nd" class="tab-contain active">
+                            <div id="tab01_2nd" class="tab-contain">
                                 <ul class="products-list biolife-carousel nav-center-02 nav-none-on-mobile eq-height-contain"
                                     data-slick='{"rows":1 ,"arrows":true,"dots":false,"infinite":true,"speed":400,"slidesMargin":10,"slidesToShow":4, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 4}},{"breakpoint":992, "settings":{ "slidesToShow": 3, "slidesMargin":20 }},{"breakpoint":768, "settings":{ "slidesToShow": 2,"rows":2, "slidesMargin":15 }}]}'>
                                     <?php
-                                $sql = "SELECT * FROM sanpham where maloai='01'" ;
-                                $result = $conn->query($sql);
-                                    if ($result->num_rows > 0) {
-                                    $result = $conn->query($sql);
-                                    $result_all = $result -> fetch_all(MYSQLI_ASSOC);
-                                    foreach ($result_all as $row) {
-                                        $string = $row['MASP'];
-                                        // Loại bỏ các kí tự số khỏi chuỗi
-                                        $masp = preg_replace('/[0-9]/', '', $string);
-                            ?>
-                                    <li class="product-item">
-                                        <div class="contain-product layout-default">
-                                            <div class="image-container">
-                                                <div class="product-thumb">
-                                                    <a href="product-detail.php?id=<?php echo $row['MASP'] ?>"
-                                                        class="link-to-product">
-                                                        <img class="fit-image"
-                                                            src="assets/images/products/<?php echo $masp ?>/<?php echo $row['LINKANH'] ?>"
-                                                            alt="dd" width="270" height="270" class="product-thumnail">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="info">
-                                                <h4 class="product-title"><a href="#"
-                                                        class="pr-name"><?php echo $row['TENSP'] ?></a></h4>
-                                                <div class="price">
-                                                    <ins><span class="price-amount"><span
-                                                                class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']) ?>
-                                                            đ</span></ins>
 
-                                                </div>
+                                        $query = "SELECT * FROM sanpham where maloai='01'";
 
-                                                <div class="row m-4">
-                                                    <div class="col-lg-6">
-                                                        <a href="#" class="btn add-to-cart-btn"><i
-                                                                class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-                                                            Thêm vào giỏ</a>
+                                        $result = $conn->query($query);
+                                            if ($result->num_rows > 0) {
+                                            $result = $conn->query($query);
+                                            $result_all = $result -> fetch_all(MYSQLI_ASSOC);
+                                            foreach ($result_all as $row) {
+                                                $string = $row['MASP'];
+                                                // Loại bỏ các kí tự số khỏi chuỗi
+                                                $masp = preg_replace('/[0-9]/', '', $string);
+                                    ?>
+                                        <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                                            <div class="contain-product layout-default">
+                                                <div class="image-container">
+                                                    <div class="product-thumb">
+                                                        <a href="product-detail.php?id=<?php echo $row['MASP'] ?>" class="link-to-product">
+                                                            <img class="fit-image" src="assets/images/products/<?php echo $masp ?>/<?php echo $row['LINKANH'] ?>" alt="dd" width="270" height="270" class="product-thumnail">
+                                                        </a>
                                                     </div>
-                                                    <div class="col-lg-6">
-                                                        <a href="#" class="btn add-to-cart-btn"><i
-                                                                class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-                                                            Mua
-                                                            Hàng</a>
+                                                </div>
+                                                <div class="info">
+                                                    <h4 class="product-title"><a href="#" class="pr-name"><?php echo $row['TENSP'] ?></a></h4>
+                                                    <div class="price">
+                                                        <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']) ?> đ</span></ins>
+                                                        <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']+10000) ?> đ</span></del>
+                                                    </div>
+                                                    <div class="shipping-info">
+                                                        <p class="for-today">Sản phẩm bán chạy</p>
+                                                    </div>
+                                                    <div class="slide-down-box">
+                                                        <p class="message">All products are carefully selected to ensure food safety.</p>
+                                                        <div class="buttons">
+                                                            <a href="#" style="padding: 10px 5px !important; margin-right: 5px !important;" class="btn add-to-cart-btn">đặt hàng ngay</a>
+                                                            <a href="#" style="padding: 0 !important; width: 10px !important;" class="btn"></a>
+                                                            <a href="#" style="padding: 10px 5px !important; " class="btn add-to-cart-btn">thêm vào giỏ</a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <?php
-                                    }
-                                }
-                                ?>
+                                        </li>
+                                        <?php  }} ?>
                                 </ul>
                             </div>
                             <!-- line 3=========================== -->
                             <div id="tab01_3rd" class="tab-contain ">
                                 <ul class="products-list biolife-carousel nav-center-02 nav-none-on-mobile eq-height-contain"
                                     data-slick='{"rows":1 ,"arrows":true,"dots":false,"infinite":true,"speed":400,"slidesMargin":10,"slidesToShow":4, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 4}},{"breakpoint":992, "settings":{ "slidesToShow": 3, "slidesMargin":20 }},{"breakpoint":768, "settings":{ "slidesToShow": 2,"rows":2, "slidesMargin":15 }}]}'>
-                                    <li class="product-item">
+                                    <?php
 
-                                        <div class="contain-product layout-default">
-                                            <div class="product-thumb">
-                                                <a href="#" class="link-to-product">
-                                                    <img src="assets/images/products/p-05.jpg" alt="Vegetables"
-                                                        width="270" height="270" class="product-thumnail">
-                                                </a>
-                                                <a class="lookup btn_call_quickview" href="#"><i
-                                                        class="biolife-icon icon-search"></i></a>
-                                            </div>
-                                            <div class="info">
-                                                <b class="categories">Vegetables</b>
-                                                <h4 class="product-title"><a href="#" class="pr-name">Organic Hass
-                                                        Avocado, Large</a></h4>
-                                                <div class="price ">
-                                                    <ins><span class="price-amount"><span
-                                                                class="currencySymbol">£</span>85.00</span></ins>
-                                                    <del><span class="price-amount"><span
-                                                                class="currencySymbol">£</span>95.00</span></del>
+                                        $query = "SELECT * FROM sanpham limit 4";
+
+                                        $result = $conn->query($query);
+                                            if ($result->num_rows > 0) {
+                                            $result = $conn->query($query);
+                                            $result_all = $result -> fetch_all(MYSQLI_ASSOC);
+                                            foreach ($result_all as $row) {
+                                                $string = $row['MASP'];
+                                                // Loại bỏ các kí tự số khỏi chuỗi
+                                                $masp = preg_replace('/[0-9]/', '', $string);
+                                    ?>
+                                        <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                                            <div class="contain-product layout-default">
+                                                <div class="image-container">
+                                                    <div class="product-thumb">
+                                                        <a href="product-detail.php?id=<?php echo $row['MASP'] ?>" class="link-to-product">
+                                                            <img class="fit-image" src="assets/images/products/<?php echo $masp ?>/<?php echo $row['LINKANH'] ?>" alt="dd" width="270" height="270" class="product-thumnail">
+                                                        </a>
+                                                    </div>
                                                 </div>
-                                                <div class="slide-down-box">
-                                                    <p class="message">All products are carefully selected to ensure
-                                                        food safety.</p>
-                                                    <div class="buttons">
-                                                        <a href="#" class="btn wishlist-btn"><i class="fa fa-heart"
-                                                                aria-hidden="true"></i></a>
-                                                        <a href="#" class="btn add-to-cart-btn"><i
-                                                                class="fa fa-cart-arrow-down" aria-hidden="true"></i>add
-                                                            to cart</a>
-                                                        <a href="#" class="btn compare-btn"><i class="fa fa-random"
-                                                                aria-hidden="true"></i></a>
+                                                <div class="info">
+                                                    <h4 class="product-title"><a href="#" class="pr-name"><?php echo $row['TENSP'] ?></a></h4>
+                                                    <div class="price">
+                                                        <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']) ?> đ</span></ins>
+                                                        <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']+10000) ?> đ</span></del>
+                                                    </div>
+                                                    <div class="shipping-info">
+                                                        <p class="shipping-day">Sản phẩm khuyến mãi</p>
+                                                    </div>
+                                                    <div class="slide-down-box">
+                                                        <p class="message">All products are carefully selected to ensure food safety.</p>
+                                                        <div class="buttons">
+                                                            <a href="#" style="padding: 10px 5px !important; margin-right: 5px !important;" class="btn add-to-cart-btn">đặt hàng ngay</a>
+                                                            <a href="#" style="padding: 0 !important; width: 10px !important;" class="btn"></a>
+                                                            <a href="#" style="padding: 10px 5px !important; " class="btn add-to-cart-btn">thêm vào giỏ</a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </li>
+                                        </li>
+                                        <?php  }} ?>
 
                                 </ul>
                             </div>
@@ -848,7 +835,7 @@
                                         // Loại bỏ các kí tự số khỏi chuỗi
                                         $masp = preg_replace('/[0-9]/', '', $string);
                             ?>
-                                <li class="product-item">
+                                <li class="product-item" style="margin-top: 15px !important;">
                                     <div class="contain-product layout-default">
                                         <div class="image-container">
                                             <div class="product-thumb">
@@ -874,17 +861,12 @@
                                                     bán chạy</p>
 
                                             </div>
-                                            <div class="row m-4">
-                                                <div class="col-lg-6">
-                                                    <a href="#" class="btn add-to-cart-btn"><i
-                                                            class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-                                                        Thêm vào giỏ</a>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <a href="#" class="btn add-to-cart-btn"><i
-                                                            class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-                                                        Mua
-                                                        Hàng</a>
+                                            <div class="slide-down-box">
+                                                <p class="message">All products are carefully selected to ensure food safety.</p>
+                                                <div class="buttons">
+                                                    <a href="#" style="padding: 10px 5px !important; margin-right: 5px !important;" class="btn add-to-cart-btn">đặt hàng ngay</a>
+                                                    <a href="#" style="padding: 0 !important; width: 10px !important;" class="btn"></a>
+                                                    <a href="#" style="padding: 10px 5px !important; " class="btn add-to-cart-btn">thêm vào giỏ</a>
                                                 </div>
                                             </div>
                                         </div>
