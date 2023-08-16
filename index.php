@@ -631,7 +631,7 @@
                                                         <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']) ?> đ</span></ins>
                                                         <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']+10000) ?> đ</span></del>
                                                     </div>
-                                                    <div class="shipping-info">
+                                                    <div class="shipping-info" style="margin-top: 15px;">
                                                         <p class="shipping-day">Sản phẩm đặc sắc</p>
                                                     </div>
                                                     <div class="slide-down-box">
