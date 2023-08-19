@@ -12,6 +12,7 @@ function addToCart($product) {
     foreach ($_SESSION['cart'] as &$item) {
         if ($item['id'] === $product['id'] and $item['size'] === $product['size'] and $item['level'] === $product['level']) {
             $item['quant'] += $product['quant'];
+            $_SESSION['slsp']+=$product['quant'];
             $found = true;
             break;  
         }

@@ -38,6 +38,7 @@
                             <h3 style="margin-top: 20px;" class="box-title">Giỏ hàng của bạn</h3>
                             <form class="shopping-cart-form" action="#" method="post">
                                 <?php
+                                $tongtien = 0;
                                 if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
                                 ?>
                                 <table class="shop_table cart-form">
@@ -87,7 +88,7 @@
                                         </td>
                                         <td class="product-subtotal" data-title="Total">
                                             <div class="price price-contain">
-                                                <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($item['quant']*$row['DONGIASP'])?> đ</span></ins>
+                                                <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($item['quant']*$row['DONGIASP']); $tongtien+=($item['quant']*$row['DONGIASP'])?> đ</span></ins>
                                             </div>
                                         </td>
                                         <td class="product-action" data-title="Action">
@@ -128,39 +129,49 @@
                         </div>
                         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                             <div class="shpcart-subtotal-block">
-                                <div class="subtotal-line">
-                                    <b class="stt-name">Subtotal <span class="sub">(2ittems)</span></b>
-                                    <span class="stt-price">£170.00</span>
+                                <div class="subtotal-line" style="margin-top: 20px;">
+                                    <b class="stt-name">Tổng <span class="sub">(<?php echo $_SESSION['slsp'] ?> món)</span></b>
+                                    <span class="stt-price"><?php echo number_format($tongtien) ?> đ</span>
                                 </div>
-                                <div class="subtotal-line">
-                                    <b class="stt-name">Shipping</b>
-                                    <span class="stt-price">£0.00</span>
-                                </div>
-                                <div class="tax-fee">
-                                    <p class="title">Est. Taxes & Fees</p>
-                                    <p class="desc">Based on 56789</p>
-                                </div>
-                                <div class="btn-checkout">
-                                    <a href="#" class="btn checkout">Check out</a>
-                                </div>
-                                <div class="biolife-progress-bar">
-                                    <table>
-                                        <tr>
-                                            <td class="first-position">
-                                                <span class="index">$0</span>
-                                            </td>
-                                            <td class="mid-position">
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </td>
-                                            <td class="last-position">
-                                                <span class="index">$99</span>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <p class="pickup-info"><b>Free Pickup</b> is available as soon as today More about shipping and pickup</p>
+                                <form action="dathang.php" method="get">
+
+                                    <div class="subtotal-line"><b class="stt-name">Khu vực <br><span style="color: red !important;" class="sub">(*Chỉ giao trong các khu vực sau:)</span></span></b></div>
+                                    <a style="color:#252525; font-size: 20px !important" href="?area=NK">
+                                        Quận Ninh Kiều <br>
+                                    </a>
+                                    <a style="color:#252525; font-size: 20px !important" href="?area=BT">
+                                        Quận Bình Thuỷ <br>
+                                    </a>
+                                    <a style="color:#252525; font-size: 20px !important" href="?area=CR">
+                                        Quận Cái Răng <br>
+                                    </a>
+                                    <div class="subtotal-line"><b class="stt-name">Phường</span></b></div>
+                                    
+                                    <div style="width: 100% !important;" class="form_combobox w-100">
+                                        <select required style="color: black !important; margin-left: 10px !important; width: 100% !important;" name="area">
+                                            <option value="">Chọn khu vực phía trên!</option>
+                                            <hr>
+                                            <?php
+                                                if(isset($_GET['area'])){
+                                                    $sql = "select * from khuvuc where MAKHUVUC like '{$_GET['area']}%'";
+                                                    $result = $conn->query($sql);
+                                                    if ($result->num_rows > 0) {
+                                                        $result = $conn->query($sql);
+                                                        $result_all = $result -> fetch_all(MYSQLI_ASSOC);
+                                                        foreach ($result_all as $row) {
+                                                            echo '<option value="'.$row['MAKHUVUC'].'">'.$row['TENKHUVUC'].'</option>';
+                                                        }
+                                                    }  
+                                                } 
+                                            ?>
+                                            
+                                        </select>
+                                    </div>
+                                    
+                                    <div style="margin-top: 5px !important;" class="btn-checkout">
+                                        <button style="width: 100%;" type="submit" class="btn checkout">Đặt hàng</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
