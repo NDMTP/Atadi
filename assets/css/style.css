@@ -73,6 +73,10 @@ body{
     word-wrap: break-word;
 }
 
+input[type="radio"] {
+    background-color: rgb(255, 115, 0);
+  }
+
 label{
     font-weight: 400;
     color: #333333;
@@ -4380,7 +4384,7 @@ body.open-overlay #overlay{
     display: block;
     border-radius: 999px;
     border: none;
-    padding: 7px 10px 7px !important;
+    padding: 8px 10px 8px !important;
 }
 .sumary-product .action-form .buttons .buy-now-btn:hover{
     background-color: whitesmoke;

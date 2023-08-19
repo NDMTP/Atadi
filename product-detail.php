@@ -46,7 +46,7 @@
             <div id="main-content" class="main-content">
                 
                 <!-- summary info -->
-                <form action="themvaogiohang.php" method="post">
+                <form action="themvaogiohang.php" method="post" id="myForm">
                 <div class="sumary-product single-layout">
                     <?php
                         $spid = $_GET['id'];
@@ -84,7 +84,7 @@
                                 foreach ($result_all as $szr) {
                             ?>
                             <div style="padding: 0 !important; margin: 15px !important" class="price">
-                                <input checked type="radio" name="size" id=""> 
+                                <input required type="radio" name="size" id=""> 
                                     <ins><span style="margin-left: 15px !important" class="price-amount"><span class="currencySymbol"><?php echo $szr['MASIZE'] ?> - </span><?php echo number_format($szr['DONGIASP']) ?> đ</span></ins>
                                     <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($szr['DONGIASP']+10000) ?> đ</span></del>
                                 </input>
@@ -93,10 +93,10 @@
                             <?php
                                 if ($masp=="MC"){
                                     ?>
-                                        <div style="width: 25% !important; margin-top: 25px !important">
+                                        <div style="margin-top: 25px !important">
                                             <span class="title">Cấp độ:</span>
-                                            <div style="margin-top: 15px !important; " class="form_combobox">
-                                                <select style="color: black; !important" name="">
+                                            <div style="margin-top: 15px !important; width: 20% !important;" class="form_combobox w-100">
+                                                <select style="color: black !important; margin-left: 10px !important; " name="">
                                                     <option value="0">0</option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
@@ -129,8 +129,8 @@
                             </div>
                         </div>
                         <div class="buttons">
-                            <a class="btn add-to-cart-btn">Thêm vào giỏ hàng</a>
-                            <a class="btn buy-now-btn">Đặt hàng ngay</a>
+                            <button type="submit" name="sb_giohang" style="min-width: 100% !important;" class="btn add-to-cart-btn">Thêm vào giỏ hàng</button>
+                            <button type="submit" name="sb_dathang" style="min-width: 100% !important;" class="btn buy-now-btn">Đặt hàng ngay</button>
                         </div>
                         <!-- <div class="location-shipping-to">
                             <span class="title">Ship to:</span>
@@ -162,6 +162,19 @@
                     </div>
                 </div>
                 </form>
+                <script>
+                    document.getElementById("myForm").addEventListener("submit", function(event) {
+                        const submitButton = event.submitter;
+
+                        if (submitButton.name === "sb_giohang") {
+                            this.action = "themvaogiohang.php"; // Thay đổi trang khi nhấp nút "Submit for Page 1"
+                        } else if (submitButton.name === "sb_dathang") {
+                            this.action = "thanhtoan.php"; // Thay đổi trang khi nhấp nút "Submit for Page 2"
+                        }
+
+                        // Tiếp tục thực hiện submit form theo action đã thay đổi
+                    });
+                </script>
 
 
                 <!-- related products -->
