@@ -47,11 +47,12 @@
                                         <th class="product-price">Giá</th>
                                         <th class="product-quantity">Số lượng</th>
                                         <th class="product-subtotal">Tổng</th>
+                                        <th class="product-action"></th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <?php
-                                        foreach ($_SESSION['cart'] as $item) {
+                                        foreach ($_SESSION['cart'] as $key => $item) {
                                             $sql = "select * from sanpham s join sizecuasanpham sz on sz.MASP=s.MASP where sz.MASP = '{$item['id']}' and sz.MASIZE = '{$item['size']}'";
                                             $result = $conn->query($sql);
                                             $row = $result->fetch_assoc();
@@ -89,6 +90,15 @@
                                                 <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($item['quant']*$row['DONGIASP'])?> đ</span></ins>
                                             </div>
                                         </td>
+                                        <td class="product-action" data-title="Action">
+                                            <div class="price price-contain">
+                                                <a href="delete-one-cart.php?key=<?php echo $key ?>">
+                                                    <ins><span class="price-amount"><span class="currencySymbol"></span>
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </span></ins>
+                                                </a>
+                                            </div>
+                                        </td>
                                     </tr>
                                     <?php
                                         }
@@ -102,6 +112,7 @@
                                     </tr>
                                     </tbody>
                                 </table>
+
                                 <?php
                                 } else {
                                     echo '<div class="shpcart-subtotal-block">';
