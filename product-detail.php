@@ -46,7 +46,7 @@
             <div id="main-content" class="main-content">
                 
                 <!-- summary info -->
-                <form action="themvaogiohang.php" method="post" id="myForm">
+                <form action="themvaogiohang.php" method="get" id="myForm">
                 <div class="sumary-product single-layout">
                     <?php
                         $spid = $_GET['id'];
@@ -57,6 +57,7 @@
                         // Loại bỏ các kí tự số khỏi chuỗi
                         $masp = preg_replace('/[0-9]/', '', $string);
                     ?>
+                    <input type="hidden" name="pdid" value="<?php echo $spid ?>">
                     <div class="media">
                         <img src="assets/images/products/<?php echo $masp ?>/<?php echo $row['LINKANH'] ?>" alt="" width="500" height="500">
                     </div>
@@ -84,7 +85,7 @@
                                 foreach ($result_all as $szr) {
                             ?>
                             <div style="padding: 0 !important; margin: 15px !important" class="price">
-                                <input required type="radio" name="size" id=""> 
+                                <input required type="radio" name="size" id="" value="<?php echo $szr['MASIZE']?>"> 
                                     <ins><span style="margin-left: 15px !important" class="price-amount"><span class="currencySymbol"><?php echo $szr['MASIZE'] ?> - </span><?php echo number_format($szr['DONGIASP']) ?> đ</span></ins>
                                     <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($szr['DONGIASP']+10000) ?> đ</span></del>
                                 </input>
@@ -96,7 +97,7 @@
                                         <div style="margin-top: 25px !important">
                                             <span class="title">Cấp độ:</span>
                                             <div style="margin-top: 15px !important; width: 20% !important;" class="form_combobox w-100">
-                                                <select style="color: black !important; margin-left: 10px !important; " name="">
+                                                <select style="color: black !important; margin-left: 10px !important; " name="level">
                                                     <option value="0">0</option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
