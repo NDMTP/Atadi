@@ -605,7 +605,7 @@
                                     data-slick='{"rows":1 ,"arrows":true,"dots":false,"infinite":true,"speed":400,"slidesMargin":10,"slidesToShow":4, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 4}},{"breakpoint":992, "settings":{ "slidesToShow": 3, "slidesMargin":20 }},{"breakpoint":768, "settings":{ "slidesToShow": 2,"rows":2, "slidesMargin":15 }}]}'>
                                     <?php
 
-                                        $query = "SELECT * FROM sanpham limit 4";
+                                        $query = "SELECT * FROM sanpham s join sizecuasanpham sz on s.MASP = sz.MASP WHERE sz.MASIZE in ('Vừa','M','Combo') limit 4";
 
                                         $result = $conn->query($query);
                                             if ($result->num_rows > 0) {
@@ -628,8 +628,8 @@
                                                 <div class="info">
                                                     <h4 class="product-title"><a href="#" class="pr-name"><?php echo $row['TENSP'] ?></a></h4>
                                                     <div class="price">
-                                                        <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']) ?> đ</span></ins>
-                                                        <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']+10000) ?> đ</span></del>
+                                                        <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIASP']) ?> đ</span></ins>
+                                                        <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIASP']+10000) ?> đ</span></del>
                                                     </div>
                                                     <div class="shipping-info" style="margin-top: 15px;">
                                                         <p class="shipping-day">Sản phẩm đặc sắc</p>
@@ -653,7 +653,7 @@
                                     data-slick='{"rows":1 ,"arrows":true,"dots":false,"infinite":true,"speed":400,"slidesMargin":10,"slidesToShow":4, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 4}},{"breakpoint":992, "settings":{ "slidesToShow": 3, "slidesMargin":20 }},{"breakpoint":768, "settings":{ "slidesToShow": 2,"rows":2, "slidesMargin":15 }}]}'>
                                     <?php
 
-                                        $query = "SELECT * FROM sanpham where maloai='01'";
+                                        $query = "SELECT * FROM sanpham s join sizecuasanpham sz on s.MASP = sz.MASP WHERE sz.MASIZE in ('Vừa','M','Combo') and s.maloai='01' limit 4";
 
                                         $result = $conn->query($query);
                                             if ($result->num_rows > 0) {
@@ -676,8 +676,8 @@
                                                 <div class="info">
                                                     <h4 class="product-title"><a href="#" class="pr-name"><?php echo $row['TENSP'] ?></a></h4>
                                                     <div class="price">
-                                                        <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']) ?> đ</span></ins>
-                                                        <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']+10000) ?> đ</span></del>
+                                                        <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIASP']) ?> đ</span></ins>
+                                                        <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIASP']+10000) ?> đ</span></del>
                                                     </div>
                                                     <div class="shipping-info">
                                                         <p class="for-today">Sản phẩm bán chạy</p>
@@ -702,7 +702,7 @@
                                     data-slick='{"rows":1 ,"arrows":true,"dots":false,"infinite":true,"speed":400,"slidesMargin":10,"slidesToShow":4, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 4}},{"breakpoint":992, "settings":{ "slidesToShow": 3, "slidesMargin":20 }},{"breakpoint":768, "settings":{ "slidesToShow": 2,"rows":2, "slidesMargin":15 }}]}'>
                                     <?php
 
-                                        $query = "SELECT * FROM sanpham limit 4";
+                                        $query = "SELECT * FROM sanpham s join sizecuasanpham sz on s.MASP = sz.MASP WHERE sz.MASIZE in ('Vừa','M','Combo') limit 4";
 
                                         $result = $conn->query($query);
                                             if ($result->num_rows > 0) {
@@ -725,8 +725,8 @@
                                                 <div class="info">
                                                     <h4 class="product-title"><a href="#" class="pr-name"><?php echo $row['TENSP'] ?></a></h4>
                                                     <div class="price">
-                                                        <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']) ?> đ</span></ins>
-                                                        <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']+10000) ?> đ</span></del>
+                                                        <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIASP']) ?> đ</span></ins>
+                                                        <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIASP']+10000) ?> đ</span></del>
                                                     </div>
                                                     <div class="shipping-info">
                                                         <p class="shipping-day">Sản phẩm khuyến mãi</p>
@@ -821,7 +821,7 @@
                                 data-slick='{"rows":2 ,"arrows":true,"dots":false,"infinite":true,"speed":400,"slidesMargin":0,"slidesToShow":3, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 4}},{"breakpoint":992, "settings":{ "slidesToShow": 3, "slidesMargin": 20}},{"breakpoint":768, "settings":{ "slidesToShow": 2, "slidesMargin": 15}}]}'>
 
                                 <?php
-                                $sql = "SELECT * FROM sanpham where maloai='01' or maloai='02' " ;
+                                $sql = "SELECT * FROM sanpham s join sizecuasanpham sz on s.MASP = sz.MASP WHERE sz.MASIZE in ('Vừa','M','Combo') and  maloai='02' limit 6" ;
                                 $result = $conn->query($sql);
                                     if ($result->num_rows > 0) {
                                     $result = $conn->query($sql);
@@ -848,7 +848,7 @@
                                                     class="pr-name"><?php echo $row['TENSP'] ?></a></h4>
                                             <div class="price">
                                                 <ins><span class="price-amount"><span
-                                                            class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']) ?>
+                                                            class="currencySymbol"></span><?php echo number_format($row['DONGIASP']) ?>
                                                         đ</span></ins>
 
                                             </div>
