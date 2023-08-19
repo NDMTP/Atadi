@@ -46,6 +46,7 @@
             <div id="main-content" class="main-content">
                 
                 <!-- summary info -->
+                <form action="themvaogiohang.php" method="post">
                 <div class="sumary-product single-layout">
                     <?php
                         $spid = $_GET['id'];
@@ -69,63 +70,53 @@
                         </div>
                         <!-- <span class="sku">Sku: #76584HH</span> -->
                         <p class="excerpt"><?php echo $row['MOTA'] ?></p>
-
-
-                        <div class="price">
-                            <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIASP']) ?> đ</span></ins>
-                            <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIASP']+10000) ?> đ</span></del>
-                        </div>
-                        <div class="price">
-                            <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIASP']) ?> đ</span></ins>
-                            <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIASP']+10000) ?> đ</span></del>
-                        </div>
-                        <div class="price">
-                            <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIASP']) ?> đ</span></ins>
-                            <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIASP']+10000) ?> đ</span></del>
-                        </div>
+                        
+                        <br>
+                            <div class="price">
+                                <ins><span style="" class="price-amount"><span class="currencySymbol">Size:</span></ins>
+                            </div>
+                            <?php
+                                $size = "select * from sizecuasanpham sz join sanpham s on s.MASP=sz.MASP where sz.MASP = '".$spid."'";
+                                $result = $conn->query($size);
+                                if ($result->num_rows > 0) {
+                                $result = $conn->query($size);
+                                $result_all = $result -> fetch_all(MYSQLI_ASSOC);
+                                foreach ($result_all as $szr) {
+                            ?>
+                            <div style="padding: 0 !important; margin: 15px !important" class="price">
+                                <input checked type="radio" name="size" id=""> 
+                                    <ins><span style="margin-left: 15px !important" class="price-amount"><span class="currencySymbol"><?php echo $szr['MASIZE'] ?> - </span><?php echo number_format($szr['DONGIASP']) ?> đ</span></ins>
+                                    <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($szr['DONGIASP']+10000) ?> đ</span></del>
+                                </input>
+                            </div>
+                            <?php }} ?>
+                            <?php
+                                if ($masp=="MC"){
+                                    ?>
+                                        <div style="width: 25% !important; margin-top: 25px !important">
+                                            <span class="title">Cấp độ:</span>
+                                            <div style="margin-top: 15px !important; " class="form_combobox">
+                                                <select style="color: black; !important" name="">
+                                                    <option value="0">0</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    <?php
+                                }
+                            ?>
 
                         <!-- <div class="shipping-info">
                             <p class="shipping-day">3-Day Shipping</p>
                             <p class="for-today">Pree Pickup Today</p>
                         </div> -->
                         <div class="action-form" style="width: 100% !important; background-color: white !important;">
-                            <form action="#" method="get">
-                                <div class="col-lg-12 col-md-12">
-                                    <div class="row">         
-                                        <div style="width: 50% !important" class="col-lg-6 col-md-6 col-sm-12 location-shipping-to">
-                                            <span class="title">Size:</span>
-                                            <div class="form_combobox">
-                                                <select name="size">
-                                                    <option value="M">M</option>
-                                                    <option selected value="L">L</option>
-                                                    <option value="XL">XL</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <?php
-                                            if ($masp=="MC"){
-                                                ?>
-                                                    <div style="width: 50% !important;" class="col-lg-6 col-md-6 col-sm-12 location-shipping-to">
-                                                        <span class="title">Cấp độ:</span>
-                                                        <div class="form_combobox">
-                                                            <select name="level">
-                                                                <option value="0">0</option>
-                                                                <option value="1">1</option>
-                                                                <option value="2">2</option>
-                                                                <option value="3">3</option>
-                                                                <option value="4">4</option>
-                                                                <option value="5">5</option>
-                                                                <option value="6">6</option>
-                                                                <option value="7">7</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                               <?php
-                                            }
-                                        ?>
-                                    </div>
-                                </div>
-                            </form>
                         </div>
                     </div>
                     <div class="action-form">
@@ -138,8 +129,8 @@
                             </div>
                         </div>
                         <div class="buttons">
-                            <a href="<?php echo $hr1 ?>" class="btn add-to-cart-btn">Thêm vào giỏ hàng</a>
-                            <a href="<?php echo $hr1 ?>" class="btn buy-now-btn">Đặt hàng ngay</a>
+                            <a class="btn add-to-cart-btn">Thêm vào giỏ hàng</a>
+                            <a class="btn buy-now-btn">Đặt hàng ngay</a>
                         </div>
                         <!-- <div class="location-shipping-to">
                             <span class="title">Ship to:</span>
@@ -170,6 +161,8 @@
                         </div>
                     </div>
                 </div>
+                </form>
+
 
                 <!-- related products -->
                 <div class="product-related-box single-layout">
@@ -193,7 +186,7 @@
                             <li class="product-item">
                                 <div class="contain-product layout-default">
                                     <div class="product-thumb">
-                                        <a href="#" class="link-to-product">
+                                        <a href="product-detail.php?id=<?php echo $string ?>" class="link-to-product">
                                             <img src="assets/images/products/<?php echo $masp ?>/<?php echo $row1['LINKANH'] ?>" alt="dd" width="270" height="270" class="product-thumnail">
                                         </a>
                                     </div>
@@ -204,11 +197,10 @@
                                             <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row1['DONGIASP']+10000) ?> đ</span></del>
                                         </div>
                                         <div class="slide-down-box">
-                                            <p class="message"><?php echo $row1['MOTA'] ?></p>
                                             <div class="buttons">
-                                                <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
-                                                <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
+                                                <a href="#" style="padding: 10px 5px !important; margin-right: 5px !important;" class="btn add-to-cart-btn">đặt hàng ngay</a>
+                                                <a href="#" style="padding: 0 !important; width: 10px !important;" class="btn"></a>
+                                                <a href="#" style="padding: 10px 5px !important; " class="btn add-to-cart-btn">thêm vào giỏ</a>
                                             </div>
                                         </div>
                                     </div>

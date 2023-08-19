@@ -196,9 +196,9 @@
                             </ul>
                         </div>
 
+                        
                         <div class="biolife-panigations-block">
                             <ul class="panigation-contain">
-                                <li><a href="#" class="link-page next"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
                                 <?php
                                      // Tính số trang dựa trên tổng số sản phẩm
                                     $q = "SELECT COUNT(*) AS total FROM sanpham";
@@ -216,7 +216,6 @@
                                         echo '<li><a href="?page='.$i.'" class="'. $active_class .'">'.$i.'</a></li>';
                                     }
                                 ?>
-                                <li><a href="#" class="link-page next"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
 
