@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <div class="header-middle biolife-sticky-object ">
     <div class="container">
         <div class="row">
@@ -191,38 +187,59 @@ session_start();
                                 <a href="javascript:void(0)" class="link-to">
                                     <span class="icon-qty-combine">
                                         <i class="icon-cart-mini biolife-icon"></i>
-                                        <span class="qty">8</span>
+                                        <span class="qty"><?php echo $_SESSION['slsp'] ?></span>
                                     </span>
                                 </a>
                                 <div class="cart-content">
                                     <div class="cart-inner">
                                         <ul class="products">
+                                            <?php
+                                            if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+                                                foreach ($_SESSION['cart'] as $item) {
+                                                    $sql = "select * from sanpham s join sizecuasanpham sz on sz.MASP=s.MASP where sz.MASP = '{$item['id']}' and sz.MASIZE = '{$item['size']}'";
+                                                    $result = $conn->query($sql);
+                                                    $row = $result->fetch_assoc();
+                                                    $string = $row['MASP'];
+                                                    $masp = preg_replace('/[0-9]/', '', $string);
+                                            ?>
                                             <li>
                                                 <div class="minicart-item">
                                                     <div class="thumb">
-                                                        <a href="#"><img src="assets/images/minicart/pr-01.jpg" width="90" height="90" alt="National Fresh"></a>
+                                                        <a href="#"><img src="assets/images/products/<?php echo $masp."/".$row['LINKANH']?>" width="90" height="90" alt="img"></a>
                                                     </div>
                                                     <div class="left-info">
-                                                        <div class="product-title"><a href="#" class="product-name">National Fresh Fruit</a></div>
+                                                        <div class="product-title"><a href="#" class="product-name"><?php echo $row['TENSP']." - Size: ".$item['size'] ?></a></div>
                                                         <div class="price">
-                                                            <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                            <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
+                                                            <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIASP']) ?></span></ins>
+                                                            <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIASP']+10000) ?></span></del>
                                                         </div>
                                                         <div class="qty">
                                                             <label for="cart[id123][qty]">Qty:</label>
-                                                            <input type="number" class="input-qty" name="cart[id123][qty]" id="cart[id123][qty]" value="1" disabled>
+                                                            <input type="number" class="input-qty" name="cart[id123][qty]" id="cart[id123][qty]" value="<?php echo $item['quant'] ?>" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="action">
+                                                    <!-- <div class="action">
                                                         <a href="#" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                                         <a href="#" class="remove"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                             </li>
+                                            <?php 
+                                                }
+                                            } else {
+                                            ?>
+                                                 <li>
+                                                    <div class="minicart-item">
+                                                        Không có sản phẩm trong giỏ hàng
+                                                    </div>
+                                                </li>
+                                            <?php
+                                            }
+                                            ?>
                                         </ul>
                                         <p class="btn-control">
                                             <a href="#" class="btn view-cart">Thanh toán</a>
-                                            <a href="#" class="btn">Xoá tất cả</a>
+                                            <a href="cart-page.php" class="btn">Chỉnh sửa giỏ</a>
                                         </p>
                                     </div>
                                 </div>

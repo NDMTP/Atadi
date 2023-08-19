@@ -10,7 +10,6 @@ include("connect.php");
                         
                         $row = $result1->fetch_assoc();
                         
-                        session_start();
                         $_SESSION["email"] = $row["EMAIL"];
                         $_SESSION["password"]=$row["MATKHAU"];
                         $_SESSION["diachi"]=$row["DIACHI"];
