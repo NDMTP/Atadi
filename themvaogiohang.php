@@ -26,7 +26,7 @@ function addToCart($product) {
             'level' => $product['level'],
             'size' => $product['size']
         );
-        $_SESSION['slsp']++;
+        $_SESSION['slsp']+=$product['quant'];
     }
 }
 
@@ -48,6 +48,7 @@ $productToAdd = array(
 if (isset($_SESSION["lname"])){
     addToCart($productToAdd);
     header('Location: product-detail.php?id='.$pdid.'&added=1');
+
 } else {
     header('Location: login.php?login=1');
 }

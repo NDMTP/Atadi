@@ -192,16 +192,16 @@
                                 </a>
                                 <div class="cart-content">
                                     <div class="cart-inner">
+                                        <?php
+                                        if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+                                            foreach ($_SESSION['cart'] as $item) {
+                                                $sql = "select * from sanpham s join sizecuasanpham sz on sz.MASP=s.MASP where sz.MASP = '{$item['id']}' and sz.MASIZE = '{$item['size']}'";
+                                                $result = $conn->query($sql);
+                                                $row = $result->fetch_assoc();
+                                                $string = $row['MASP'];
+                                                $masp = preg_replace('/[0-9]/', '', $string);
+                                        ?>
                                         <ul class="products">
-                                            <?php
-                                            if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
-                                                foreach ($_SESSION['cart'] as $item) {
-                                                    $sql = "select * from sanpham s join sizecuasanpham sz on sz.MASP=s.MASP where sz.MASP = '{$item['id']}' and sz.MASIZE = '{$item['size']}'";
-                                                    $result = $conn->query($sql);
-                                                    $row = $result->fetch_assoc();
-                                                    $string = $row['MASP'];
-                                                    $masp = preg_replace('/[0-9]/', '', $string);
-                                            ?>
                                             <li>
                                                 <div class="minicart-item">
                                                     <div class="thumb">
@@ -218,29 +218,21 @@
                                                             <input type="number" class="input-qty" name="cart[id123][qty]" id="cart[id123][qty]" value="<?php echo $item['quant'] ?>" disabled>
                                                         </div>
                                                     </div>
-                                                    <!-- <div class="action">
-                                                        <a href="#" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                                        <a href="#" class="remove"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                                                    </div> -->
                                                 </div>
                                             </li>
-                                            <?php 
-                                                }
-                                            } else {
-                                            ?>
-                                                 <li>
-                                                    <div class="minicart-item">
-                                                        Không có sản phẩm trong giỏ hàng
-                                                    </div>
-                                                </li>
-                                            <?php
-                                            }
-                                            ?>
                                         </ul>
+                                        <?php 
+                                            }
+                                        ?>
                                         <p class="btn-control">
                                             <a href="#" class="btn view-cart">Thanh toán</a>
                                             <a href="cart-page.php" class="btn">Chỉnh sửa giỏ</a>
                                         </p>
+                                        <?php
+                                            } else {
+                                                echo '<p style="margin-top: 15px; font-size: 18px !important">Không có sản phẩm nào trong giỏ hàng</p>';
+                                            }
+                                        ?>
                                     </div>
                                 </div>
                             </div>

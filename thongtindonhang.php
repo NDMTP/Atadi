@@ -47,6 +47,7 @@ include "connect.php"
                                 Khách hàng: <span style="font-size: 17px; font-weight: bold;"><?php echo $_GET['hoten'] ?></span><br>
                                 SDT: <span style="font-size: 17px; font-weight: bold;"><?php echo $_GET['sdt'] ?></span><br>
                                 Địa chỉ: <span style="font-size: 17px; font-weight: bold;"><?php echo $row['TENKHUVUC'].', Quận '.$_GET['quan']?></span><br>
+                                Ghi chú: <span style="font-size: 17px; font-weight: bold;"><?php echo $_GET['note']?></span><br>
                                 Ngày mua: <span style="font-size: 17px; font-weight: bold;"><?php echo date('d-m-Y') ?></span><br>
                                 <?php
                                     if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
@@ -79,6 +80,10 @@ include "connect.php"
                                     <hr>
                                     
                                 </div>
+                                <input type="hidden" name="khuvuc" value="<?php echo $row['MAKHUVUC'] ?>">
+                                <input type="hidden" name="phigiao" value="<?php echo $row['PHIGIAO'] ?>">
+                                <input type="hidden" name="ghichu" value="<?php echo $_GET['note'] ?>">
+                                
                                 <div class="row" style="padding-bottom: 40px;">
                                     <div style="text-align: center;" class="col-12">
                                         <h3>Tổng thiệt hại: <span style="font-weight: bold;"><?php echo number_format($tongtien+$row['PHIGIAO']) ?> đ</span></h3>

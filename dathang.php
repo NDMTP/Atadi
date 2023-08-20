@@ -8,13 +8,15 @@
     $row = $result->fetch_assoc();
     $nextId = $row['maxid']+1;
 
+    $ok=0;
+
     // // Tạo hoá đơn
     $addBill = "insert into hoadon values($nextId, '{$_SESSION['email']}', sysdate(), 'Chưa thanh toán')";
-    $conn->query($addBill);
+    if($conn->query($addBill)) $ok=1;
 
     // Tạo chi tiết hoá đơn
     
-    if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+    if (isset($_SESSION['cart']) && !empty($_SESSION['cart']) && $ok=1) {
         foreach ($_SESSION['cart'] as $item) {
             $sql = "select * from sanpham s 
                 join sizecuasanpham sz on sz.MASP=s.MASP
@@ -31,10 +33,21 @@
             $tongtien = $sp['DONGIASP']*$item['quant'];
 
             $addBillDetail = "insert into chitiethoadon values ($nextId,'$masp','$masize',$soluong,'$docay',$dongia, $tongtien);";
-            $conn->query($addBillDetail);
+            if($conn->query($addBillDetail)) $ok=1;
+            else{
+                $ok=0;
+                break;
+            }
 
         }
     }
+
+    // Tạo giao hàng
+    $mkv = $_GET['khuvuc'];
+    $ghichu = $_GET['ghichu'];
+    $phi = $_GET['phigiao'];
+    $addTrans = "insert into giaohang values ('$mkv',$nextId, $phi, '$ghichu')";
+    $conn->query($addTrans);
 
     // // Xoá giỏ hàng
     $_SESSION['cart'] = array();

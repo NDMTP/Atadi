@@ -4,65 +4,7 @@
 <?php
     include "head.php";
     include "connect.php";
-
-    if(isset($_GET['added'])){
-        ?>
-        <div id="popup" class="popup">
-            <div class="popup-content">
-                <p>Thêm sản phẩm vào giỏ hàng thành công! <i style="color: rgb(255, 115, 0); margin-left: 10px; " class="fas fa-check-circle fa-lg"></i></p>
-            </div>
-        </div>
-        <style>
-            .popup {
-                display: none;
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                color: black;
-                background-color: white;
-                padding: 20px;
-                border-radius: 15px;
-                transition: opacity 3.5s;
-                z-index: 99999;
-                box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
-            }
-
-            .popup-content {
-                text-align: center;
-            }
-        </style>
-        <script>
-            // Hiển thị popup
-            function showPopup() {
-                const popup = document.getElementById("popup");
-                popup.style.display = "block";
-                setTimeout(function() {
-                    popup.style.opacity = "1";
-                }, 10); // Một khoảng nhỏ để tránh transition ngay khi hiển thị
-            }
-
-            // Ẩn popup
-            function hidePopup() {
-                const popup = document.getElementById("popup");
-                popup.style.opacity = "0";
-                setTimeout(function() {
-                    popup.style.display = "none";
-                }, 1500); // 0.5 giây
-            }
-
-            // Tự động ẩn popup sau 0.5 giây
-            setTimeout(function() {
-                showPopup();
-                setTimeout(function() {
-                    hidePopup();
-                }, 500); // 0.5 giây
-            }, 0); // 0 giây (hiển thị ngay khi tải trang)
-        </script>
-
-        <?php
-    }
-
+    include "popup_themthanhcong.php";
 ?>
 <body class="biolife-body">
 
@@ -105,7 +47,7 @@
             <div id="main-content" class="main-content">
                 
                 <!-- summary info -->
-                <form action="themvaogiohang.php" method="get" id="myForm">
+                <form action="themvaogiohang.php?from=pd" method="get" id="myForm">
                 <div class="sumary-product single-layout">
                     <?php
                         $spid = $_GET['id'];
@@ -227,7 +169,7 @@
                         const submitButton = event.submitter;
 
                         if (submitButton.name === "sb_giohang") {
-                            this.action = "themvaogiohang.php"; // Thay đổi trang khi nhấp nút "Submit for Page 1"
+                            this.action = "themvaogiohang.php?from=pd"; // Thay đổi trang khi nhấp nút "Submit for Page 1"
                         } else if (submitButton.name === "sb_dathang") {
                             this.action = "thanhtoan.php"; // Thay đổi trang khi nhấp nút "Submit for Page 2"
                         }
