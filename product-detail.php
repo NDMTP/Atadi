@@ -182,8 +182,8 @@
                     <div class="action-form">
                         <div class="quantity-box">
                             <span class="title">Số lượng:</span>
-                            <div class="qty-input">
-                                <input type="text" name="qty12554" value="1" data-max_value="20" data-min_value="1" data-step="1">
+                            <div style="width: 100% !important;" class="qty-input">
+                                <input style="width: 100% !important;" type="text" name="qty12554" value="1" data-max_value="20" data-min_value="1" data-step="1">
                                 <a href="#" class="qty-btn btn-up"><i class="fa fa-caret-up" aria-hidden="true"></i></a>
                                 <a href="#" class="qty-btn btn-down"><i class="fa fa-caret-down" aria-hidden="true"></i></a>
                             </div>

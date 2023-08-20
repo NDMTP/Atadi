@@ -133,41 +133,41 @@
                                     <b class="stt-name">Tổng <span class="sub">(<?php echo $_SESSION['slsp'] ?> món)</span></b>
                                     <span class="stt-price"><?php echo number_format($tongtien) ?> đ</span>
                                 </div>
-                                <form action="dathang.php" method="get">
+                                <form action="thongtinmuahang.php" method="get">
 
-                                    <div class="subtotal-line"><b class="stt-name">Khu vực <br><span style="color: red !important;" class="sub">(*Chỉ giao trong các khu vực sau:)</span></span></b></div>
-                                    <a style="color:#252525; font-size: 20px !important" href="?area=NK">
-                                        Quận Ninh Kiều <br>
-                                    </a>
-                                    <a style="color:#252525; font-size: 20px !important" href="?area=BT">
-                                        Quận Bình Thuỷ <br>
-                                    </a>
-                                    <a style="color:#252525; font-size: 20px !important" href="?area=CR">
-                                        Quận Cái Răng <br>
-                                    </a>
-                                    <div class="subtotal-line"><b class="stt-name">Phường</span></b></div>
-                                    
-                                    <div style="width: 100% !important;" class="form_combobox w-100">
-                                        <select required style="color: black !important; margin-left: 10px !important; width: 100% !important;" name="area">
-                                            <option value="">Chọn khu vực phía trên!</option>
-                                            <hr>
-                                            <?php
-                                                if(isset($_GET['area'])){
-                                                    $sql = "select * from khuvuc where MAKHUVUC like '{$_GET['area']}%'";
-                                                    $result = $conn->query($sql);
-                                                    if ($result->num_rows > 0) {
-                                                        $result = $conn->query($sql);
-                                                        $result_all = $result -> fetch_all(MYSQLI_ASSOC);
-                                                        foreach ($result_all as $row) {
-                                                            echo '<option value="'.$row['MAKHUVUC'].'">'.$row['TENKHUVUC'].'</option>';
-                                                        }
-                                                    }  
-                                                } 
-                                            ?>
+                                    <div class="subtotal-line"><b class="stt-name">Quận <br><span style="color: red !important;" class="sub">(*Chỉ giao trong các quận sau:)</span></span></b></div>
+                                        <!-- <input type="radio" value="">
+                                            <span  style="color:#252525; font-size: 17px !important; margin-left: 5px;">Quận Ninh Kiều </span><br>
+                                        </input>
+                                        <input type="radio" value="">
+                                            <span  style="color:#252525; font-size: 17px !important; margin-left: 5px;">Quận Bình Thuỷ</span> <br>
+                                        </input>
+                                        <input type="radio" value="">
+                                            <span  style="color:#252525; font-size: 17px !important; margin-left: 5px;">Quận Cái Răng</span><br>
+                                        </input>-->
+                                        <div>
+                                            <div style="width: 100% !important;" class="form_combobox w-100">
+                                                <select required style="color: black !important; margin-left: 10px !important; " name="area" id="areaSelect">
+                                                    <option selected disabled value="">Chọn quận</option>
+                                                    <option value="NK">Ninh Kiều</option>
+                                                    <option value="BT">Bình Thuỷ</option>
+                                                    <option value="CR">Cái Răng</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div id="phuong">
                                             
-                                        </select>
-                                    </div>
-                                    
+                                        </div>
+                                        <script>
+                                            document.addEventListener("DOMContentLoaded", function() {
+                                                const areaSelect = document.getElementById("areaSelect");
+
+                                                areaSelect.addEventListener("change", function() {
+                                                    const phuong =document.getElementById('phuong');
+                                                    phuong.innerHTML = '<div style="width: 100% !important;" class="form_combobox w-100" id="phuong"><select style="color: black !important; margin-left: 10px !important; " name="area" id="areaSelect"></select></div>';
+                                                });
+                                            });
+                                        </script>
                                     <div style="margin-top: 5px !important;" class="btn-checkout">
                                         <button style="width: 100%;" type="submit" class="btn checkout">Đặt hàng</button>
                                     </div>
