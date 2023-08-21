@@ -60,7 +60,7 @@
                                         <div data-title="Price:" class="selector-item">
                                             <select name="gia" class="selector">
                                                 <option value="">Giá</option>
-                                                <option value="loc-gia-1">25K - 35K</option>
+                                                <option value="loc-gia-1">20K - 35K</option>
                                                 <option value="loc-gia-2">35K - 100K</option>
                                                 <option value="loc-gia-3">100K - 200K</option>
                                                 <option value="loc-gia-4">> 200K</option>
@@ -127,7 +127,7 @@
                                 if (isset($_GET['gia'])){
                                     switch ($_GET['gia']) {
                                         case 'loc-gia-1':
-                                            $sql = $sql." AND DONGIASP BETWEEN 25000 AND 35000";
+                                            $sql = $sql." AND DONGIASP BETWEEN 20000 AND 35000";
                                             break;
                                         case 'loc-gia-2':
                                             $sql = $sql." AND DONGIASP BETWEEN 35000 AND 100000";
@@ -180,7 +180,7 @@
                                                 <div class="buttons">
                                                     <a href="#" style="padding: 10px 5px !important; margin-right: 5px !important;" class="btn add-to-cart-btn">đặt hàng ngay</a>
                                                     <a href="#" style="padding: 0 !important; width: 10px !important;" class="btn"></a>
-                                                    <a href="#" style="padding: 10px 5px !important; " class="btn add-to-cart-btn">thêm vào giỏ</a>
+                                                    <a href="themvaogiohang.php?from=index&pdid=<?php echo $row['MASP'] ?>&size=<?php echo $row['MASIZE'] ?>&qty12554=1" style="padding: 10px 5px !important; " class="btn add-to-cart-btn">thêm vào giỏ</a>
                                                 </div>
                                             </div>
                                         </div>
