@@ -60,7 +60,7 @@
                                         <div data-title="Price:" class="selector-item">
                                             <select name="gia" class="selector">
                                                 <option value="">Giá</option>
-                                                <option value="loc-gia-1">25K - 35K</option>
+                                                <option value="loc-gia-1">20K - 35K</option>
                                                 <option value="loc-gia-2">35K - 100K</option>
                                                 <option value="loc-gia-3">100K - 200K</option>
                                                 <option value="loc-gia-4">> 200K</option>
@@ -120,23 +120,23 @@
                                 // Truy vấn lấy dữ liệu sản phẩm từ cơ sở dữ liệu
                                 $offset = ($current_page - 1) * $productsPerPage;
 
-                                $sql = " WHERE 1";
+                                $sql = " WHERE sz.MASIZE in ('Vừa','M','Combo') ";
                                 if (isset($_GET['loai']) && $_GET['loai'] != "all"){
                                     $sql = $sql." AND MALOAI = ".$_GET['loai'];
                                 }
                                 if (isset($_GET['gia'])){
                                     switch ($_GET['gia']) {
                                         case 'loc-gia-1':
-                                            $sql = $sql." AND DONGIABANSP BETWEEN 25000 AND 35000";
+                                            $sql = $sql." AND DONGIASP BETWEEN 20000 AND 35000";
                                             break;
                                         case 'loc-gia-2':
-                                            $sql = $sql." AND DONGIABANSP BETWEEN 35000 AND 100000";
+                                            $sql = $sql." AND DONGIASP BETWEEN 35000 AND 100000";
                                             break;
                                         case 'loc-gia-3':
-                                            $sql = $sql." AND DONGIABANSP BETWEEN 100000 AND 200000";
+                                            $sql = $sql." AND DONGIASP BETWEEN 100000 AND 200000";
                                             break;
                                         case 'loc-gia-4':
-                                            $sql = $sql." AND DONGIABANSP >  200000";
+                                            $sql = $sql." AND DONGIASP >  200000";
                                             break;
                                         default:
                                             break;
@@ -146,7 +146,7 @@
 
                                 $sql = $sql." LIMIT $offset, $productsPerPage";
 
-                                $query = "SELECT * FROM sanpham".$sql;
+                                $query = "SELECT * FROM sanpham s join sizecuasanpham sz on s.MASP = sz.MASP".$sql;
 
                                 $result = $conn->query($query);
                                     if ($result->num_rows > 0) {
@@ -169,8 +169,8 @@
                                         <div class="info">
                                             <h4 class="product-title"><a href="#" class="pr-name"><?php echo $row['TENSP'] ?></a></h4>
                                             <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']) ?> đ</span></ins>
-                                                <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']+10000) ?> đ</span></del>
+                                                <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIASP']) ?> đ</span></ins>
+                                                <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIASP']+10000) ?> đ</span></del>
                                             </div>
                                             <!-- <div class="shipping-info">
                                                 <p class="shipping-day">3-Day Shipping</p>
@@ -180,7 +180,7 @@
                                                 <div class="buttons">
                                                     <a href="#" style="padding: 10px 5px !important; margin-right: 5px !important;" class="btn add-to-cart-btn">đặt hàng ngay</a>
                                                     <a href="#" style="padding: 0 !important; width: 10px !important;" class="btn"></a>
-                                                    <a href="#" style="padding: 10px 5px !important; " class="btn add-to-cart-btn">thêm vào giỏ</a>
+                                                    <a href="themvaogiohang.php?from=index&pdid=<?php echo $row['MASP'] ?>&size=<?php echo $row['MASIZE'] ?>&qty12554=1" style="padding: 10px 5px !important; " class="btn add-to-cart-btn">thêm vào giỏ</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -196,9 +196,9 @@
                             </ul>
                         </div>
 
+                        
                         <div class="biolife-panigations-block">
                             <ul class="panigation-contain">
-                                <li><a href="#" class="link-page next"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
                                 <?php
                                      // Tính số trang dựa trên tổng số sản phẩm
                                     $q = "SELECT COUNT(*) AS total FROM sanpham";
@@ -216,7 +216,6 @@
                                         echo '<li><a href="?page='.$i.'" class="'. $active_class .'">'.$i.'</a></li>';
                                     }
                                 ?>
-                                <li><a href="#" class="link-page next"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
 

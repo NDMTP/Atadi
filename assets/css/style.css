@@ -73,6 +73,10 @@ body{
     word-wrap: break-word;
 }
 
+input[type="radio"] {
+    background-color: rgb(255, 115, 0);
+  }
+
 label{
     font-weight: 400;
     color: #333333;
@@ -155,7 +159,7 @@ input[type="search"]::placeholder{
 select{
     background: transparent;
     border: none;
-    color: #ffffff;
+    color: #000;
 }
 select option{
     color: #333333;
@@ -176,7 +180,7 @@ select option{
     content: "\f0d7";
     font-family: 'FontAwesome', sans-serif;
     font-size: 12px;
-    color: #ffffff;
+    color: #000;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     border: none;
@@ -203,7 +207,7 @@ select option{
     transform: rotate( -180deg );
 }
 .nice-select .current{
-    color: #ffffff;
+    color: #000;
     display: inline-block;
     padding: 14px 0;
 }
@@ -4371,16 +4375,16 @@ body.open-overlay #overlay{
 .sumary-product .action-form .buttons .buy-now-btn{
     margin-top: 10px;
     font-size: 15px;
-    line-height: 24px;
+    line-height: 22px;
     border: 2px solid #ff9702 !important;
     background-color: white;
     color: #ff9702;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
     display: block;
     border-radius: 999px;
     border: none;
-    padding: 12px 10px 11px;
+    padding: 8px 10px 8px !important;
 }
 .sumary-product .action-form .buttons .buy-now-btn:hover{
     background-color: whitesmoke;
@@ -10717,7 +10721,7 @@ body.open-quickview-block .biolife-quickview-block{
     text-align: left;
 }
 .sumary-product .product-attribute .price+div:not(.product-atts):not(.no-border-top){
-    border-top: 1px solid #e6e6e6;
+    /* border-top: 1px solid #e6e6e6; */
     margin-top: 20px;
     padding-top: 20px;
 }
