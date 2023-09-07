@@ -1,6 +1,8 @@
 <?php
 
 session_start();
+if(isset($_GET['size'])){
+    
 // Hàm thêm sản phẩm vào giỏ hàng
 function addToCart($product) {
     if (!isset($_SESSION['cart'])) {
@@ -47,12 +49,13 @@ $productToAdd = array(
 
 if (isset($_SESSION["lname"])){
     addToCart($productToAdd);
-    header('Location: product-detail.php?id='.$pdid.'&added=1');
+    header('Location: index.php');
 
 } else {
     header('Location: login.php?login=1');
 }
 
 
+}
 
 ?>
