@@ -5,7 +5,7 @@
                 <a href="index.php" class="biolife-logo"><img src="assets/images/organic-4.png" alt="biolife logo"
                         width="135" height="36"></a>
             </div>
-            <div class="col-lg-7 col-md-7 hidden-sm hidden-xs m-2">
+            <div class="col-lg-5 col-md-5 hidden-sm hidden-xs m-2">
                 <div class="primary-menu">
                     <ul class="menu biolife-menu clone-main-menu clone-primary-menu" id="primary-menu"
                         data-menuname="main menu">
@@ -100,6 +100,14 @@
                     </ul>
                 </div>
             </div>
+            <div class="col-lg-2 col-md-2 hidden-sm hiddn-xs" style="margin-right: -20px;">
+                <div class="header-search-bar layout-01 no-product-cat">
+                    <form action="category-grid.php" class="form-search" name="desktop-seacrh" method="get">
+                        <input type="text" name="search" class="input-text" value="" placeholder="Bạn đang tìm gì...">
+                        <button type="submit" class="btn-submit"><i class="biolife-icon icon-search"></i></button>
+                    </form>
+                </div>
+            </div>
             <div class="col-lg-1 col-md1 col-xs-3">
                 <div class="biolife-cart-info">
                     <div class="mobile-search">
@@ -124,6 +132,7 @@
                             </form>
                         </div>
                     </div>
+                   
                     <?php
                         if (isset($_SESSION['email'])){
                     ?>
@@ -257,7 +266,6 @@
                     ?>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

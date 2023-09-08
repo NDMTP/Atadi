@@ -123,6 +123,10 @@
                                 $offset = ($current_page - 1) * $productsPerPage;
 
                                 $sql = " WHERE sz.MASIZE in ('Vừa','M','Combo') ";
+                                if (isset($_GET['search'])){
+                                    $s = $_GET['search'];
+                                    $sql .= " AND TENSP like '%".$s."%'";
+                                }
                                 if (isset($_GET['loai']) && $_GET['loai'] != "all"){
                                     $sql = $sql." AND MALOAI = ".$_GET['loai'];
                                 }

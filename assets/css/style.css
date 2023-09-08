@@ -2432,10 +2432,10 @@ body.open-mobile-search .header-area.layout-02{
     font-size: 14px;
     color: #222222;
     border: 2px solid #dddddd;
-    width: 500px;
+    /* width: 500px; */
     display: inline-block;
     border-radius: 99999px;
-    padding: 10px 240px 10px 20px;
+    /* padding: 10px 240px 10px 20px; */
 }
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .header-search-bar.layout-01 .input-text {
@@ -2481,7 +2481,7 @@ body.open-mobile-search .header-area.layout-02{
     color: #888888;
 }
 .header-search-bar.layout-01 .nice-select .current{
-    width: 103px;
+    width: 70px;
     text-align: right;
 }
 .header-search-bar.layout-01.no-product-cat .btn-submit{
@@ -2492,7 +2492,7 @@ body.open-mobile-search .header-area.layout-02{
     border-left: none;
 }
 .header-search-bar.layout-01.no-product-cat .input-text{
-    padding-right: 60px;
+    /* padding-right: 60px; */
 }
 .header-area .live-info {
     display: inline-block;
