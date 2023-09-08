@@ -371,7 +371,7 @@
                                         <div class="text-content">
                                             <i class="first-line">Món Hàn</i>
                                             <h3 class="second-line">Gà sốt cay</h3>
-                                            <p class="third-line">A blend of freshly squeezed green apple & fruits</p>
+                                            <p class="third-line">Thịt gà tươi ngon, 100% nguyên liệu tươi sạch</p>
                                             <p class="buttons">
                                                 <a href="#" class="btn btn-bold">Shop now</a>
                                                 <a href="#" class="btn btn-thin">View lookbook</a>
