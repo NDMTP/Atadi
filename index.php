@@ -4,13 +4,13 @@
 <?php 
     require 'head.php' ;
     require 'connect.php';    
-    // require 'popup_themthanhcong.php';
+    require 'popup_themthanhcong.php';
 ?>
 
 <body class="biolife-body">
 
     <!-- Preloader -->
-    <div id="biof-loading">
+    <!-- <div id="biof-loading">
         <div class="biof-loading-center">
             <div class="biof-loading-center-absolute">
                 <div class="dot dot-one"></div>
@@ -18,7 +18,7 @@
                 <div class="dot dot-three"></div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- HEADER -->
     <?php

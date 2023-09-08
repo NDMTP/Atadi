@@ -49,7 +49,15 @@ $productToAdd = array(
 
 if (isset($_SESSION["lname"])){
     addToCart($productToAdd);
-    header('Location: index.php');
+    if (isset($_GET["sb_giohang"])){
+        header('Location: product-detail.php?id='.$pdid.'&added=1');
+    } 
+    if (isset($_GET["sb_cate"])){
+        header('Location: category-grid.php?added=1');
+    }
+    else {
+        header('Location: index.php?added=1');
+    }
 
 } else {
     header('Location: login.php?login=1');
