@@ -169,7 +169,7 @@
                         const submitButton = event.submitter;
 
                         if (submitButton.name === "sb_giohang") {
-                            this.action = "themvaogiohang.php?from=pd"; // Thay đổi trang khi nhấp nút "Submit for Page 1"
+                            this.action = "themvaogiohang.php?sb_giohang"; // Thay đổi trang khi nhấp nút "Submit for Page 1"
                         } else if (submitButton.name === "sb_dathang") {
                             this.action = "thanhtoan.php"; // Thay đổi trang khi nhấp nút "Submit for Page 2"
                         }

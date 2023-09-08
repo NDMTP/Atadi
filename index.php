@@ -359,7 +359,7 @@
                                             <p class="third-line">Sợi mì 100% từ Hàn, bò được nhập khẩu từ Mỹ, với uy
                                                 tín chất lượng lên hàng đầu</p>
                                             <p class="buttons">
-                                                <a href="#" class="btn btn-bold">Đặt hàng ngay</a>
+                                                <!-- <a href="#" class="btn btn-bold">Đặt hàng ngay</a> -->
                                                 <a href="#" class="btn btn-thin">Xem chi tiết</a>
                                             </p>
                                         </div>
@@ -645,9 +645,9 @@
                                                 </div>
                                                 <div class="slide-down-box">
                                                     <div class="buttons">
-                                                        <a href="#"
+                                                        <!-- <a href="#"
                                                             style="padding: 10px 5px !important; margin-right: 5px !important;"
-                                                            class="btn add-to-cart-btn">đặt hàng ngay</a>
+                                                            class="btn add-to-cart-btn">đặt hàng ngay</a> -->
                                                         <a href="#"
                                                             style="padding: 0 !important; width: 10px !important;"
                                                             class="btn"></a>
@@ -709,9 +709,9 @@
                                                 <div class="slide-down-box">
 
                                                     <div class="buttons">
-                                                        <a href="#"
+                                                        <!-- <a href="#"
                                                             style="padding: 10px 5px !important; margin-right: 5px !important;"
-                                                            class="btn add-to-cart-btn">đặt hàng ngay</a>
+                                                            class="btn add-to-cart-btn">đặt hàng ngay</a> -->
                                                         <a href="#"
                                                             style="padding: 0 !important; width: 10px !important;"
                                                             class="btn"></a>
@@ -772,9 +772,9 @@
                                                 <div class="slide-down-box">
 
                                                     <div class="buttons">
-                                                        <a href="#"
+                                                        <!-- <a href="#"
                                                             style="padding: 10px 5px !important; margin-right: 5px !important;"
-                                                            class="btn add-to-cart-btn">đặt hàng ngay</a>
+                                                            class="btn add-to-cart-btn">đặt hàng ngay</a> -->
                                                         <a href="#"
                                                             style="padding: 0 !important; width: 10px !important;"
                                                             class="btn"></a>
@@ -910,9 +910,9 @@
                                             <div class="slide-down-box">
 
                                                 <div class="buttons">
-                                                    <a href="#"
+                                                    <!-- <a href="#"
                                                         style="padding: 10px 5px !important; margin-right: 5px !important;"
-                                                        class="btn add-to-cart-btn">đặt hàng ngay</a>
+                                                        class="btn add-to-cart-btn">đặt hàng ngay</a> -->
                                                     <a href="#" style="padding: 0 !important; width: 10px !important;"
                                                         class="btn"></a>
                                                     <a href="themvaogiohang.php?from=index&pdid=<?php echo $row['MASP'] ?>&size=<?php echo $row['MASIZE'] ?>&qty12554=1"
