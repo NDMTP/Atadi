@@ -24,7 +24,7 @@
     <?php
         include "header.php";
     ?>
-  
+
     <!-- Page Contain -->
     <div class="page-contain">
 
@@ -617,36 +617,50 @@
                                                 // Loại bỏ các kí tự số khỏi chuỗi
                                                 $masp = preg_replace('/[0-9]/', '', $string);
                                     ?>
-                                        <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                            <div class="contain-product layout-default">
-                                                <div class="image-container">
-                                                    <div class="product-thumb">
-                                                        <a href="product-detail.php?id=<?php echo $row['MASP'] ?>" class="link-to-product">
-                                                            <img class="fit-image" src="assets/images/products/<?php echo $masp ?>/<?php echo $row['LINKANH'] ?>" alt="dd" width="270" height="270" class="product-thumnail">
-                                                        </a>
-                                                    </div>
+                                    <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                                        <div class="contain-product layout-default">
+                                            <div class="image-container">
+                                                <div class="product-thumb">
+                                                    <a href="product-detail.php?id=<?php echo $row['MASP'] ?>"
+                                                        class="link-to-product">
+                                                        <img class="fit-image"
+                                                            src="assets/images/products/<?php echo $masp ?>/<?php echo $row['LINKANH'] ?>"
+                                                            alt="dd" width="270" height="270" class="product-thumnail">
+                                                    </a>
                                                 </div>
-                                                <div class="info">
-                                                    <h4 class="product-title"><a href="#" class="pr-name"><?php echo $row['TENSP'] ?></a></h4>
-                                                    <div class="price">
-                                                        <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIASP']) ?> đ</span></ins>
-                                                        <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIASP']+10000) ?> đ</span></del>
-                                                    </div>
-                                                    <div class="shipping-info" style="margin-top: 15px;">
-                                                        <p class="shipping-day">Sản phẩm đặc sắc</p>
-                                                    </div>
-                                                    <div class="slide-down-box">
-                                                        <div class="buttons">
-                                                            <a href="#" style="padding: 10px 5px !important; margin-right: 5px !important;" class="btn add-to-cart-btn">đặt hàng ngay</a>
-                                                            <a href="#" style="padding: 0 !important; width: 10px !important;" class="btn"></a>
-                                                            <a href="themvaogiohang.php?from=index&pdid=<?php echo $row['MASP'] ?>&size=<?php echo $row['MASIZE'] ?>&qty12554=1" 
-                                                                style="padding: 10px 5px !important; " class="btn add-to-cart-btn">thêm vào giỏ</a>
-                                                        </div>
+                                            </div>
+                                            <div class="info">
+                                                <h4 class="product-title"><a href="#"
+                                                        class="pr-name"><?php echo $row['TENSP'] ?></a></h4>
+                                                <div class="price">
+                                                    <ins><span class="price-amount"><span
+                                                                class="currencySymbol"></span><?php echo number_format($row['DONGIASP']) ?>
+                                                            đ</span></ins>
+                                                    <del><span class="price-amount"><span
+                                                                class="currencySymbol"></span><?php echo number_format($row['DONGIASP']+10000) ?>
+                                                            đ</span></del>
+                                                </div>
+                                                <div class="shipping-info" style="margin-top: 15px;">
+                                                    <p class="shipping-day">Sản phẩm đặc sắc</p>
+                                                </div>
+                                                <div class="slide-down-box">
+                                                    <div class="buttons">
+                                                        <a href="#"
+                                                            style="padding: 10px 5px !important; margin-right: 5px !important;"
+                                                            class="btn add-to-cart-btn">đặt hàng ngay</a>
+                                                        <a href="#"
+                                                            style="padding: 0 !important; width: 10px !important;"
+                                                            class="btn"></a>
+                                                        <a name="sb"
+                                                            href="themvaogiohang.php?from=index&pdid=<?php echo $row['MASP'] ?>&size=<?php echo $row['MASIZE'] ?>&qty12554=1"
+                                                            style="padding: 10px 5px !important; "
+                                                            class="btn add-to-cart-btn">thêm vào giỏ</a>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </li>
-                                        <?php  }} ?>
+                                        </div>
+                                    </li>
+                                    <?php  }} ?>
                                 </ul>
                             </div>
                             <!-- line 2======================================-->
@@ -666,36 +680,50 @@
                                                 // Loại bỏ các kí tự số khỏi chuỗi
                                                 $masp = preg_replace('/[0-9]/', '', $string);
                                     ?>
-                                        <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                            <div class="contain-product layout-default">
-                                                <div class="image-container">
-                                                    <div class="product-thumb">
-                                                        <a href="product-detail.php?id=<?php echo $row['MASP'] ?>" class="link-to-product">
-                                                            <img class="fit-image" src="assets/images/products/<?php echo $masp ?>/<?php echo $row['LINKANH'] ?>" alt="dd" width="270" height="270" class="product-thumnail">
-                                                        </a>
-                                                    </div>
+                                    <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                                        <div class="contain-product layout-default">
+                                            <div class="image-container">
+                                                <div class="product-thumb">
+                                                    <a href="product-detail.php?id=<?php echo $row['MASP'] ?>"
+                                                        class="link-to-product">
+                                                        <img class="fit-image"
+                                                            src="assets/images/products/<?php echo $masp ?>/<?php echo $row['LINKANH'] ?>"
+                                                            alt="dd" width="270" height="270" class="product-thumnail">
+                                                    </a>
                                                 </div>
-                                                <div class="info">
-                                                    <h4 class="product-title"><a href="#" class="pr-name"><?php echo $row['TENSP'] ?></a></h4>
-                                                    <div class="price">
-                                                        <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIASP']) ?> đ</span></ins>
-                                                        <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIASP']+10000) ?> đ</span></del>
-                                                    </div>
-                                                    <div class="shipping-info">
-                                                        <p class="for-today">Sản phẩm bán chạy</p>
-                                                    </div>
-                                                    <div class="slide-down-box">
-                                                        
-                                                        <div class="buttons">
-                                                            <a href="#" style="padding: 10px 5px !important; margin-right: 5px !important;" class="btn add-to-cart-btn">đặt hàng ngay</a>
-                                                            <a href="#" style="padding: 0 !important; width: 10px !important;" class="btn"></a>
-                                                            <a href="themvaogiohang.php?from=index&pdid=<?php echo $row['MASP'] ?>&size=<?php echo $row['MASIZE'] ?>&qty12554=1" style="padding: 10px 5px !important; " class="btn add-to-cart-btn">thêm vào giỏ</a>
-                                                        </div>
+                                            </div>
+                                            <div class="info">
+                                                <h4 class="product-title"><a href="#"
+                                                        class="pr-name"><?php echo $row['TENSP'] ?></a></h4>
+                                                <div class="price">
+                                                    <ins><span class="price-amount"><span
+                                                                class="currencySymbol"></span><?php echo number_format($row['DONGIASP']) ?>
+                                                            đ</span></ins>
+                                                    <del><span class="price-amount"><span
+                                                                class="currencySymbol"></span><?php echo number_format($row['DONGIASP']+10000) ?>
+                                                            đ</span></del>
+                                                </div>
+                                                <div class="shipping-info">
+                                                    <p class="for-today">Sản phẩm bán chạy</p>
+                                                </div>
+                                                <div class="slide-down-box">
+
+                                                    <div class="buttons">
+                                                        <a href="#"
+                                                            style="padding: 10px 5px !important; margin-right: 5px !important;"
+                                                            class="btn add-to-cart-btn">đặt hàng ngay</a>
+                                                        <a href="#"
+                                                            style="padding: 0 !important; width: 10px !important;"
+                                                            class="btn"></a>
+                                                        <a href="themvaogiohang.php?from=index&pdid=<?php echo $row['MASP'] ?>&size=<?php echo $row['MASIZE'] ?>&qty12554=1"
+                                                            style="padding: 10px 5px !important; "
+                                                            class="btn add-to-cart-btn">thêm vào giỏ</a>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </li>
-                                        <?php  }} ?>
+                                        </div>
+                                    </li>
+                                    <?php  }} ?>
                                 </ul>
                             </div>
                             <!-- line 3=========================== -->
@@ -715,36 +743,50 @@
                                                 // Loại bỏ các kí tự số khỏi chuỗi
                                                 $masp = preg_replace('/[0-9]/', '', $string);
                                     ?>
-                                        <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                            <div class="contain-product layout-default">
-                                                <div class="image-container">
-                                                    <div class="product-thumb">
-                                                        <a href="product-detail.php?id=<?php echo $row['MASP'] ?>" class="link-to-product">
-                                                            <img class="fit-image" src="assets/images/products/<?php echo $masp ?>/<?php echo $row['LINKANH'] ?>" alt="dd" width="270" height="270" class="product-thumnail">
-                                                        </a>
-                                                    </div>
+                                    <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                                        <div class="contain-product layout-default">
+                                            <div class="image-container">
+                                                <div class="product-thumb">
+                                                    <a href="product-detail.php?id=<?php echo $row['MASP'] ?>"
+                                                        class="link-to-product">
+                                                        <img class="fit-image"
+                                                            src="assets/images/products/<?php echo $masp ?>/<?php echo $row['LINKANH'] ?>"
+                                                            alt="dd" width="270" height="270" class="product-thumnail">
+                                                    </a>
                                                 </div>
-                                                <div class="info">
-                                                    <h4 class="product-title"><a href="#" class="pr-name"><?php echo $row['TENSP'] ?></a></h4>
-                                                    <div class="price">
-                                                        <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIASP']) ?> đ</span></ins>
-                                                        <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIASP']+10000) ?> đ</span></del>
-                                                    </div>
-                                                    <div class="shipping-info">
-                                                        <p class="shipping-day">Sản phẩm khuyến mãi</p>
-                                                    </div>
-                                                    <div class="slide-down-box">
-                                                        
-                                                        <div class="buttons">
-                                                            <a href="#" style="padding: 10px 5px !important; margin-right: 5px !important;" class="btn add-to-cart-btn">đặt hàng ngay</a>
-                                                            <a href="#" style="padding: 0 !important; width: 10px !important;" class="btn"></a>
-                                                            <a href="themvaogiohang.php?from=index&pdid=<?php echo $row['MASP'] ?>&size=<?php echo $row['MASIZE'] ?>&qty12554=1" style="padding: 10px 5px !important; " class="btn add-to-cart-btn">thêm vào giỏ</a>
-                                                        </div>
+                                            </div>
+                                            <div class="info">
+                                                <h4 class="product-title"><a href="#"
+                                                        class="pr-name"><?php echo $row['TENSP'] ?></a></h4>
+                                                <div class="price">
+                                                    <ins><span class="price-amount"><span
+                                                                class="currencySymbol"></span><?php echo number_format($row['DONGIASP']) ?>
+                                                            đ</span></ins>
+                                                    <del><span class="price-amount"><span
+                                                                class="currencySymbol"></span><?php echo number_format($row['DONGIASP']+10000) ?>
+                                                            đ</span></del>
+                                                </div>
+                                                <div class="shipping-info">
+                                                    <p class="shipping-day">Sản phẩm khuyến mãi</p>
+                                                </div>
+                                                <div class="slide-down-box">
+
+                                                    <div class="buttons">
+                                                        <a href="#"
+                                                            style="padding: 10px 5px !important; margin-right: 5px !important;"
+                                                            class="btn add-to-cart-btn">đặt hàng ngay</a>
+                                                        <a href="#"
+                                                            style="padding: 0 !important; width: 10px !important;"
+                                                            class="btn"></a>
+                                                        <a href="themvaogiohang.php?from=index&pdid=<?php echo $row['MASP'] ?>&size=<?php echo $row['MASIZE'] ?>&qty12554=1"
+                                                            style="padding: 10px 5px !important; "
+                                                            class="btn add-to-cart-btn">thêm vào giỏ</a>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </li>
-                                        <?php  }} ?>
+                                        </div>
+                                    </li>
+                                    <?php  }} ?>
 
                                 </ul>
                             </div>
@@ -760,12 +802,14 @@
                 <div class="row">
                     <div class="col-lg-4 sm-margin-top-60px ">
                         <div class="row">
-                            <div class="col-lg-12 col-md-4 col-sm-6 col-xs-12 xs-margin-top-30px sm-margin-top-0 lg-margin-top-30px">
+                            <div
+                                class="col-lg-12 col-md-4 col-sm-6 col-xs-12 xs-margin-top-30px sm-margin-top-0 lg-margin-top-30px">
                                 <div class="biolife-banner style-06 biolife-banner__style-06">
                                     <div class="banner-contain">
                                         <div class="media">
-                                            <a href="product-detail.php?id=MC6" class="bn-link"><img src="assets/images/products/p-33.jpg"
-                                                    width="400" height="400" alt=""></a>
+                                            <a href="product-detail.php?id=MC6" class="bn-link"><img
+                                                    src="assets/images/products/p-33.jpg" width="400" height="400"
+                                                    alt=""></a>
                                         </div>
                                         <div class="text-content"
                                             style="background-color: rgba(255,255,255,0.6); padding: 20px; margin-top: 20px;">
@@ -777,12 +821,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12 col-md-4 col-sm-6 col-xs-12 xs-margin-top-30px sm-margin-top-0 lg-margin-top-30px">
+                            <div
+                                class="col-lg-12 col-md-4 col-sm-6 col-xs-12 xs-margin-top-30px sm-margin-top-0 lg-margin-top-30px">
                                 <div class="biolife-banner style-06 biolife-banner__style-06">
                                     <div class="banner-contain">
                                         <div class="media">
-                                            <a href="product-detail.php?id=L4" class="bn-link"><img src="assets/images/products/p-31.jpg"
-                                                    width="400" height="400" alt=""></a>
+                                            <a href="product-detail.php?id=L4" class="bn-link"><img
+                                                    src="assets/images/products/p-31.jpg" width="400" height="400"
+                                                    alt=""></a>
                                         </div>
                                         <div class="text-content"
                                             style="background-color: rgba(255,255,255,0.6); padding: 20px; margin-top: 20px;">
@@ -794,12 +840,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12 col-md-4 col-sm-6 col-xs-12 xs-margin-top-60px sm-margin-top-30 lg-margin-top-60px">
+                            <div
+                                class="col-lg-12 col-md-4 col-sm-6 col-xs-12 xs-margin-top-60px sm-margin-top-30 lg-margin-top-60px">
                                 <div class="biolife-banner style-06 biolife-banner__style-06">
                                     <div class="banner-contain">
                                         <div class="media">
-                                            <a href="product-detail.php?id=MC6" class="bn-link"><img src="assets/images/products/p-40.jpg"
-                                                    width="400" height="400" alt=""></a>
+                                            <a href="product-detail.php?id=MC6" class="bn-link"><img
+                                                    src="assets/images/products/p-40.jpg" width="400" height="400"
+                                                    alt=""></a>
                                         </div>
                                         <div class="text-content"
                                             style="background-color: rgba(255,255,255,0.6); padding: 20px; margin-top: 20px;">
@@ -860,11 +908,16 @@
 
                                             </div>
                                             <div class="slide-down-box">
-                                                
+
                                                 <div class="buttons">
-                                                    <a href="#" style="padding: 10px 5px !important; margin-right: 5px !important;" class="btn add-to-cart-btn">đặt hàng ngay</a>
-                                                    <a href="#" style="padding: 0 !important; width: 10px !important;" class="btn"></a>
-                                                    <a href="themvaogiohang.php?from=index&pdid=<?php echo $row['MASP'] ?>&size=<?php echo $row['MASIZE'] ?>&qty12554=1" style="padding: 10px 5px !important; " class="btn add-to-cart-btn">thêm vào giỏ</a>
+                                                    <a href="#"
+                                                        style="padding: 10px 5px !important; margin-right: 5px !important;"
+                                                        class="btn add-to-cart-btn">đặt hàng ngay</a>
+                                                    <a href="#" style="padding: 0 !important; width: 10px !important;"
+                                                        class="btn"></a>
+                                                    <a href="themvaogiohang.php?from=index&pdid=<?php echo $row['MASP'] ?>&size=<?php echo $row['MASIZE'] ?>&qty12554=1"
+                                                        style="padding: 10px 5px !important; "
+                                                        class="btn add-to-cart-btn">thêm vào giỏ</a>
                                                 </div>
                                             </div>
                                         </div>
