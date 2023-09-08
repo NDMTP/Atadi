@@ -90,8 +90,8 @@ include "connect.php"
                                     </select>
                                 </p>
                                 <p class="form-row">
-                                    <label for="fid-note">Ghi chú:<span class="requite"></span></label>
-                                    <input type="text" id="fid-note" name="note"
+                                    <label for="fid-note">Ghi chú:*<span class="requite"></span></label>
+                                    <input required type="text" id="fid-note" name="note"
                                         value="" class="txt-input" placeholder="Số nhà, đường,...">
                                 </p>
                                 <div class="row" style="padding-bottom: 40px;">

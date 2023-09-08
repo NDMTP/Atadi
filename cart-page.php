@@ -139,9 +139,8 @@
                                         }
                                     ?>
                                         <tr class="cart_item wrap-buttons">
-                                            <td class="wrap-btn-control" colspan="4">
+                                            <td class="wrap-btn-control" colspan="5">
                                                 <a href="category-grid.php" class="btn back-to-shop">Mua thêm</a>
-                                                <button class="btn btn-update" type="submit">Cập nhật</button>
                                                 <a href="delete-cart.php" class="btn btn-clear" type="reset">xoá tất
                                                     cả</a>
                                             </td>
