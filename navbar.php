@@ -103,7 +103,7 @@
             <div class="col-lg-2 col-md-2 hidden-sm hiddn-xs" style="margin-right: -20px;">
                 <div class="header-search-bar layout-01 no-product-cat">
                     <form action="category-grid.php" class="form-search" name="desktop-seacrh" method="get">
-                        <input type="text" name="search" class="input-text" value="" placeholder="Bạn đang tìm gì...">
+                        <input type="text" name="search" class="input-text" value="<?php if(isset($_GET['search'])) echo $_GET['search'] ?>" placeholder="Bạn đang tìm gì...">
                         <button type="submit" class="btn-submit"><i class="biolife-icon icon-search"></i></button>
                     </form>
                 </div>
