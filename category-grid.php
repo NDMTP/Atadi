@@ -73,10 +73,7 @@
                                                 <option value="all">Loại</option>
                                                 <?php
                                                     $sql = "SELECT * FROM loaisanpham";
-                                                    if (isset($_GET['search'])){
-                                                        $s = $_GET['search'];
-                                                    } else $s = '';
-                                                    $sql .= " AND TENSP like '%".$s."%'";
+
                                                     $result = $conn->query($sql);
                                                         if ($result->num_rows > 0) {
                                                         $result = $conn->query($sql);
@@ -134,6 +131,8 @@
                                 $offset = ($current_page - 1) * $productsPerPage;
 
                                 $sql = " WHERE sz.MASIZE in ('Vừa','M','Combo') ";
+
+                                
                                 
                                 if (isset($_GET['loai']) && $_GET['loai'] != "all"){
                                     $sql = $sql." AND MALOAI = ".$_GET['loai'];
@@ -161,8 +160,13 @@
 
                                 $sql .= " AND TENSP like '%".$s."%'";
 
+                                
+                                if (isset($_GET['search'])){
+                                    $s = $_GET['search'];
+                                } else $s = '';
+                                $sql .= " AND TENSP like '%".$s."%'";   
+                                
                                 $sql = $sql." LIMIT $offset, $productsPerPage";
-
 
                                 $query = "SELECT * FROM sanpham s join sizecuasanpham sz on s.MASP = sz.MASP".$sql;
 
