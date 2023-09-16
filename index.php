@@ -61,15 +61,16 @@
                                                             <div class="wrap-custom-menu vertical-menu">
                                                                 <h4 class="menu-title">Mì cay</h4>
                                                                 <ul class="menu">
-                                                                    <li><a href="#"></a></li>
-                                                                    <li><a href="#">Mì Kimchi Bò</a></li>
-                                                                    <li><a href="#">Mì Kimchi Bò Úc</a></li>
-                                                                    <li><a href="#">Mì Kimchi Bò Mỹ</a></li>
-                                                                    <li><a href="#">Mì Kimchi Hào</a></li>
-                                                                    <li><a href="#">Mì Kimchi Bạch Tuộc</a></li>
-                                                                    <li><a href="#">Mì Kimchi Hải Sản</a></li>
-                                                                    <li><a href="#">Mì Tôm Tít</a></li>
-                                                                    <li><a href="#">Mì Ếch</a></li>
+                                                                <?php
+                                                    $sql = "SELECT * FROM sanpham where maloai='01'LIMIT 10";
+                                                    $result = $conn->query($sql);
+                                                        if ($result->num_rows > 0) {
+                                                        $result = $conn->query($sql);
+                                                        $result_all = $result -> fetch_all(MYSQLI_ASSOC);
+                                                        foreach ($result_all as $row) {
+                                                ?>
+                                                <li><a href="product-detail.php?id=<?php echo $row['MASP'] ?>"><?php echo $row['TENSP'] ?></a></li>
+                                                <?php }} ?>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -84,7 +85,7 @@
                                                                         <div class="contain-product none-overlay">
                                                                             <div class="product-thumb">
                                                                                 <a href="#" class="link-to-product">
-                                                                                    <img src="assets/images/products/p-08.png"
+                                                                                    <img src="assets/images/products/p-36.jpg"
                                                                                         alt="dd" width="270"
                                                                                         height="270"
                                                                                         class="product-thumnail">
@@ -92,16 +93,17 @@
                                                                             </div>
                                                                             <div class="info">
                                                                                 <b class="categories">Mì cay</b>
-                                                                                <h4 class="product-title"><a href="#"
+                                                                                <h4 class="product-title"><a href="product-detail.php?id=MC3"
                                                                                         class="pr-name">Mì Kimchi Bò
                                                                                         Mỹ</a></h4>
+                                                                                        
                                                                                 <div class="price">
                                                                                     <ins><span
                                                                                             class="price-amount"><span
-                                                                                                class="currencySymbol">đ</span>45.000</span></ins>
+                                                                                                class="currencySymbol">đ</span>59.000</span></ins>
                                                                                     <del><span
                                                                                             class="price-amount"><span
-                                                                                                class="currencySymbol">đ</span>55.000</span></del>
+                                                                                                class="currencySymbol">đ</span>69.000</span></del>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -110,7 +112,7 @@
                                                                         <div class="contain-product none-overlay">
                                                                             <div class="product-thumb">
                                                                                 <a href="#" class="link-to-product">
-                                                                                    <img src="assets/images/products/p-11.jpg"
+                                                                                    <img src="assets/images/products/MC/micay4.jpg"
                                                                                         alt="dd" width="270"
                                                                                         height="270"
                                                                                         class="product-thumnail">
@@ -118,16 +120,16 @@
                                                                             </div>
                                                                             <div class="info">
                                                                                 <b class="categories">Mì cay</b>
-                                                                                <h4 class="product-title"><a href="#"
+                                                                                <h4 class="product-title"><a href="product-detail.php?id=MC4"
                                                                                         class="pr-name">Mì Kimchi Bò
                                                                                         Úc</a></h4>
                                                                                 <div class="price">
                                                                                     <ins><span
                                                                                             class="price-amount"><span
-                                                                                                class="currencySymbol">đ</span>45.000</span></ins>
+                                                                                                class="currencySymbol">đ</span>59.000</span></ins>
                                                                                     <del><span
                                                                                             class="price-amount"><span
-                                                                                                class="currencySymbol">đ</span>95.000</span></del>
+                                                                                                class="currencySymbol">đ</span>69.000</span></del>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -136,7 +138,7 @@
                                                                         <div class="contain-product none-overlay">
                                                                             <div class="product-thumb">
                                                                                 <a href="#" class="link-to-product">
-                                                                                    <img src="assets/images/products/p-15.jpg"
+                                                                                    <img src="assets/images/products/MC/micay5.jpg"
                                                                                         alt="dd" width="270"
                                                                                         height="270"
                                                                                         class="product-thumnail">
@@ -144,7 +146,7 @@
                                                                             </div>
                                                                             <div class="info">
                                                                                 <b class="categories">Mì cay</b>
-                                                                                <h4 class="product-title"><a href="#"
+                                                                                <h4 class="product-title"><a href="product-detail.php?id=MC5"
                                                                                         class="pr-name">Mì Kimchi Hải
                                                                                         Sản</a></h4>
                                                                                 <div class="price">
@@ -262,15 +264,16 @@
                                                             <div class="wrap-custom-menu vertical-menu">
                                                                 <h4 class="menu-title">Lẩu</h4>
                                                                 <ul class="menu">
-                                                                    <li><a href="#">Lẩu Bò</a></li>
-                                                                    <li><a href="#">Lẩu Kimchi Bò</a></li>
-                                                                    <li><a href="#">Lẩu Kimchi Cá Hồi</a></li>
-                                                                    <li><a href="#">Lẩu Bò 5 Món</a></li>
-                                                                    <li><a href="#">Lẩu Kimchi Hải Sản</a></li>
-                                                                    <li><a href="#">Lẩu Kimchi Bạch Tuột</a></li>
-                                                                    <li><a href="#">Lẩu Kimchi 9 Tầng Mây</a></li>
-                                                                    <li><a href="#">Lẩu 18 Tầng</a></li>
-                                                                    <li><a href="#">Lẩu Tokbokki</a></li>
+                                                                <?php
+                                                    $sql = "SELECT * FROM sanpham where maloai='02'LIMIT 10";
+                                                    $result = $conn->query($sql);
+                                                        if ($result->num_rows > 0) {
+                                                        $result = $conn->query($sql);
+                                                        $result_all = $result -> fetch_all(MYSQLI_ASSOC);
+                                                        foreach ($result_all as $row) {
+                                                ?>
+                                                <li><a href="product-detail.php?id=<?php echo $row['MASP'] ?>"><?php echo $row['TENSP'] ?></a></li>
+                                                <?php }} ?>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -284,7 +287,7 @@
                                                                         <div class="contain-product none-overlay">
                                                                             <div class="product-thumb">
                                                                                 <a href="#" class="link-to-product">
-                                                                                    <img src="assets/images/products/p-32.jpg"
+                                                                                    <img src="assets/images/products/L/lau4.jpg"
                                                                                         alt="dd" width="270"
                                                                                         height="270"
                                                                                         class="product-thumnail">
@@ -292,13 +295,12 @@
                                                                             </div>
                                                                             <div class="info">
                                                                                 <b class="categories">Lẩu</b>
-                                                                                <h4 class="product-title"><a href="#"
-                                                                                        class="pr-name">Lẩu Kimchi
-                                                                                        Bò</a></h4>
+                                                                                <h4 class="product-title"><a href="product-detail.php?id=L4"
+                                                                                        class="pr-name">Lẩu Hai Ngăn</a></h4>
                                                                                 <div class="price">
                                                                                     <ins><span
                                                                                             class="price-amount"><span
-                                                                                                class="currencySymbol">đ</span>100.000</span></ins>
+                                                                                                class="currencySymbol">đ</span>149.000</span></ins>
 
                                                                                 </div>
                                                                             </div>
@@ -312,35 +314,34 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        <li class="menu-item"><a href="#" class="menu-name" data-title="Ocean Foods"><i
-                                                    class="biolife-icon icon-fish"></i>Mì trộn</a></li>
+                                        <li class="menu-item"><a href="category-grid.php?gia=&loai=03&search=#" class="menu-name" data-title="Ocean Foods"><i
+                                                    class="biolife-icon icon-fish"></i>Miến trộn</a></li>
                                         <li class="menu-item menu-item-has-children has-child">
                                             <a href="#" class="menu-name" data-title="Butter & Eggs"><i
                                                     class="biolife-icon icon-honey"></i>Món Hàn</a>
                                             <ul class="sub-menu">
-                                                <li class="menu-item"><a href="#">Gà sốt bơ</a></li>
-                                                <li class="menu-item"><a href="#">Gà sốt mật ong</a></li>
-                                                <li class="menu-item"><a href="#">Gà sốt cay</a></li>
-                                                <li class="menu-item"><a href="#">Gà cay phô mai</a></li>
-                                                <li class="menu-item"><a href="#">Kimbap</a></li>
-                                                <li class="menu-item"><a href="#">Bánh gạo cay</a></li>
-                                                <li class="menu-item"><a href="#">Bánh gạo gà cay</a></li>
-                                                <li class="menu-item"><a href="#">Bánh gạo lắc phô mai</a></li>
-                                                <li class="menu-item"><a href="#">Bánh bạch tuộc</a></li>
+                                            <?php
+                                                    $sql = "SELECT * FROM sanpham where maloai='04'LIMIT 10";
+                                                    $result = $conn->query($sql);
+                                                        if ($result->num_rows > 0) {
+                                                        $result = $conn->query($sql);
+                                                        $result_all = $result -> fetch_all(MYSQLI_ASSOC);
+                                                        foreach ($result_all as $row) {
+                                                ?>
+                                                <li><a href="product-detail.php?id=<?php echo $row['MASP'] ?>"><?php echo $row['TENSP'] ?></a></li>
+                                                <?php }} ?>
                                             </ul>
                                         </li>
-                                        <li class="menu-item"><a href="#" class="menu-title"><i
+                                        <li class="menu-item"><a href="category-grid.php?gia=&loai=05&search=#" class="menu-title"><i
                                                     class="biolife-icon icon-fast-food"></i>Cơm trộn</a></li>
-                                        <li class="menu-item"><a href="#" class="menu-title"><i
-                                                    class="biolife-icon icon-beef"></i>Nước ép</a></li>
-                                        <li class="menu-item"><a href="#" class="menu-title"><i
+                                        
+                                        <li class="menu-item"><a href="category-grid.php?gia=&loai=07&search=#" class="menu-title"><i
                                                     class="biolife-icon icon-onions"></i>Nước giải khát</a></li>
-                                        <li class="menu-item"><a href="#" class="menu-title"><i
+                                        <li class="menu-item"><a href="category-grid.php?gia=&loai=08&search=#" class="menu-title"><i
                                                     class="biolife-icon icon-avocado"></i>Nướng</a></li>
-                                        <li class="menu-item"><a href="#" class="menu-title"><i
+                                        <li class="menu-item"><a href="category-grid.php?gia=&loai=09&search=#" class="menu-title"><i
                                                     class="biolife-icon icon-contain"></i>SuShi</a></li>
-                                        <li class="menu-item"><a href="#" class="menu-title"><i
-                                                    class="biolife-icon icon-fresh-juice"></i>Trà sữa</a></li>
+                                        
                                     </ul>
                                 </div>
                             </div>
