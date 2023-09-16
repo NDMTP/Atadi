@@ -79,15 +79,36 @@ include "connect.php"
                                         echo '</table>';
                                     }
                                 ?>
-                                <div style="text-align: right;">
-                                    <h4>Tổng tiền: <span
-                                            style="font-weight: bold;"><?php echo number_format($tongtien) ?> đ</span>
-                                    </h4>
-                                    <h4>Phí ship: <span
-                                            style="font-weight: bold;"><?php echo number_format($row['PHIGIAO']) ?>
-                                            đ</span></h4>
-                                    <hr>
-
+                                <div class="row" style="padding: 0 10px">
+                                    <div class="col-6">
+                                        <span style="color: red;">
+                                            * Phương thức thanh toán:
+                                        </span>
+                                        <br>
+                                        <select name="payment" id="" required>
+                                            <option value="" disabled selected>- Chọn phương thức -</option>
+                                            <?php
+                                                $sql = "select * from phuongthuctt";
+                                                $rs = $conn->query($sql);
+                                                $rsa = $rs -> fetch_all(MYSQLI_ASSOC);
+                                                foreach ($rsa as $pt) {
+                                                    echo '<option value="'.$pt['MAPT'].'">'.$pt['TENPT'].'</option>';
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="col-6">
+                                        <div style="text-align: right;">
+                                            <h4>Tổng tiền: <span
+                                                    style="font-weight: bold;"><?php echo number_format($tongtien) ?> đ</span>
+                                            </h4>
+                                            <h4>Phí ship: <span
+                                                    style="font-weight: bold;"><?php echo number_format($row['PHIGIAO']) ?>
+                                                    đ</span></h4>
+                                            <hr>
+        
+                                        </div>
+                                    </div>
                                 </div>
                                 <input type="hidden" name="khuvuc" value="<?php echo $row['MAKHUVUC'] ?>">
                                 <input type="hidden" name="phigiao" value="<?php echo $row['PHIGIAO'] ?>">
@@ -95,7 +116,7 @@ include "connect.php"
 
                                 <div class="row" style="padding-bottom: 40px;">
                                     <div style="text-align: center;" class="col-12">
-                                        <h3>Tổng thiệt hại: <span
+                                        <h3>Tổng tiền: <span
                                                 style="font-weight: bold;"><?php echo number_format($tongtien+$row['PHIGIAO']) ?>
                                                 đ</span></h3>
                                         <button class="dathang"
@@ -124,7 +145,7 @@ include "connect.php"
     <script src="assets/js/jquery-3.4.1.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.countdown.min.js"></script>
-    <!-- <script src="assets/js/jquery.nice-select.min.js"></script> -->
+    <script src="assets/js/jquery.nice-select.min.js"></script>
     <script src="assets/js/jquery.nicescroll.min.js"></script>
     <script src="assets/js/slick.min.js"></script>
     <script src="assets/js/biolife.framework.js"></script>

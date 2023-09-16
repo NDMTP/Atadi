@@ -53,5 +53,6 @@ foreach ($_SESSION['cart_temp'] as $item) {
         $tong = $tong + ($item['quant'] * $row['DONGIASP']);
     } 
 }
+$_SESSION['temptotal'] = $tong;
  echo number_format($tong);
 ?>

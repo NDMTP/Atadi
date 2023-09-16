@@ -8,10 +8,12 @@
     $row = $result->fetch_assoc();
     $nextId = $row['maxid']+1;
 
+    $payment = $_POST['payment'];
+
     $ok=0;
 
     // // Tạo hoá đơn
-    $addBill = "insert into hoadon values($nextId, '{$_SESSION['email']}', sysdate(), 'Chưa thanh toán')";
+    $addBill = "insert into hoadon values($nextId, '{$_SESSION['email']}', null, $payment, sysdate(), 0)";
     if($conn->query($addBill)) $ok=1;
 
     // Tạo chi tiết hoá đơn

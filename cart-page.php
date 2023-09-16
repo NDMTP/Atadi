@@ -175,9 +175,16 @@
                                 </div>
                                 <form action="thongtinmuahang.php" method="get">
 
-                                    <div class="subtotal-line"><b class="stt-name">Quận <br><span
-                                                style="color: red !important;" class="sub">(*Chỉ giao trong các quận
-                                                sau:)</span></span></b></div>
+                                    <?php
+                                        $sql = "select * from khuyenmai where ";
+                                    ?>
+                                    <div class="subtotal-line"><b class="stt-name">Giảm giá <br>
+                                        <span style="color: red !important;" class="sub">Áp dụng cho hoá đơn trên <span id="tong1">0 đ</span></span></b>
+                                    </div>
+
+                                    <div class="subtotal-line"><b class="stt-name">Quận <br>
+                                        <span style="color: red !important;" class="sub">(*Chỉ giao trong các quận sau:)</span></b>
+                                    </div>
 
                                     <div>
                                         <div style="width: 100% !important;" class="form_combobox w-100">
@@ -191,9 +198,8 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div id="phuong">
 
-                                    </div>
+
                                     <script>
                                     document.addEventListener("DOMContentLoaded", function() {
                                         const areaSelect = document.getElementById("areaSelect");
@@ -220,6 +226,7 @@
                                                     qty12554: qty12554
                                                 }, function(data) {
                                                     $("#tong").html(data + "đ");
+                                                    $("#tong1").html(data + "đ");
                                                 });
                                             } else {
                                                 var key = $(this).siblings(".key").val();
@@ -236,6 +243,8 @@
                                                     qty12554: qty12554
                                                 }, function(data) {
                                                     $("#tong").html(data + "đ");
+                                                    $("#tong1").html(data + "đ");
+                                                    
                                                 });
                                             }
                                         });
@@ -245,7 +254,6 @@
                                             var dg = $(this).siblings(".dg").val();
                                             var num = $(this).val();
                                             var $sum = $(this).closest(".pd").find(".sum");
-                                            // alert("sum");
                                             $.post("cart_changenum.php", {
                                                 check: 2,
                                                 size: size,
