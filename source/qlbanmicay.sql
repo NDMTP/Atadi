@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 19, 2023 at 12:59 PM
+-- Generation Time: Sep 19, 2023 at 05:05 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -54,10 +54,18 @@ INSERT INTO `chitiethoadon` (`MAHOADON`, `MASP`, `MASIZE`, `SOLUONGSP`, `DOCAY`,
 
 CREATE TABLE `danhgiasp` (
   `EMAIL` varchar(70) COLLATE utf8mb4_general_ci NOT NULL,
-  `MASP` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `MAHOADON` int NOT NULL,
   `NOIDUNGDG` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `LINKANHDG` varchar(30) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `LINKANHDG` varchar(30) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `CHATLUONGSP` varchar(30) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `danhgiasp`
+--
+
+INSERT INTO `danhgiasp` (`EMAIL`, `MAHOADON`, `NOIDUNGDG`, `LINKANHDG`, `CHATLUONGSP`) VALUES
+('aib2011957@student.ctu.edu.vn', 2, 'khá ngon', NULL, '4');
 
 -- --------------------------------------------------------
 
@@ -401,8 +409,8 @@ ALTER TABLE `chitiethoadon`
 -- Indexes for table `danhgiasp`
 --
 ALTER TABLE `danhgiasp`
-  ADD PRIMARY KEY (`EMAIL`,`MASP`),
-  ADD KEY `FK_DANHGIACUASP` (`MASP`);
+  ADD PRIMARY KEY (`EMAIL`,`MAHOADON`),
+  ADD KEY `MAHOADON` (`MAHOADON`);
 
 --
 -- Indexes for table `giaohang`
@@ -484,8 +492,8 @@ ALTER TABLE `chitiethoadon`
 -- Constraints for table `danhgiasp`
 --
 ALTER TABLE `danhgiasp`
-  ADD CONSTRAINT `FK_DANHGIACUANGUOIDUNG` FOREIGN KEY (`EMAIL`) REFERENCES `nguoidung` (`EMAIL`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `FK_DANHGIACUASP` FOREIGN KEY (`MASP`) REFERENCES `sanpham` (`MASP`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `danhgiasp_ibfk_1` FOREIGN KEY (`MAHOADON`) REFERENCES `hoadon` (`MAHOADON`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `danhgiasp_ibfk_2` FOREIGN KEY (`EMAIL`) REFERENCES `nguoidung` (`EMAIL`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `giaohang`

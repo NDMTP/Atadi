@@ -51,6 +51,7 @@
                                             class="product-thumbnail">
                                             <button type="button" class="btn btn-light"><a href="index.php">Về Trang
                                                     Chủ</a></button>
+
                                         </td>
                                         <td class="product-price"></td>
                                         <td class="product-quantity"></td>
@@ -96,38 +97,133 @@
                                         </td>
                                     </tr>
                                     <?php }?>
-                                    <tr>
+                                    <tr class="dg">
                                         <td scope="col" style="float:left; border: 2px soild "
                                             class="product-thumbnail">
 
                                         </td>
-                                        <td class="product-price"></td>
+                                        <td class="product-price">
+                                            <section class="section_show" style="display:none;">
+                                                <div class="card card-body" style="width: 50rem; margin: 2rem ;  ">
+                                                    <form action="danhgia.php" method="GET"
+                                                        style="border: 1px solid #ccc; height:33rem; padding:2rem">
+                                                        <a style="float:right" class="close">
+                                                            <i class="fa-solid fa-xmark"></i>
+                                                        </a>
+                                                        <div class="row" style="margin-top:2rem;">
+                                                            <h3><b>Chất lượng sản phẩm:</b>
+                                                            </h3>
+                                                            <div
+                                                                class="form-check col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                                                                <input class="form-check-input" type="radio"
+                                                                    name="danhgia" id="flexRadioDefault1" value="1">
+                                                                <label class="form-check-label text-danger"
+                                                                    for="flexRadioDefault1">
+                                                                    <b> Kém</b>
+                                                                </label>
+                                                            </div>
+                                                            <div
+                                                                class="form-check col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                                                                <input class="form-check-input" type="radio"
+                                                                    name="danhgia" id="flexRadioDefault2" value="2">
+                                                                <label class="form-check-label text-warning"
+                                                                    for="flexRadioDefault2">
+                                                                    <b> Trung bình</b>
+                                                                </label>
+                                                            </div>
+                                                            <div
+                                                                class="form-check col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                                                                <input class="form-check-input" type="radio"
+                                                                    name="danhgia" id="flexRadioDefault2" value="3">
+                                                                <label class="form-check-label text-info"
+                                                                    for="flexRadioDefault2">
+                                                                    <b>Khá Tốt</b>
+                                                                </label>
+                                                            </div>
+                                                            <div
+                                                                class="form-check col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                                                                <input class="form-check-input" type="radio"
+                                                                    name="danhgia" id="flexRadioDefault2" checked
+                                                                    value="4">
+                                                                <label class="form-check-label text-success"
+                                                                    for="flexRadioDefault2">
+                                                                    <b> Tuyệt vời</b>
+                                                                </label>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="form-floating" style="margin-top: 2rem;">
+                                                            <textarea class="form-control"
+                                                                placeholder="Hãy chia sẽ những điều bạn thích về món ăn cho mọi người biết nhé!"
+                                                                id="floatingTextarea2" style="height: 100px"
+                                                                name="noidung"></textarea>
+
+                                                        </div>
+                                                        <div>
+
+                                                            <input type="hidden" name="email"
+                                                                value="<?php echo $_SESSION['email'] ?>">
+                                                            <input type="hidden" name="hoadon"
+                                                                value="<?php echo $row['MAHOADON'] ?>">
+                                                        </div>
+                                                        <div style="margin-top: 2rem;">
+                                                            <button type="button" class="btn btn-outline-danger"
+                                                                style="float: left">Thêm
+                                                                ảnh sản phẩm</button>
+                                                            <button type="submit" class="btn btn-danger"
+                                                                style="float: right;">Hoàn thành</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </section>
+                                        </td>
                                         <td class="product-quantity">
 
                                         </td>
                                         <td scope="col">
-                                            <button type="button" class="btn btn-danger" style="margin-right:2.5rem">
-                                                <a href="#" style="color:white ">Mua Lại</a>
-                                            </button>
-                                            <button type="button" class="btn btn-outline-dark"
-                                                style=" background: black; ">
-                                                <a href="#" style="color:white"> Đánh giá</a>
-                                            </button>
+                                            <section>
+
+                                                <button type="button" class="btn btn-danger"
+                                                    style="margin-right:2.5rem">
+                                                    <a href="#" style="color:white ">Mua Lại</a>
+                                                    <!-- gui ma hoa don roi truy xuat dữ liệu ra, xong lấy dữ
+                                                liệu đó import trở lại và đổi id hóa đơn mualai.php?mahoadon=1-->
+                                                </button>
+
+                                                <?php
+                            $sql1 = "SELECT * FROM danhgiasp WHERE  MAHOADON ='".$row['MAHOADON']."'";
+                            $result1 = $conn->query($sql1);
+                            $kt= " "  ;           
+                             if($result1->num_rows>0){
+                                $kt ="Đã đánh giá";
+                                    echo '
+                                                    <button type="button"  style=" background: black; color:white ">
+                                                    '.$kt.'
+                                                    </button>
+                                    ';
+                                                                                   
+                                }    
+                              else{
+                                 $kt ="Đánh giá";
+                                 echo '
+                                                    <button type="button" class="btn_check " style=" background: black; color:white ">
+                                                    '.$kt.'
+                                                    </button>
+                                    ';
+                                }      
+
+                                                            ?>
+
+                                            </section>
+
                                         </td>
+
                                     </tr>
                                 </tbody>
                             </table>
                             <?php
                              }
-                                // } else {
-                                //     echo '<div class="shpcart-subtotal-block">';
-                                //     echo '<h2>Không có sản phẩm nào trong giỏ hàng</h2>';
-                                //     echo '<div class="btn-checkout">';
-                                //     echo '   <a href="category-grid.php" class="btn checkout w-25">Xem tất cả sản phẩm</a>';
-                                //     echo '</div>';
-                                //     echo '</div>';
-                                    
-                                // }
                                 ?>
 
                         </div>
@@ -135,13 +231,21 @@
                 </div>
             </div>
         </div>
-
-        <!--Related Product-->
-
-    </div>
-    </div>
     </div>
 
+    <script>
+    $(document).ready(function() {
+        $(".btn_check").click(function() {
+            var e = $(this).closest(".dg").find(".section_show");
+            e.css("display", "block");
+            //alert("ádd");
+        });
+        $(".close").click(function() {
+            var e = $(this).closest(".dg").find(".section_show");
+            e.css("display", "none");
+        });
+    });
+    </script>
     <!-- FOOTER -->
     <?php  
         require 'footer.php';
