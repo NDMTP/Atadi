@@ -179,11 +179,13 @@
                                         $sql = "select * from khuyenmai where ";
                                     ?>
                                     <div class="subtotal-line"><b class="stt-name">Giảm giá <br>
-                                        <span style="color: red !important;" class="sub">Áp dụng cho hoá đơn trên <span id="tong1">0 đ</span></span></b>
+                                            <span style="color: red !important;" class="sub">Áp dụng cho hoá đơn trên
+                                                <span id="tong1">0 đ</span></span></b>
                                     </div>
 
                                     <div class="subtotal-line"><b class="stt-name">Quận <br>
-                                        <span style="color: red !important;" class="sub">(*Chỉ giao trong các quận sau:)</span></b>
+                                            <span style="color: red !important;" class="sub">(*Chỉ giao trong các quận
+                                                sau:)</span></b>
                                     </div>
 
                                     <div>
@@ -244,7 +246,7 @@
                                                 }, function(data) {
                                                     $("#tong").html(data + "đ");
                                                     $("#tong1").html(data + "đ");
-                                                    
+
                                                 });
                                             }
                                         });
