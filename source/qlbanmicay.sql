@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 19, 2023 at 05:05 PM
+-- Generation Time: Sep 20, 2023 at 01:18 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -44,7 +44,8 @@ CREATE TABLE `chitiethoadon` (
 INSERT INTO `chitiethoadon` (`MAHOADON`, `MASP`, `MASIZE`, `SOLUONGSP`, `DOCAY`, `DONGIABAN`, `TONGTIEN`) VALUES
 (1, 'CT1', 'L', 2, NULL, 420000, 840000),
 (1, 'L1', 'M', 1, NULL, 1420000, 1420000),
-(2, 'L2', 'L', 2, NULL, 420000, 840000);
+(2, 'L2', 'L', 2, NULL, 420000, 840000),
+(3, 'L2', 'M', 2, NULL, 420000, 840000);
 
 -- --------------------------------------------------------
 
@@ -57,15 +58,16 @@ CREATE TABLE `danhgiasp` (
   `MAHOADON` int NOT NULL,
   `NOIDUNGDG` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `LINKANHDG` varchar(30) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `CHATLUONGSP` varchar(30) COLLATE utf8mb4_general_ci NOT NULL
+  `CHATLUONGSP` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `TGDANHGIA` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `danhgiasp`
 --
 
-INSERT INTO `danhgiasp` (`EMAIL`, `MAHOADON`, `NOIDUNGDG`, `LINKANHDG`, `CHATLUONGSP`) VALUES
-('aib2011957@student.ctu.edu.vn', 2, 'khá ngon', NULL, '4');
+INSERT INTO `danhgiasp` (`EMAIL`, `MAHOADON`, `NOIDUNGDG`, `LINKANHDG`, `CHATLUONGSP`, `TGDANHGIA`) VALUES
+('aib2011957@student.ctu.edu.vn', 2, 'khá ngon', NULL, '4', '2023-09-20 07:38:54');
 
 -- --------------------------------------------------------
 
@@ -91,7 +93,7 @@ CREATE TABLE `hoadon` (
   `EMAIL` varchar(70) COLLATE utf8mb4_general_ci NOT NULL,
   `MAKM` varchar(10) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `MAPT` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `NGAYLAP` datetime DEFAULT NULL,
+  `NGAYLAP` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `TRANGTHAIHOADON` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '0',
   `TONGTIEN` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -101,8 +103,9 @@ CREATE TABLE `hoadon` (
 --
 
 INSERT INTO `hoadon` (`MAHOADON`, `EMAIL`, `MAKM`, `MAPT`, `NGAYLAP`, `TRANGTHAIHOADON`, `TONGTIEN`) VALUES
-(1, 'aib2011957@student.ctu.edu.vn', NULL, NULL, '2023-09-18 13:51:44', '1', 840000),
-(2, 'aib2011957@student.ctu.edu.vn', NULL, NULL, NULL, '-1', 1420000);
+(1, 'aib2011957@student.ctu.edu.vn', NULL, NULL, '2023-09-18 13:51:44', '-1', 2260000),
+(2, 'aib2011957@student.ctu.edu.vn', NULL, NULL, NULL, '1', 1420000),
+(3, 'aib2011957@student.ctu.edu.vn', NULL, NULL, NULL, '1', 840000);
 
 -- --------------------------------------------------------
 

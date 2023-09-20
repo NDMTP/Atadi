@@ -24,6 +24,9 @@
             <div class="container">
 
                 <!--Cart Table-->
+                <?php 
+                if(isset($_SESSION['email'])){
+            ?>
                 <div class="shopping-cart-container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -97,14 +100,26 @@
                                         </td>
                                     </tr>
                                     <?php }?>
+                                    <tr>
+                                        <td colspan="3"> </td>
+                                        <td>
+                                            <div class="text-danger">
+                                                <i class="fa-solid fa-shield-halved"></i> Thành tiền:
+                                                <?php echo $row['TONGTIEN'] ?> Đ
+                                            </div>
+                                        </td>
+                                    </tr>
                                     <tr class="dg">
+
                                         <td scope="col" style="float:left; border: 2px soild "
                                             class="product-thumbnail">
 
                                         </td>
                                         <td class="product-price">
+
                                             <section class="section_show" style="display:none;">
                                                 <div class="card card-body" style="width: 50rem; margin: 2rem ;  ">
+
                                                     <form action="danhgia.php" method="GET"
                                                         style="border: 1px solid #ccc; height:33rem; padding:2rem">
                                                         <a style="float:right" class="close">
@@ -192,8 +207,9 @@
                                                 </button>
 
                                                 <?php
-                            $sql1 = "SELECT * FROM danhgiasp WHERE  MAHOADON ='".$row['MAHOADON']."'";
+                            $sql1 = "SELECT * FROM danhgiasp WHERE MAHOADON ='".$row['MAHOADON']."'";
                             $result1 = $conn->query($sql1);
+                            $kttt = $result1->fetch_assoc();
                             $kt= " "  ;           
                              if($result1->num_rows>0){
                                 $kt ="Đã đánh giá";
@@ -205,12 +221,24 @@
                                                                                    
                                 }    
                               else{
-                                 $kt ="Đánh giá";
+                                $sql3 = "SELECT * FROM hoadon WHERE MAHOADON ='".$row['MAHOADON']."'";
+                                    $result3 = $conn->query($sql3);
+                                    $kttt = $result3->fetch_assoc();
+                                 if($kttt['TRANGTHAIHOADON']==-1){
+                                    $kt ="Đơn hàng đã được hủy";
+                                    echo '
+                                    <button type="button" class="btn btn-outline-secondary">
+                                    '.$kt.'
+                                    </button>
+                                    ';
+                                 } else{
+                                    $kt ="Đánh giá";
                                  echo '
                                                     <button type="button" class="btn_check " style=" background: black; color:white ">
                                                     '.$kt.'
                                                     </button>
                                     ';
+                                 }
                                 }      
 
                                                             ?>
@@ -223,12 +251,22 @@
                                 </tbody>
                             </table>
                             <?php
-                             }
+                             } 
                                 ?>
-
                         </div>
                     </div>
                 </div>
+                <?php 
+                    }else {
+                        echo '<div class="shpcart-subtotal-block">';
+                        echo '<h2>Lịch sử đơn hàng</h2>';
+                        echo '<div class="btn-checkout">';
+                        echo '   <a href="category-grid.php" class="btn checkout w-25">Xem tất cả sản phẩm</a>';
+                        echo '</div>';
+                        echo '</div>';
+                        
+                    }
+                ?>
             </div>
         </div>
     </div>

@@ -12,13 +12,14 @@
 
    $ok=0;
 
-    // // Tạo hoá đơn
-    // $addBill = "insert into hoadon values($nextId, '{$_SESSION['email']}', null, $payment, sysdate(), 0)";
-    // if($conn->query($addBill)) $ok=1;
+    // Tạo hoá đơn :  các trang thái đơn chưa thanh toán =0; đã thanh toán = 1; huy don = -1
+    $addBill = "insert into hoadon values($nextId, '{$_SESSION['email']}', null, $payment, sysdate(), 0,0)";
+    
+    if($conn->query($addBill)) $ok=1;
 
     // Tạo chi tiết hoá đơn
-    
-    if (isset($_SESSION['cart']) && !empty($_SESSION['cart']) ) {
+    $tonghd=0;
+    if (isset($_SESSION['cart']) && !empty($_SESSION['cart']) && $ok=1) {
         foreach ($_SESSION['cart'] as $item) {
             $sql = "select * from sanpham s 
                 join sizecuasanpham sz on sz.MASP=s.MASP
@@ -33,9 +34,8 @@
             } else $docay = null;
             $dongia = $sp['DONGIASP'];
             $tongtien = $sp['DONGIASP']*$item['quant'];
-            
-            $addBill = "insert into hoadon values($nextId, '{$_SESSION['email']}', null, $payment, sysdate(), 0, $tongtien)";
-            if($conn->query($addBill));
+            $tonghd+= $tongtien;
+           
 
             $addBillDetail = "insert into chitiethoadon values ($nextId,'$masp','$masize',$soluong,'$docay',$dongia);";
             if($conn->query($addBillDetail)) $ok=1;
@@ -46,6 +46,8 @@
 
         }
     }
+    // cập nhat lại tổng tiền của hóa đơn, chưa test đc, tại kh đặt hàng được
+    $themtong = "UPDATE hoadon SET TONGTIEN=$tonghd WHERE MAHOADON =$nextId";
 
     // Tạo giao hàng
     $mkv = $_GET['khuvuc'];
