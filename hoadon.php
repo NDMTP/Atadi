@@ -38,16 +38,18 @@
                             while ($row = $result->fetch_assoc()) {
                                               if($row["TRANGTHAIHOADON"]==1){
                                                 $status ="Đã Thanh toán";
+                                                $text_col = "#11d12e";
                                               } 
                                               elseif($row["TRANGTHAIHOADON"]==0){
                                                 $status ="Chưa Thanh toán";
+                                                $text_col = "#ff7300";
                                               }   
                                               else{
                                                 $status ="Đã Hủy";
+                                                $text_col = "#f00";
                                               }      
                                                 ?>
                             <form action="mualai.php" method="get" id="formMualai">
-                            <input type="hidden" name="hdid" value="<?php echo $row["MAHOADON"] ?>">
                             <table class="table" style="margin-top: 3rem ;  border: 1px solid #ccc ;box-shadow: 10px 10px 10px #E6E6E6;">
                                 <thead>
                                     <tr>
@@ -56,8 +58,10 @@
                                         </td>
                                         <td class="product-price"></td>
                                         <td class="product-quantity"></td>
-                                        <td scope="col" style="float:right; color: #ff7300; font-weight: bold;">
-                                            <?php echo $status ?> </td>
+                                        <td scope="col" style="float:right; color: <?php echo $text_col ?>; font-weight: bold;">
+                                            <span class="<?php echo $text_col ?>">
+                                                <?php echo $status ?> </td>
+                                            </span>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -198,9 +202,9 @@
                                         <td scope="col">
                                             <section style="text-align: right; padding: 1rem">
 
-                                                <button type="button" class="btn"
-                                                    style="margin-right:1rem; background-color: #ff7300">
-                                                    <a href="#" style="color:white ">Mua Lại</a>
+                                                <button type="submit" class="btn"
+                                                    style="margin-right:1rem; background-color: #ff7300; color: white">
+                                                    Mua Lại
                                                 </button>
 
                                                 <?php

@@ -55,7 +55,7 @@
                                     <tbody>
                                         <?php
                                         foreach ($_SESSION['cart'] as $key => $item) {
-                                            $sql = "select * from sanpham s join sizecuasanpham sz on sz.MASP=s.MASP where sz.MASP = '{$item['id']}' and sz.MASIZE = '{$item['size']}'";
+                                            $sql = "select * from sanpham s join sizecuasanpham sz on sz.MASP=s.MASP where s.MASP = '{$item['id']}' and sz.MASIZE = '{$item['size']}'";
                                             $result = $conn->query($sql);
                                             $row = $result->fetch_assoc();
                                             $string = $row['MASP'];
@@ -78,7 +78,7 @@
                                                         value="<?php echo $row['DONGIASP'] ?>">
                                                 </div>
                                             </td>
-                                            <td class="product-thumbnail" data-title="Product Name">
+                                            <td class="product-thumbnail" data-title="Product Name" style="display: flex; flex-direction: row; justified-content: center; align-items: center;">
                                                 <a class="prd-thumb" href="#">
                                                     <figure><img width="113" height="113"
                                                             src="assets/images/products/<?php echo $masp."/".$row['LINKANH']?>"
@@ -86,10 +86,6 @@
                                                 </a>
                                                 <a class="prd-name"
                                                     href="#"><?php echo $row['TENSP']." - Size: ".$item['size']?></a>
-                                                <!-- <div class="action">
-                                                <a href="#" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                                <a href="#" class="remove"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                                            </div> -->
                                             </td>
                                             <td class="product-price" data-title="Price">
                                                 <div class="price price-contain">
@@ -306,6 +302,7 @@
         </div>
     </div>
 
+    <div class="mt-3"></div>
     <!-- FOOTER -->
     <?php  
         require 'footer.php';
