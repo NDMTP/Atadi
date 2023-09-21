@@ -212,6 +212,22 @@
                                                 '<div style="width: 100% !important;" class="form_combobox w-100" id="phuong"><select style="color: black !important; margin-left: 10px !important; " name="area" id="areaSelect"></select></div>';
                                         });
                                     });
+                                    $.ajax({
+                                        type: "GET", // Hoặc POST tùy vào cách bạn gửi yêu cầu
+                                        url: "get_session_sale.php", // Đường dẫn đến tập tin PHP trên máy chủ
+                                        dataType: "json", // Định dạng dữ liệu bạn mong muốn nhận
+                                        success: function(dt) {
+                                            // Xử lý dữ liệu nhận được từ máy chủ
+                                            var saleData = dt.dksale; // Lấy giá trị từ dữ liệu nhận được
+
+                                            
+                                            // Cái này là object array DIEUKIENKM:TLEKM
+                                            console.log(saleData);
+
+
+
+                                        }
+                                    });
                                     $(document).ready(function() {
                                         $(".check1").on("change", function() {
                                             //event.preventDefault();
