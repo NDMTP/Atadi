@@ -46,19 +46,17 @@
                                                 $status ="Đã Hủy";
                                               }      
                                                 ?>
-                            <table class="table"
-                                style="margin-top: 3rem ;  border: 1px solid #ccc ;box-shadow: 10px 10px 10px #E6E6E6;">
+                            <form action="mualai.php" method="get" id="formMualai">
+                            <input type="hidden" name="hdid" value="<?php echo $row["MAHOADON"] ?>">
+                            <table class="table" style="margin-top: 3rem ;  border: 1px solid #ccc ;box-shadow: 10px 10px 10px #E6E6E6;">
                                 <thead>
                                     <tr>
-                                        <td scope="col" style="float:left; border: 2px soild "
-                                            class="product-thumbnail">
-                                            <button type="button" class="btn btn-light"><a href="index.php">Về Trang
-                                                    Chủ</a></button>
-
+                                        <td scope="col" style="float:left; color: grey;" class="product-thumbnail">
+                                            <h5 style="margin: 0 !important"><?php echo $row['NGAYLAP'] ?></h5>
                                         </td>
                                         <td class="product-price"></td>
                                         <td class="product-quantity"></td>
-                                        <td scope="col" style="float:right; color: red ">
+                                        <td scope="col" style="float:right; color: #ff7300; font-weight: bold;">
                                             <?php echo $status ?> </td>
                                     </tr>
                                 </thead>
@@ -103,9 +101,9 @@
                                     <tr>
                                         <td colspan="3"> </td>
                                         <td>
-                                            <div class="text-danger">
+                                            <div style="color: #ff7300; font-weight: bold; text-align: right; padding: 1rem;">
                                                 <i class="fa-solid fa-shield-halved"></i> Thành tiền:
-                                                <?php echo $row['TONGTIEN'] ?> Đ
+                                                <?php echo number_format($row['TONGTIEN']) ?> Đ
                                             </div>
                                         </td>
                                     </tr>
@@ -186,8 +184,8 @@
                                                             <button type="button" class="btn btn-outline-danger"
                                                                 style="float: left">Thêm
                                                                 ảnh sản phẩm</button>
-                                                            <button type="submit" class="btn btn-danger"
-                                                                style="float: right;">Hoàn thành</button>
+                                                            <button type="submit" class="btn"
+                                                                style="float: right; background-color: #ff7300; color: white">Gửi</button>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -197,51 +195,49 @@
 
                                         </td>
                                         <td scope="col">
-                                            <section>
+                                            <section style="text-align: right; padding: 1rem">
 
-                                                <button type="button" class="btn btn-danger"
-                                                    style="margin-right:2.5rem">
+                                                <button type="button" class="btn"
+                                                    style="margin-right:1rem; background-color: #ff7300">
                                                     <a href="#" style="color:white ">Mua Lại</a>
-                                                    <!-- gui ma hoa don roi truy xuat dữ liệu ra, xong lấy dữ
-                                                liệu đó import trở lại và đổi id hóa đơn mualai.php?mahoadon=1-->
                                                 </button>
 
                                                 <?php
-                            $sql1 = "SELECT * FROM danhgiasp WHERE MAHOADON ='".$row['MAHOADON']."'";
-                            $result1 = $conn->query($sql1);
-                            $kttt = $result1->fetch_assoc();
-                            $kt= " "  ;           
-                             if($result1->num_rows>0){
-                                $kt ="Đã đánh giá";
-                                    echo '
-                                                    <button type="button"  style=" background: black; color:white ">
-                                                    '.$kt.'
-                                                    </button>
-                                    ';
-                                                                                   
-                                }    
-                              else{
-                                $sql3 = "SELECT * FROM hoadon WHERE MAHOADON ='".$row['MAHOADON']."'";
-                                    $result3 = $conn->query($sql3);
-                                    $kttt = $result3->fetch_assoc();
-                                 if($kttt['TRANGTHAIHOADON']==-1){
-                                    $kt ="Đơn hàng đã được hủy";
-                                    echo '
-                                    <button type="button" class="btn btn-outline-secondary">
-                                    '.$kt.'
-                                    </button>
-                                    ';
-                                 } else{
-                                    $kt ="Đánh giá";
-                                 echo '
-                                                    <button type="button" class="btn_check " style=" background: black; color:white ">
-                                                    '.$kt.'
-                                                    </button>
-                                    ';
-                                 }
-                                }      
+                                                    $sql1 = "SELECT * FROM danhgiasp WHERE MAHOADON ='".$row['MAHOADON']."'";
+                                                    $result1 = $conn->query($sql1);
+                                                    $kttt = $result1->fetch_assoc();
+                                                    $kt= " "  ;           
+                                                    if($result1->num_rows>0){
+                                                        $kt ="Đã đánh giá";
+                                                            echo '
+                                                                            <button type="button" disabled class="btn" style=" background: black; color:white ">
+                                                                            '.$kt.'
+                                                                            </button>
+                                                            ';
+                                                                                                        
+                                                        }    
+                                                    else{
+                                                        $sql3 = "SELECT * FROM hoadon WHERE MAHOADON ='".$row['MAHOADON']."'";
+                                                            $result3 = $conn->query($sql3);
+                                                            $kttt = $result3->fetch_assoc();
+                                                        if($kttt['TRANGTHAIHOADON']==-1){
+                                                            $kt ="Đơn hàng đã được hủy";
+                                                            echo '
+                                                            <button disabled type="button" class="btn btn-outline-secondary">
+                                                            '.$kt.'
+                                                            </button>
+                                                            ';
+                                                        } else{
+                                                            $kt ="Đánh giá";
+                                                        echo '
+                                                                            <button type="button" class="btn_check btn" style=" background: black; color:white ">
+                                                                            '.$kt.'
+                                                                            </button>
+                                                            ';
+                                                        }
+                                                        }      
 
-                                                            ?>
+                                                    ?>
 
                                             </section>
 
@@ -250,6 +246,7 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            </form>
                             <?php
                              } 
                                 ?>

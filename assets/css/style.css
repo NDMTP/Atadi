@@ -5201,7 +5201,7 @@ body.open-overlay #overlay{
     font-weight: 600;
     color: #222222;
     display: inline-block;
-    width: calc(100% - 115px);
+    width: 100%;
     padding-left: 10px;
     line-height: 1;
     vertical-align: middle;
