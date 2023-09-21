@@ -72,29 +72,30 @@
                                             $sp = $kq->fetch_assoc();
                                     ?>
                                     <tr class="pd cart_item">
-                                        <td class="product-thumbnail" data-title="Product Name" style="float:left ">
+                                        <td class="product-thumbnail row" data-title="Product Name" 
+                                            style="display: flex; flex-direction: row; justified-content: center; align-items: center; margin-left: 0;">
                                             <a class="prd-thumb" href="#">
                                                 <figure><img width="113" height="113"
                                                         src="assets/images/products/<?php echo $masp."/".$sp['LINKANH']?>"
-                                                        alt="shipping cart"></figure>
+                                                        alt="shipping cart">
+                                                </figure>
                                             </a>
                                             <a class="prd-name"
                                                 href="#"><?php echo $sp['TENSP']." - Size: ".$row1['MASIZE']?></a>
-
                                         </td>
-                                        <td class="product-price" data-title="Price" style="padding-top:4.5rem">
+                                        <td class="product-price" data-title="Price" style="padding-top:3.5rem">
                                             <div class="price price-contain">
                                                 <ins><span class="price-amount"><span
                                                             class="currencySymbol"></span><?php echo number_format($row1['DONGIABAN']) ?>
                                                         đ</span></ins>
                                             </div>
                                         </td>
-                                        <td style="padding-top:5rem">
+                                        <td style="padding-top:4rem">
                                             <b>Số lượng: <?php echo $row1['SOLUONGSP'] ?></b>
 
                                         </td>
-                                        <td style="padding-top:5rem">
-                                            <b><?php echo $row1['TONGTIEN'] ?> đ</b>
+                                        <td style="padding-top:4rem">
+                                            <b><?php echo number_format($row1['TONGTIEN']) ?> đ</b>
                                         </td>
                                     </tr>
                                     <?php }?>
