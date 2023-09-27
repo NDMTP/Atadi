@@ -78,7 +78,8 @@
                                                         value="<?php echo $row['DONGIASP'] ?>">
                                                 </div>
                                             </td>
-                                            <td class="product-thumbnail" data-title="Product Name" style="display: flex; flex-direction: row; justified-content: center; align-items: center;">
+                                            <td class="product-thumbnail" data-title="Product Name"
+                                                style="display: flex; flex-direction: row; justified-content: center; align-items: center;">
                                                 <a class="prd-thumb" href="#">
                                                     <figure><img width="113" height="113"
                                                             src="assets/images/products/<?php echo $masp."/".$row['LINKANH']?>"
@@ -199,31 +200,31 @@
 
 
                                     <script>
-                                    document.addEventListener("DOMContentLoaded", function() {
-                                        const areaSelect = document.getElementById("areaSelect");
+                                    // document.addEventListener("DOMContentLoaded", function() {
+                                    //     const areaSelect = document.getElementById("areaSelect");
 
-                                        areaSelect.addEventListener("change", function() {
-                                            const phuong = document.getElementById('phuong');
-                                            phuong.innerHTML =
-                                                '<div style="width: 100% !important;" class="form_combobox w-100" id="phuong"><select style="color: black !important; margin-left: 10px !important; " name="area" id="areaSelect"></select></div>';
-                                        });
-                                    });
-                                    $.ajax({
-                                        type: "GET", // Hoặc POST tùy vào cách bạn gửi yêu cầu
-                                        url: "get_session_sale.php", // Đường dẫn đến tập tin PHP trên máy chủ
-                                        dataType: "json", // Định dạng dữ liệu bạn mong muốn nhận
-                                        success: function(dt) {
-                                            // Xử lý dữ liệu nhận được từ máy chủ
-                                            var saleData = dt.dksale; // Lấy giá trị từ dữ liệu nhận được
-
-                                            
-                                            // Cái này là object array DIEUKIENKM:TLEKM
-                                            console.log(saleData);
+                                    //     areaSelect.addEventListener("change", function() {
+                                    //         const phuong = document.getElementById('phuong');
+                                    //         phuong.innerHTML =
+                                    //             '<div style="width: 100% !important;" class="form_combobox w-100" id="phuong"><select style="color: black !important; margin-left: 10px !important; " name="area" id="areaSelect"></select></div>';
+                                    //     });
+                                    // });
+                                    // $.ajax({
+                                    //     type: "GET", // Hoặc POST tùy vào cách bạn gửi yêu cầu
+                                    //     url: "get_session_sale.php", // Đường dẫn đến tập tin PHP trên máy chủ
+                                    //     dataType: "json", // Định dạng dữ liệu bạn mong muốn nhận
+                                    //     success: function(dt) {
+                                    //         // Xử lý dữ liệu nhận được từ máy chủ
+                                    //         var saleData = dt.dksale; // Lấy giá trị từ dữ liệu nhận được
 
 
+                                    //         // Cái này là object array DIEUKIENKM:TLEKM
+                                    //         console.log(saleData);
 
-                                        }
-                                    });
+
+
+                                    //     }
+                                    // });
                                     $(document).ready(function() {
                                         $(".check1").on("change", function() {
                                             //event.preventDefault();
@@ -240,8 +241,19 @@
                                                     qty12554: qty12554
                                                 }, function(data) {
                                                     $("#tong").html(data + "đ");
-                                                    $("#tong1").html(data + "đ");
+                                                    // $("#tong1").html(data + "đ");
+                                                    $.post('get_session_sale.php', {
+                                                        test: 1,
+                                                        tong: data
+
+                                                    }, function(data1) {
+
+                                                        alert(data1);
+                                                        // $("#tong1").html(data + "đ");
+                                                    });
                                                 });
+
+
                                             } else {
                                                 var key = $(this).siblings(".key").val();
                                                 var dg = $(this).siblings(".dg").val();
@@ -284,6 +296,7 @@
                                                 $sum.data("old", tong1.format(tong));
                                             });
                                         });
+
                                     });
                                     </script>
                                     <div style="margin-top: 5px !important;" class="btn-checkout">
