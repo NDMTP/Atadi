@@ -55,7 +55,7 @@
                                     <tbody>
                                         <?php
                                         foreach ($_SESSION['cart'] as $key => $item) {
-                                            $sql = "select * from sanpham s join sizecuasanpham sz on sz.MASP=s.MASP where sz.MASP = '{$item['id']}' and sz.MASIZE = '{$item['size']}'";
+                                            $sql = "select * from sanpham s join sizecuasanpham sz on sz.MASP=s.MASP where s.MASP = '{$item['id']}' and sz.MASIZE = '{$item['size']}'";
                                             $result = $conn->query($sql);
                                             $row = $result->fetch_assoc();
                                             $string = $row['MASP'];
@@ -78,7 +78,7 @@
                                                         value="<?php echo $row['DONGIASP'] ?>">
                                                 </div>
                                             </td>
-                                            <td class="product-thumbnail" data-title="Product Name">
+                                            <td class="product-thumbnail" data-title="Product Name" style="display: flex; flex-direction: row; justified-content: center; align-items: center;">
                                                 <a class="prd-thumb" href="#">
                                                     <figure><img width="113" height="113"
                                                             src="assets/images/products/<?php echo $masp."/".$row['LINKANH']?>"
@@ -86,10 +86,6 @@
                                                 </a>
                                                 <a class="prd-name"
                                                     href="#"><?php echo $row['TENSP']." - Size: ".$item['size']?></a>
-                                                <!-- <div class="action">
-                                                <a href="#" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                                <a href="#" class="remove"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                                            </div> -->
                                             </td>
                                             <td class="product-price" data-title="Price">
                                                 <div class="price price-contain">
@@ -212,6 +208,22 @@
                                                 '<div style="width: 100% !important;" class="form_combobox w-100" id="phuong"><select style="color: black !important; margin-left: 10px !important; " name="area" id="areaSelect"></select></div>';
                                         });
                                     });
+                                    $.ajax({
+                                        type: "GET", // Hoặc POST tùy vào cách bạn gửi yêu cầu
+                                        url: "get_session_sale.php", // Đường dẫn đến tập tin PHP trên máy chủ
+                                        dataType: "json", // Định dạng dữ liệu bạn mong muốn nhận
+                                        success: function(dt) {
+                                            // Xử lý dữ liệu nhận được từ máy chủ
+                                            var saleData = dt.dksale; // Lấy giá trị từ dữ liệu nhận được
+
+                                            
+                                            // Cái này là object array DIEUKIENKM:TLEKM
+                                            console.log(saleData);
+
+
+
+                                        }
+                                    });
                                     $(document).ready(function() {
                                         $(".check1").on("change", function() {
                                             //event.preventDefault();
@@ -290,6 +302,7 @@
         </div>
     </div>
 
+    <div class="mt-3"></div>
     <!-- FOOTER -->
     <?php  
         require 'footer.php';

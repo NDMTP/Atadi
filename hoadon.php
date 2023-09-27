@@ -38,32 +38,42 @@
                             while ($row = $result->fetch_assoc()) {
                                               if($row["TRANGTHAIHOADON"]==1){
                                                 $status ="Đã Thanh toán";
+                                                $text_col = "#11d12e";
                                               } 
                                               elseif($row["TRANGTHAIHOADON"]==0){
                                                 $status ="Chưa Thanh toán";
+                                                $text_col = "#ff7300";
                                               }   
                                               else{
                                                 $status ="Đã Hủy";
+                                                $text_col = "#f00";
                                               }      
                                                 ?>
-                            <table class="table dg"
+                            <<<<<<< HEAD <table class="table dg"
                                 style="margin-top: 3rem ;  border: 1px solid #ccc ;box-shadow: 10px 10px 10px #E6E6E6;">
-                                <thead>
-                                    <tr>
-                                        <td scope="col" style="float:left; border: 2px soild "
-                                            class="product-thumbnail">
-                                            <button type="button" class="btn btn-light"><a href="index.php">Về Trang
-                                                    Chủ</a></button>
-
-                                        </td>
-                                        <td class="product-price"></td>
-                                        <td class="product-quantity"></td>
-                                        <td scope="col" style="float:right; color: red ">
-                                            <?php echo $status ?> </td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
+                                =======
+                                <form action="mualai.php" method="get" id="formMualai">
+                                    <table class="table"
+                                        style="margin-top: 3rem ;  border: 1px solid #ccc ;box-shadow: 10px 10px 10px #E6E6E6;">
+                                        >>>>>>> 8eb5d1b77d62edf5f5433b0a611504cabf0f6fae
+                                        <thead>
+                                            <tr>
+                                                <td scope="col" style="float:left; color: grey;"
+                                                    class="product-thumbnail">
+                                                    <h5 style="margin: 0 !important"><?php echo $row['NGAYLAP'] ?></h5>
+                                                </td>
+                                                <td class="product-price"></td>
+                                                <td class="product-quantity"></td>
+                                                <td scope="col"
+                                                    style="float:right; color: <?php echo $text_col ?>; font-weight: bold;">
+                                                    <span class="<?php echo $text_col ?>">
+                                                        <?php echo $status ?>
+                                                </td>
+                                                </span>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
                                         $cthd = "SELECT * FROM chitiethoadon WHERE MAHOADON = '".$row['MAHOADON']."'";;
                                         $cthd_result = $conn->query($cthd);
                                         while($row1 = $cthd_result->fetch_assoc() ){
@@ -73,159 +83,181 @@
                                             $kq = $conn->query($sp);
                                             $sp = $kq->fetch_assoc();
                                     ?>
-                                    <tr class="pd cart_item">
-                                        <td class="product-thumbnail" data-title="Product Name" style="float:left ">
-                                            <a class="prd-thumb" href="#">
-                                                <figure><img width="113" height="113"
-                                                        src="assets/images/products/<?php echo $masp."/".$sp['LINKANH']?>"
-                                                        alt="shipping cart"></figure>
-                                            </a>
-                                            <a class="prd-name"
-                                                href="#"><?php echo $sp['TENSP']." - Size: ".$row1['MASIZE']?></a>
+                                            <tr class="pd cart_item">
+                                                <td class="product-thumbnail row" data-title="Product Name"
+                                                    style="display: flex; flex-direction: row; justified-content: center; align-items: center; margin-left: 0;">
+                                                    <a class="prd-thumb" href="#">
+                                                        <figure><img width="113" height="113"
+                                                                src="assets/images/products/<?php echo $masp."/".$sp['LINKANH']?>"
+                                                                alt="shipping cart">
+                                                        </figure>
+                                                    </a>
+                                                    <a class="prd-name"
+                                                        href="#"><?php echo $sp['TENSP']." - Size: ".$row1['MASIZE']?></a>
+                                                </td>
+                                                <td class="product-price" data-title="Price" style="padding-top:3.5rem">
+                                                    <div class="price price-contain">
+                                                        <ins><span class="price-amount"><span
+                                                                    class="currencySymbol"></span><?php echo number_format($row1['DONGIABAN']) ?>
+                                                                đ</span></ins>
+                                                    </div>
+                                                </td>
+                                                <td style="padding-top:4rem">
+                                                    <b>Số lượng: <?php echo $row1['SOLUONGSP'] ?></b>
 
-                                        </td>
-                                        <td class="product-price" data-title="Price" style="padding-top:4.5rem">
-                                            <div class="price price-contain">
-                                                <ins><span class="price-amount"><span
-                                                            class="currencySymbol"></span><?php echo number_format($row1['DONGIABAN']) ?>
-                                                        đ</span></ins>
-                                            </div>
-                                        </td>
-                                        <td style="padding-top:5rem">
-                                            <b>Số lượng: <?php echo $row1['SOLUONGSP'] ?></b>
-
-                                        </td>
-                                        <td style="padding-top:5rem">
-                                            <b><?php echo $row1['TONGTIEN'] ?> đ</b>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td colspan="3">
-                                            <!-- danh gia -->
-                                            <section class="section_show" style="display:none;">
-                                                <div class="card card-body" style="width: 50rem; margin: 2rem ;  ">
-
-                                                    <form action="danhgia.php" method="post"
-                                                        enctype="multipart/form-data"
-                                                        style="border: 1px solid #ccc; height:33rem; padding:2rem">
-                                                        <a style="float:right" class="close">
-                                                            <i class="fa-solid fa-xmark"></i>
-                                                        </a>
-                                                        <div class="row" style="margin-top:2rem;">
-                                                            <h3><b>Chất lượng sản phẩm:</b>
-                                                            </h3>
-                                                            <div
-                                                                class="form-check col-lg-3 col-md-12 col-sm-12 col-xs-12">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="danhgia" id="flexRadioDefault1" value="Kém">
-                                                                <label class="form-check-label text-danger"
-                                                                    for="flexRadioDefault1">
-                                                                    <b> Kém</b>
-                                                                </label>
-                                                            </div>
-                                                            <div
-                                                                class="form-check col-lg-3 col-md-12 col-sm-12 col-xs-12">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="danhgia" id="flexRadioDefault2"
-                                                                    value="Trung Bình">
-                                                                <label class="form-check-label text-warning"
-                                                                    for="flexRadioDefault2">
-                                                                    <b> Trung bình</b>
-                                                                </label>
-                                                            </div>
-                                                            <div
-                                                                class="form-check col-lg-3 col-md-12 col-sm-12 col-xs-12">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="danhgia" id="flexRadioDefault2"
-                                                                    value="Khá Tốt">
-                                                                <label class="form-check-label text-info"
-                                                                    for="flexRadioDefault2">
-                                                                    <b>Khá Tốt</b>
-                                                                </label>
-                                                            </div>
-                                                            <div
-                                                                class="form-check col-lg-3 col-md-12 col-sm-12 col-xs-12">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="danhgia" id="flexRadioDefault2" checked
-                                                                    value="Tuyệt Vời">
-                                                                <label class="form-check-label text-success"
-                                                                    for="flexRadioDefault2">
-                                                                    <b> Tuyệt vời</b>
-                                                                </label>
-                                                            </div>
-
+                                                </td>
+                                                <td style="padding-top:4rem">
+                                                    <b><?php echo number_format($row1['TONGTIEN']) ?> đ</b>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <<<<<<< HEAD <td>
+                                                    </td>
+                                                    <td colspan="3">
+                                                        <!-- danh gia -->
+                                                        =======
+                                                    <td colspan="3"> </td>
+                                                    <td>
+                                                        <div
+                                                            style="color: #ff7300; font-weight: bold; text-align: right; padding: 1rem;">
+                                                            <i class="fa-solid fa-shield-halved"></i> Thành tiền:
+                                                            <?php echo number_format($row['TONGTIEN']) ?> Đ
                                                         </div>
+                                                    </td>
+                                            </tr>
+                                            <tr class="dg">
 
-                                                        <div class="form-floating" style="margin-top: 2rem;">
-                                                            <textarea class="form-control"
-                                                                placeholder="Hãy chia sẽ những điều bạn thích về món ăn cho mọi người biết nhé!"
-                                                                id="floatingTextarea2" style="height: 100px"
-                                                                name="noidung"></textarea>
+                                                <td scope="col" style="float:left; border: 2px soild "
+                                                    class="product-thumbnail">
 
+                                                </td>
+                                                <td class="product-price">
+
+                                                    >>>>>>> 8eb5d1b77d62edf5f5433b0a611504cabf0f6fae
+                                                    <section class="section_show" style="display:none;">
+                                                        <div class="card card-body"
+                                                            style="width: 50rem; margin: 2rem ;  ">
+
+                                                            <form action="danhgia.php" method="post"
+                                                                enctype="multipart/form-data"
+                                                                style="border: 1px solid #ccc; height:33rem; padding:2rem">
+                                                                <a style="float:right" class="close">
+                                                                    <i class="fa-solid fa-xmark"></i>
+                                                                </a>
+                                                                <div class="row" style="margin-top:2rem;">
+                                                                    <h3><b>Chất lượng sản phẩm:</b>
+                                                                    </h3>
+                                                                    <div
+                                                                        class="form-check col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                                                                        <input class="form-check-input" type="radio"
+                                                                            name="danhgia" id="flexRadioDefault1"
+                                                                            value="Kém">
+                                                                        <label class="form-check-label text-danger"
+                                                                            for="flexRadioDefault1">
+                                                                            <b> Kém</b>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div
+                                                                        class="form-check col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                                                                        <input class="form-check-input" type="radio"
+                                                                            name="danhgia" id="flexRadioDefault2"
+                                                                            value="Trung Bình">
+                                                                        <label class="form-check-label text-warning"
+                                                                            for="flexRadioDefault2">
+                                                                            <b> Trung bình</b>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div
+                                                                        class="form-check col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                                                                        <input class="form-check-input" type="radio"
+                                                                            name="danhgia" id="flexRadioDefault2"
+                                                                            value="Khá Tốt">
+                                                                        <label class="form-check-label text-info"
+                                                                            for="flexRadioDefault2">
+                                                                            <b>Khá Tốt</b>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div
+                                                                        class="form-check col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                                                                        <input class="form-check-input" type="radio"
+                                                                            name="danhgia" id="flexRadioDefault2"
+                                                                            checked value="Tuyệt Vời">
+                                                                        <label class="form-check-label text-success"
+                                                                            for="flexRadioDefault2">
+                                                                            <b> Tuyệt vời</b>
+                                                                        </label>
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="form-floating" style="margin-top: 2rem;">
+                                                                    <textarea class="form-control"
+                                                                        placeholder="Hãy chia sẽ những điều bạn thích về món ăn cho mọi người biết nhé!"
+                                                                        id="floatingTextarea2" style="height: 100px"
+                                                                        name="noidung"></textarea>
+
+                                                                </div>
+                                                                <div>
+
+                                                                    <input type="hidden" name="email"
+                                                                        value="<?php echo $_SESSION['email'] ?>">
+                                                                    <input type="hidden" name="hoadon"
+                                                                        value="<?php echo $row['MAHOADON'] ?>">
+                                                                    <input type="hidden" name="masp"
+                                                                        value="<?php echo $row1['MASP'] ?>">
+                                                                </div>
+                                                                <div style="margin-top: 2rem;">
+                                                                    <button type="button" class="btn btn-outline-danger"
+                                                                        style="float: left">
+                                                                        <i class="fa-solid fa-camera"></i>
+                                                                        <input type="file" name="fileToUpload"
+                                                                            id="fileToUpload">
+                                                                    </button>
+
+
+
+                                                                    <button type="submit" class="btn btn-danger"
+                                                                        name="submit" style="float: right;">Hoàn
+                                                                        thành</button>
+                                                                </div>
+                                                            </form>
                                                         </div>
-                                                        <div>
+                                                    </section>
+                                                </td>
+                                                <!-- end danh gia -->
+                                                </td>
+                                            </tr>
+                                            <?php }?>
+                                            <!-- end lap chi tiet sp -->
+                                            <tr>
+                                                <td colspan="3"> </td>
+                                                <td>
+                                                    <div class="text-danger">
+                                                        <i class="fa-solid fa-shield-halved"></i> Thành tiền:
+                                                        <?php echo $row['TONGTIEN'] ?> Đ
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
 
-                                                            <input type="hidden" name="email"
-                                                                value="<?php echo $_SESSION['email'] ?>">
-                                                            <input type="hidden" name="hoadon"
-                                                                value="<?php echo $row['MAHOADON'] ?>">
-                                                            <input type="hidden" name="masp"
-                                                                value="<?php echo $row1['MASP'] ?>">
-                                                        </div>
-                                                        <div style="margin-top: 2rem;">
-                                                            <button type="button" class="btn btn-outline-danger"
-                                                                style="float: left">
-                                                                <i class="fa-solid fa-camera"></i>
-                                                                <input type="file" name="fileToUpload"
-                                                                    id="fileToUpload">
-                                                            </button>
+                                                <td scope="col" style="float:left; border: 2px soild "
+                                                    class="product-thumbnail">
 
+                                                </td>
+                                                <td class="product-price">
 
+                                                <td class="product-quantity">
 
-                                                            <button type="submit" class="btn btn-danger" name="submit"
-                                                                style="float: right;">Hoàn thành</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </section>
-                                        </td>
-                                        <!-- end danh gia -->
-                                        </td>
-                                    </tr>
-                                    <?php }?>
-                                    <!-- end lap chi tiet sp -->
-                                    <tr>
-                                        <td colspan="3"> </td>
-                                        <td>
-                                            <div class="text-danger">
-                                                <i class="fa-solid fa-shield-halved"></i> Thành tiền:
-                                                <?php echo $row['TONGTIEN'] ?> Đ
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
+                                                </td>
+                                                <td scope="col">
+                                                    <section style="text-align: right; padding: 1rem">
 
-                                        <td scope="col" style="float:left; border: 2px soild "
-                                            class="product-thumbnail">
+                                                        <button type="submit" class="btn"
+                                                            style="margin-right:1rem; background-color: #ff7300; color: white">
+                                                            Mua Lại
+                                                        </button>
 
-                                        </td>
-                                        <td class="product-price">
-
-                                        <td class="product-quantity">
-
-                                        </td>
-                                        <td scope="col">
-                                            <section>
-
-                                                <button type="button" class="btn btn-danger"
-                                                    style="margin-right:2.5rem">
-                                                    <a href="#" style="color:white ">Mua Lại</a>
-                                                    <!-- gui ma hoa don roi truy xuat dữ liệu ra, xong lấy dữ
-                                                liệu đó import trở lại và đổi id hóa đơn mualai.php?mahoadon=1-->
-                                                </button>
-
-                                                <?php
+                                                        <?php
                             $sql1 = "SELECT * FROM danhgiasp WHERE MAHOADON ='".$row['MAHOADON']."'";
                             $result1 = $conn->query($sql1);
                             $kttt = $result1->fetch_assoc();
@@ -260,16 +292,17 @@
                                  }
                                 }      
 
-                                                            ?>
+                                                    ?>
 
-                                            </section>
+                                                    </section>
 
-                                        </td>
+                                                </td>
 
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <?php
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </form>
+                                <?php
                              } 
                                 ?>
                         </div>

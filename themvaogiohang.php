@@ -44,13 +44,13 @@ $productToAdd = array(
     'id' => $pdid,
     'quant' => $qty,
     'level' => $lv,
-    'size' => $size,
+    'size' => $size
 );
 
 if (isset($_SESSION["lname"])){
     addToCart($productToAdd);
     if (isset($_GET["sb_giohang"])){
-        header('Location: product-detail.php?id='.$pdid.'&added=1');
+        header('Location: product-detail.php?id='.$pdid.'&added=1'); 
     } 
     if (isset($_GET["sb_cate"])){
         header('Location: category-grid.php?added=1');
