@@ -46,7 +46,7 @@
                                                 $status ="Đã Hủy";
                                               }      
                                                 ?>
-                            <table class="table"
+                            <table class="table dg"
                                 style="margin-top: 3rem ;  border: 1px solid #ccc ;box-shadow: 10px 10px 10px #E6E6E6;">
                                 <thead>
                                     <tr>
@@ -99,28 +99,15 @@
                                             <b><?php echo $row1['TONGTIEN'] ?> đ</b>
                                         </td>
                                     </tr>
-                                    <?php }?>
                                     <tr>
-                                        <td colspan="3"> </td>
-                                        <td>
-                                            <div class="text-danger">
-                                                <i class="fa-solid fa-shield-halved"></i> Thành tiền:
-                                                <?php echo $row['TONGTIEN'] ?> Đ
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="dg">
-
-                                        <td scope="col" style="float:left; border: 2px soild "
-                                            class="product-thumbnail">
-
-                                        </td>
-                                        <td class="product-price">
-
+                                        <td></td>
+                                        <td colspan="3">
+                                            <!-- danh gia -->
                                             <section class="section_show" style="display:none;">
                                                 <div class="card card-body" style="width: 50rem; margin: 2rem ;  ">
 
-                                                    <form action="danhgia.php" method="GET"
+                                                    <form action="danhgia.php" method="post"
+                                                        enctype="multipart/form-data"
                                                         style="border: 1px solid #ccc; height:33rem; padding:2rem">
                                                         <a style="float:right" class="close">
                                                             <i class="fa-solid fa-xmark"></i>
@@ -131,7 +118,7 @@
                                                             <div
                                                                 class="form-check col-lg-3 col-md-12 col-sm-12 col-xs-12">
                                                                 <input class="form-check-input" type="radio"
-                                                                    name="danhgia" id="flexRadioDefault1" value="1">
+                                                                    name="danhgia" id="flexRadioDefault1" value="Kém">
                                                                 <label class="form-check-label text-danger"
                                                                     for="flexRadioDefault1">
                                                                     <b> Kém</b>
@@ -140,7 +127,8 @@
                                                             <div
                                                                 class="form-check col-lg-3 col-md-12 col-sm-12 col-xs-12">
                                                                 <input class="form-check-input" type="radio"
-                                                                    name="danhgia" id="flexRadioDefault2" value="2">
+                                                                    name="danhgia" id="flexRadioDefault2"
+                                                                    value="Trung Bình">
                                                                 <label class="form-check-label text-warning"
                                                                     for="flexRadioDefault2">
                                                                     <b> Trung bình</b>
@@ -149,7 +137,8 @@
                                                             <div
                                                                 class="form-check col-lg-3 col-md-12 col-sm-12 col-xs-12">
                                                                 <input class="form-check-input" type="radio"
-                                                                    name="danhgia" id="flexRadioDefault2" value="3">
+                                                                    name="danhgia" id="flexRadioDefault2"
+                                                                    value="Khá Tốt">
                                                                 <label class="form-check-label text-info"
                                                                     for="flexRadioDefault2">
                                                                     <b>Khá Tốt</b>
@@ -159,7 +148,7 @@
                                                                 class="form-check col-lg-3 col-md-12 col-sm-12 col-xs-12">
                                                                 <input class="form-check-input" type="radio"
                                                                     name="danhgia" id="flexRadioDefault2" checked
-                                                                    value="4">
+                                                                    value="Tuyệt Vời">
                                                                 <label class="form-check-label text-success"
                                                                     for="flexRadioDefault2">
                                                                     <b> Tuyệt vời</b>
@@ -181,18 +170,48 @@
                                                                 value="<?php echo $_SESSION['email'] ?>">
                                                             <input type="hidden" name="hoadon"
                                                                 value="<?php echo $row['MAHOADON'] ?>">
+                                                            <input type="hidden" name="masp"
+                                                                value="<?php echo $row1['MASP'] ?>">
                                                         </div>
                                                         <div style="margin-top: 2rem;">
                                                             <button type="button" class="btn btn-outline-danger"
-                                                                style="float: left">Thêm
-                                                                ảnh sản phẩm</button>
-                                                            <button type="submit" class="btn btn-danger"
+                                                                style="float: left">
+                                                                <i class="fa-solid fa-camera"></i>
+                                                                <input type="file" name="fileToUpload"
+                                                                    id="fileToUpload">
+                                                            </button>
+
+
+
+                                                            <button type="submit" class="btn btn-danger" name="submit"
                                                                 style="float: right;">Hoàn thành</button>
                                                         </div>
                                                     </form>
                                                 </div>
                                             </section>
                                         </td>
+                                        <!-- end danh gia -->
+                                        </td>
+                                    </tr>
+                                    <?php }?>
+                                    <!-- end lap chi tiet sp -->
+                                    <tr>
+                                        <td colspan="3"> </td>
+                                        <td>
+                                            <div class="text-danger">
+                                                <i class="fa-solid fa-shield-halved"></i> Thành tiền:
+                                                <?php echo $row['TONGTIEN'] ?> Đ
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                        <td scope="col" style="float:left; border: 2px soild "
+                                            class="product-thumbnail">
+
+                                        </td>
+                                        <td class="product-price">
+
                                         <td class="product-quantity">
 
                                         </td>
@@ -234,9 +253,9 @@
                                  } else{
                                     $kt ="Đánh giá";
                                  echo '
-                                                    <button type="button" class="btn_check " style=" background: black; color:white ">
-                                                    '.$kt.'
-                                                    </button>
+                                    <button type="button" class="btn_check " style=" background: black; color:white ">
+                                    '.$kt.'
+                                    </button>
                                     ';
                                  }
                                 }      
