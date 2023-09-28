@@ -104,6 +104,9 @@ include "connect.php"
                                             </h4>
                                             <h4>Giảm: <span
                                                     style="font-weight: bold;"><?php echo number_format($_GET['gg']) ?> đ</span>
+                                                    <?php 
+                                                        if ($_GET['gg']==0) unset($_SESSION['makm']);
+                                                    ?>
                                             </h4>
                                             <h4>Thành tiền: <span
                                                     style="font-weight: bold;"><?php echo number_format($_GET['tt']) ?> đ</span>
