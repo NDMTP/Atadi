@@ -95,6 +95,8 @@ include "connect.php"
                                         value="" class="txt-input" placeholder="Số nhà, đường,...">
                                 </p>
                                 <div class="row" style="padding-bottom: 40px;">
+                                    <input type="hidden" name="tt" value="<?php echo $_GET['tt'] ?>">
+                                    <input type="hidden" name="gg" value="<?php echo $_GET['gg'] ?>">
                                     <div style="text-align: center;" class="col-12">
                                         <button type="submit" style="margin-top: 15px; padding: 10px 20px; background-color: #ff9702; color: white; border:none; border-radius: 15px;"><span style="font-size: 17px; font-weight: bold;">Xác nhận thông tin</span></button>
                                     </div>

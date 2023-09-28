@@ -183,6 +183,7 @@
                                         <b class="stt-name">Thành tiền</b>
                                         <span id="tt" class="stt-price">0 đ</span>
                                         <input type="hidden" name="tt" id="input_tt" value="">
+                                        <input type="hidden" name="gg" id="input_gg" value="">
                                     </div>
                                     <div class="subtotal-line"><b class="stt-name">Quận <br>
                                             <span style="color: red !important;" class="sub">(*Chỉ giao trong các quận
@@ -206,6 +207,8 @@
 
                                     <script>
                                     $(document).ready(function() {
+                                        var tt =document.getElementById('input_tt')
+                                        var gg =document.getElementById('input_gg')
                                         $(".check1").on("change", function() {
                                             //event.preventDefault();
                                             if (this.checked) {
@@ -230,7 +233,8 @@
                                                             $("#hint").html("Mua trên 100K để được giảm giá")
                                                         }
                                                         $("#tt").html((data - (data*(data1/100))).toLocaleString() + "đ")
-                                                        
+                                                        tt.value = data - (data*(data1/100))                                                        
+                                                        gg.value = (data*(data1/100))
                                                     });
                                                 });
 
@@ -259,6 +263,8 @@
                                                             $("#hint").html("")
                                                         }
                                                         $("#tt").html((data - (data*(data1/100))).toLocaleString() + "đ")
+                                                        tt.value = data - (data*(data1/100))                                                        
+                                                        gg.value = (data*(data1/100))
                                                     });
                                                 });
                                             }
