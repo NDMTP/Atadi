@@ -49,13 +49,11 @@
                                                 $text_col = "#f00";
                                               }      
                                                 ?>
-                            <<<<<<< HEAD <table class="table dg"
+                            <table class="table dg"
                                 style="margin-top: 3rem ;  border: 1px solid #ccc ;box-shadow: 10px 10px 10px #E6E6E6;">
-                                =======
                                 <form action="mualai.php" method="get" id="formMualai">
                                     <table class="table"
                                         style="margin-top: 3rem ;  border: 1px solid #ccc ;box-shadow: 10px 10px 10px #E6E6E6;">
-                                        >>>>>>> 8eb5d1b77d62edf5f5433b0a611504cabf0f6fae
                                         <thead>
                                             <tr>
                                                 <td scope="col" style="float:left; color: grey;"
@@ -110,21 +108,6 @@
                                                     <b><?php echo number_format($row1['TONGTIEN']) ?> đ</b>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <<<<<<< HEAD <td>
-                                                    </td>
-                                                    <td colspan="3">
-                                                        <!-- danh gia -->
-                                                        =======
-                                                    <td colspan="3"> </td>
-                                                    <td>
-                                                        <div
-                                                            style="color: #ff7300; font-weight: bold; text-align: right; padding: 1rem;">
-                                                            <i class="fa-solid fa-shield-halved"></i> Thành tiền:
-                                                            <?php echo number_format($row['TONGTIEN']) ?> Đ
-                                                        </div>
-                                                    </td>
-                                            </tr>
                                             <tr class="dg">
 
                                                 <td scope="col" style="float:left; border: 2px soild "
@@ -133,8 +116,31 @@
                                                 </td>
                                                 <td class="product-price">
 
-                                                    >>>>>>> 8eb5d1b77d62edf5f5433b0a611504cabf0f6fae
-                                                    <section class="section_show" style="display:none;">
+                                                </td>
+                                                <!-- end danh gia -->
+                                                </td>
+                                            </tr>
+                                            <?php }?>
+                                            <!-- end lap chi tiet sp -->
+                                            <tr>
+                                                <td colspan="3"> </td>
+                                                <td>
+                                                    <div
+                                                        style="color: #ff7300; font-weight: bold; text-align: right; padding: 1rem;">
+                                                        <i class="fa-solid fa-shield-halved"></i> Thành tiền:
+                                                        <?php echo number_format($row['TONGTIEN']) ?> Đ
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="dg">
+
+                                                <td scope="col" style="float:left; border: 2px soild "
+                                                    class="product-thumbnail">
+
+                                                </td>
+                                                <td class="product-price">
+                                                    
+                                                <section class="section_show" style="display:none;">
                                                         <div class="card card-body"
                                                             style="width: 50rem; margin: 2rem ;  ">
 
@@ -208,7 +214,7 @@
                                                                 </div>
                                                                 <div style="margin-top: 2rem;">
                                                                     <button type="button" class="btn btn-outline-danger"
-                                                                        style="float: left">
+                                                                        style="float: 0";>
                                                                         <i class="fa-solid fa-camera"></i>
                                                                         <input type="file" name="fileToUpload"
                                                                             id="fileToUpload">
@@ -224,27 +230,6 @@
                                                         </div>
                                                     </section>
                                                 </td>
-                                                <!-- end danh gia -->
-                                                </td>
-                                            </tr>
-                                            <?php }?>
-                                            <!-- end lap chi tiet sp -->
-                                            <tr>
-                                                <td colspan="3"> </td>
-                                                <td>
-                                                    <div class="text-danger">
-                                                        <i class="fa-solid fa-shield-halved"></i> Thành tiền:
-                                                        <?php echo $row['TONGTIEN'] ?> Đ
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-
-                                                <td scope="col" style="float:left; border: 2px soild "
-                                                    class="product-thumbnail">
-
-                                                </td>
-                                                <td class="product-price">
 
                                                 <td class="product-quantity">
 
@@ -265,7 +250,7 @@
                              if($result1->num_rows>0){
                                 $kt ="Đã đánh giá";
                                     echo '
-                                                    <button type="button"  style=" background: black; color:white ">
+                                                    <button type="button" class="btn" style=" background: black; color:white ">
                                                     '.$kt.'
                                                     </button>
                                     ';
@@ -285,7 +270,7 @@
                                  } else{
                                     $kt ="Đánh giá";
                                  echo '
-                                    <button type="button" class="btn_check " style=" background: black; color:white ">
+                                    <button type="button" class="btn_check btn" style=" background: black; color:white ">
                                     '.$kt.'
                                     </button>
                                     ';
@@ -328,7 +313,6 @@
         $(".btn_check").click(function() {
             var e = $(this).closest(".dg").find(".section_show");
             e.css("display", "block");
-            //alert("ádd");
         });
         $(".close").click(function() {
             var e = $(this).closest(".dg").find(".section_show");
