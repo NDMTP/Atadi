@@ -230,6 +230,7 @@
                                                             $("#hint").html("Mua trên 100K để được giảm giá")
                                                         }
                                                         $("#tt").html((data - (data*(data1/100))).toLocaleString() + "đ")
+                                                        
                                                     });
                                                 });
 

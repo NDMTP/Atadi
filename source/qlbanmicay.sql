@@ -165,6 +165,9 @@ CREATE TABLE `khuyenmai` (
   `NGAYKT` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+INSERT INTO `khuyenmai` VALUES
+('5T100',5,100000,'2023-09-01','2023-09-14'),
+('10T200',10,200000,'2023-09-01','2023-09-14')
 
 -- --------------------------------------------------------
 
