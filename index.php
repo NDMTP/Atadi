@@ -352,6 +352,20 @@
                             <ul class="biolife-carousel"
                                 data-slick='{"arrows": true, "dots": false, "slidesMargin": 0, "slidesToShow": 1, "infinite": true, "speed": 800}'>
                                 <li>
+                                    <div class="slide-contain slider-opt04__layout01 light-version second-slide">
+                                        <div class="media"></div>
+                                        <div class="text-content">
+                                            <i class="first-line">Món Hàn</i>
+                                            <h3 class="second-line">Gà sốt cay</h3>
+                                            <p class="third-line">Thịt gà tươi ngon, 100% nguyên liệu tươi sạch</p>
+                                            <p class="buttons">
+                                                <a href="#" class="btn btn-bold">Đặt hàng ngay</a>
+                                                <a href="#" class="btn btn-thin">Xem chi tiết</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
                                     <div class="slide-contain slider-opt04__layout01 light-version first-slide">
                                         <div class="media"></div>
                                         <div class="text-content">
@@ -366,20 +380,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="slide-contain slider-opt04__layout01 light-version second-slide">
-                                        <div class="media"></div>
-                                        <div class="text-content">
-                                            <i class="first-line">Món Hàn</i>
-                                            <h3 class="second-line">Gà sốt cay</h3>
-                                            <p class="third-line">Thịt gà tươi ngon, 100% nguyên liệu tươi sạch</p>
-                                            <p class="buttons">
-                                                <a href="#" class="btn btn-bold">Shop now</a>
-                                                <a href="#" class="btn btn-thin">View lookbook</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
+
                                 <li>
                                     <div class="slide-contain slider-opt04__layout01 light-version third-slide">
                                         <div class="media"></div>
