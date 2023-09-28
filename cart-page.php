@@ -20,7 +20,10 @@
     </div> -->
 
     <!-- HEADER -->
-    <?php require 'header.php' ?>
+    <?php 
+        $_SESSION['cart_temp']=array(); 
+        require 'header.php' ;
+    ?>
 
     <!--Hero Section-->
     <div class="hero-section hero-background">
@@ -179,6 +182,7 @@
                                     <div class="subtotal-line" style="margin-top: 20px;">
                                         <b class="stt-name">Thành tiền</b>
                                         <span id="tt" class="stt-price">0 đ</span>
+                                        <input type="hidden" name="tt" id="input_tt" value="">
                                     </div>
                                     <div class="subtotal-line"><b class="stt-name">Quận <br>
                                             <span style="color: red !important;" class="sub">(*Chỉ giao trong các quận
