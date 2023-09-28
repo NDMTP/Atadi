@@ -240,6 +240,13 @@ CREATE TABLE `phuongthuctt` (
   `TENPT` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+
+INSERT INTO `phuongthuctt` VALUES 
+(1, "Thanh toán khi nhận hàng"),
+(2, "Chuyển khoản ngân hàng"),
+(3, "Ví điện tử"),
+(4, "Visa/Mastercard")
+
 -- --------------------------------------------------------
 
 --

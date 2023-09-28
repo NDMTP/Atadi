@@ -14,6 +14,7 @@ if(isset($_POST['tong'])){
     $rsa = $rs -> fetch_all(MYSQLI_ASSOC);
     foreach ($rsa as $s) {
         if ($gt > $s['DIEUKIENKM']){
+            $_SESSION['makm'] = $s['MAKM'];
             $tl = $s['PHANTRAMKM'];
             break;
         }
