@@ -16,7 +16,8 @@ if(isset($_POST['check'])){
             } 
         }
         $ttien = $tong - $_POST['dg']*$_POST['qty12554'];
-        echo number_format($ttien );
+        // echo number_format($ttien );
+        echo $ttien;
         if(isset($_SESSION['cart_temp']) && is_array($_SESSION['cart_temp']) && !empty($_SESSION['cart_temp'])) {
             $key = $_POST['ma'];
             $size = $_POST['size'];
