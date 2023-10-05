@@ -62,7 +62,7 @@ include "connect.php"
                                         foreach ($_SESSION['cart_temp'] as $item) {
                                             $sql = "select * from sanpham s 
                                                     join sizecuasanpham sz on sz.MASP=s.MASP
-                                                    where sz.MASP = '{$item['id']}'";
+                                                    where sz.MASP = '{$item['id']}' and sz.MASIZE='{$item['size']}'";
                                             $result = $conn->query($sql);
                                             $sp = $result->fetch_assoc();
                                                 
@@ -102,6 +102,15 @@ include "connect.php"
                                             <h4>Tổng tiền: <span
                                                     style="font-weight: bold;"><?php echo number_format($tongtien) ?> đ</span>
                                             </h4>
+                                            <h4>Giảm: <span
+                                                    style="font-weight: bold;"><?php echo number_format($_GET['gg']) ?> đ</span>
+                                                    <?php 
+                                                        if ($_GET['gg']==0) unset($_SESSION['makm']);
+                                                    ?>
+                                            </h4>
+                                            <h4>Thành tiền: <span
+                                                    style="font-weight: bold;"><?php echo number_format($_GET['tt']) ?> đ</span>
+                                            </h4>
                                             <h4>Phí ship: <span
                                                     style="font-weight: bold;"><?php echo number_format($row['PHIGIAO']) ?>
                                                     đ</span></h4>
@@ -117,7 +126,7 @@ include "connect.php"
                                 <div class="row" style="padding-bottom: 40px;">
                                     <div style="text-align: center;" class="col-12">
                                         <h3>Tổng tiền: <span
-                                                style="font-weight: bold;"><?php echo number_format($tongtien+$row['PHIGIAO']) ?>
+                                                style="font-weight: bold;"><?php echo number_format($_GET['tt']+$row['PHIGIAO']) ?>
                                                 đ</span></h3>
                                         <button class="dathang"
                                             style="margin-top: 15px; padding: 10px 20px; background-color: #ff9702; color: white; border:none; border-radius: 15px;"

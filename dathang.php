@@ -7,14 +7,14 @@
     $result = $conn->query($getMaxId);
     $row = $result->fetch_assoc();
     $nextId = $row['maxid']+1;
-
-    $payment = $_POST['payment'];
-
-   $ok=0;
-
-    // Tạo hoá đơn :  các trang thái đơn chưa thanh toán =0; đã thanh toán = 1; huy don = -1
-    $addBill = "insert into hoadon values($nextId, '{$_SESSION['email']}', null, $payment, sysdate(), 0,0)";
+    $payment = $_GET['payment'];
     
+    $ok=0;
+    // Tạo hoá đơn :  các trang thái đơn chưa thanh toán =0; đã thanh toán = 1; huy don = -1
+    if (isset($_SESSION['makm'])) 
+        $addBill = "insert into hoadon values($nextId, '{$_SESSION['email']}', '{$_SESSION['makm']}', $payment, sysdate(), 0,0)";
+    else $addBill = "insert into hoadon values($nextId, '{$_SESSION['email']}', null, $payment, sysdate(), 0,0)";
+
     if($conn->query($addBill)) $ok=1;
 
     // Tạo chi tiết hoá đơn
@@ -23,7 +23,7 @@
         foreach ($_SESSION['cart'] as $item) {
             $sql = "select * from sanpham s 
                 join sizecuasanpham sz on sz.MASP=s.MASP
-                where sz.MASP = '{$item['id']}'";
+                where sz.MASP = '{$item['id']}' and sz.MASIZE = '{$item['size']}'";
             $result = $conn->query($sql);
             $sp = $result->fetch_assoc();
             $masp = $item['id'];
@@ -37,7 +37,7 @@
             $tonghd+= $tongtien;
            
 
-            $addBillDetail = "insert into chitiethoadon values ($nextId,'$masp','$masize',$soluong,'$docay',$dongia);";
+            $addBillDetail = "insert into chitiethoadon values ($nextId,'$masp','$masize',$soluong,'$docay',$dongia,$tongtien);";
             if($conn->query($addBillDetail)) $ok=1;
             else{
                 $ok=0;
@@ -46,22 +46,36 @@
 
         }
     }
-    // cập nhat lại tổng tiền của hóa đơn, chưa test đc, tại kh đặt hàng được
-    $themtong = "UPDATE hoadon SET TONGTIEN=$tonghd WHERE MAHOADON =$nextId";
-
-    // Tạo giao hàng
-    $mkv = $_GET['khuvuc'];
-    $ghichu = $_GET['ghichu'];
-    $phi = $_GET['phigiao'];
-    $addTrans = "insert into giaohang values ('$mkv',$nextId, $phi, '$ghichu')";
-    $conn->query($addTrans);
-
-    // // Xoá giỏ hàng
-    $_SESSION['cart'] = array();
-    $_SESSION['slsp'] = 0;
-
-    // Về trang chủ
-    header("Refresh: 5; url=index.php");
+    if ($ok){
+        // cập nhat lại tổng tiền của hóa đơn, chưa test đc, tại kh đặt hàng được
+        if (isset($_SESSION['makm'])){
+            $km = "select PHANTRAMKM from khuyenmai where MAKM = '{$_SESSION['makm']}'";
+            $result = $conn->query($km);
+            if ($result->num_rows>0){
+                $row = $result->fetch_assoc();
+                $tonghd -= $tonghd*($row['PHANTRAMKM']/100);
+            }
+        }
+        
+        $themtong = "UPDATE hoadon SET TONGTIEN=$tonghd WHERE MAHOADON =$nextId";
+        $conn->query($themtong);
+    
+        // Tạo giao hàng
+        $mkv = $_GET['khuvuc'];
+        $ghichu = $_GET['ghichu'];
+        $phi = $_GET['phigiao'];
+        $addTrans = "insert into giaohang values ('$mkv',$nextId, $phi, '$ghichu')";
+        $conn->query($addTrans);
+    
+        // // Xoá giỏ hàng
+        $_SESSION['cart'] = array();
+        $_SESSION['slsp'] = 0;
+    
+        // Về trang chủ
+        header("Refresh: 5; url=index.php");
+    } else {
+        echo "Looix r";
+    }
 
 ?>
 
@@ -72,7 +86,7 @@
         <i style="color: green; font-size: 50px; margin-top: 9px; margin-right: 15px;"
             class="fas fa-check-circle fa-lg"></i>
         <h1>Đặt hàng thành công !</h1>
-        <a href="chitiethoadon">
+        <a href="chitiethoadon.php?hdid=<?php echo $nextId ?>">
             <h4>Xem chi tiết đơn mua hàng</h4>
         </a>
         <p>Tự động quay về trang chủ sau 5s...</p>

@@ -20,7 +20,10 @@
     </div> -->
 
     <!-- HEADER -->
-    <?php require 'header.php' ?>
+    <?php 
+        $_SESSION['cart_temp']=array(); 
+        require 'header.php' ;
+    ?>
 
     <!--Hero Section-->
     <div class="hero-section hero-background">
@@ -164,10 +167,8 @@
                         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                             <div class="shpcart-subtotal-block">
                                 <div class="subtotal-line" style="margin-top: 20px;">
-                                    <!-- chưa xử lý chỗ này -->
                                     <b class="stt-name">Tổng <span class="sub">(<?php echo $_SESSION['slsp'] ?>
                                             món)</span></b>
-                                    <!-- tong tien -->
                                     <span id="tong" class="stt-price">0 đ</span>
                                 </div>
                                 <form action="thongtinmuahang.php" method="get">
@@ -175,15 +176,20 @@
                                     <?php
                                         $sql = "select * from khuyenmai where ";
                                     ?>
-                                    <div class="subtotal-line"><b class="stt-name">Giảm giá <br>
-                                            <span style="color: red !important;" class="sub">Áp dụng cho hoá đơn trên
-                                                <span id="tong1">0 đ</span></span></b>
+                                    <div class="subtotal-line"><b class="stt-name">Giảm giá <span id="tile"> chưa áp dụng</span> <br> 
+                                            <span style="color: red !important;" class="sub" id="hint">Mua trên 100K để được giảm giá
                                     </div>
-
+                                    <div class="subtotal-line" style="margin-top: 20px;">
+                                        <b class="stt-name">Thành tiền</b>
+                                        <span id="tt" class="stt-price">0 đ</span>
+                                        <input type="hidden" name="tt" id="input_tt" value="">
+                                        <input type="hidden" name="gg" id="input_gg" value="">
+                                    </div>
                                     <div class="subtotal-line"><b class="stt-name">Quận <br>
                                             <span style="color: red !important;" class="sub">(*Chỉ giao trong các quận
                                                 sau:)</span></b>
                                     </div>
+
 
                                     <div>
                                         <div style="width: 100% !important;" class="form_combobox w-100">
@@ -200,56 +206,35 @@
 
 
                                     <script>
-                                    // document.addEventListener("DOMContentLoaded", function() {
-                                    //     const areaSelect = document.getElementById("areaSelect");
-
-                                    //     areaSelect.addEventListener("change", function() {
-                                    //         const phuong = document.getElementById('phuong');
-                                    //         phuong.innerHTML =
-                                    //             '<div style="width: 100% !important;" class="form_combobox w-100" id="phuong"><select style="color: black !important; margin-left: 10px !important; " name="area" id="areaSelect"></select></div>';
-                                    //     });
-                                    // });
-                                    // $.ajax({
-                                    //     type: "GET", // Hoặc POST tùy vào cách bạn gửi yêu cầu
-                                    //     url: "get_session_sale.php", // Đường dẫn đến tập tin PHP trên máy chủ
-                                    //     dataType: "json", // Định dạng dữ liệu bạn mong muốn nhận
-                                    //     success: function(dt) {
-                                    //         // Xử lý dữ liệu nhận được từ máy chủ
-                                    //         var saleData = dt.dksale; // Lấy giá trị từ dữ liệu nhận được
-
-
-                                    //         // Cái này là object array DIEUKIENKM:TLEKM
-                                    //         console.log(saleData);
-
-
-
-                                    //     }
-                                    // });
                                     $(document).ready(function() {
+                                        var tt =document.getElementById('input_tt')
+                                        var gg =document.getElementById('input_gg')
                                         $(".check1").on("change", function() {
                                             //event.preventDefault();
                                             if (this.checked) {
                                                 var pdid = $(this).siblings(".masp").val();
                                                 var level = $(this).siblings(".level").val();
                                                 var size = $(this).siblings(".size").val();
-                                                var qty12554 = $(this).closest(".pd").find(".num")
-                                                    .val();
+                                                var qty12554 = $(this).closest(".pd").find(".num").val();
                                                 $.post('cart_temp.php', {
                                                     pdid: pdid,
                                                     size: size,
                                                     level: level,
                                                     qty12554: qty12554
                                                 }, function(data) {
-                                                    $("#tong").html(data + "đ");
-                                                    // $("#tong1").html(data + "đ");
+                                                    $("#tong").html(data.toLocaleString() + "đ");
                                                     $.post('get_session_sale.php', {
-                                                        test: 1,
                                                         tong: data
-
                                                     }, function(data1) {
-
-                                                        alert(data1);
-                                                        // $("#tong1").html(data + "đ");
+                                                        $("#tile").html(data1 + "%")
+                                                        if(data1!=0){
+                                                            $("#hint").html("")
+                                                        } else {
+                                                            $("#hint").html("Mua trên 100K để được giảm giá")
+                                                        }
+                                                        $("#tt").html((data - (data*(data1/100))).toLocaleString() + "đ")
+                                                        tt.value = data - (data*(data1/100))                                                        
+                                                        gg.value = (data*(data1/100))
                                                     });
                                                 });
 
@@ -257,8 +242,7 @@
                                             } else {
                                                 var key = $(this).siblings(".key").val();
                                                 var dg = $(this).siblings(".dg").val();
-                                                var qty12554 = $(this).closest(".pd").find(".num")
-                                                    .val();
+                                                var qty12554 = $(this).closest(".pd").find(".num").val();
                                                 var ma = $(this).siblings(".masp").val();
                                                 var size = $(this).siblings(".size").val();
                                                 $.post('cartsession_delete.php', {
@@ -268,9 +252,20 @@
                                                     dg: dg,
                                                     qty12554: qty12554
                                                 }, function(data) {
-                                                    $("#tong").html(data + "đ");
-                                                    $("#tong1").html(data + "đ");
-
+                                                    $("#tong").html(data.toLocaleString() + "đ");
+                                                    $.post('get_session_sale.php', {
+                                                        tong: data
+                                                    }, function(data1) {
+                                                        $("#tile").html(data1 + "%")
+                                                        if(data1==0){
+                                                            $("#hint").html("Mua trên 100K để được giảm giá")
+                                                        } else {
+                                                            $("#hint").html("")
+                                                        }
+                                                        $("#tt").html((data - (data*(data1/100))).toLocaleString() + "đ")
+                                                        tt.value = data - (data*(data1/100))                                                        
+                                                        gg.value = (data*(data1/100))
+                                                    });
                                                 });
                                             }
                                         });
