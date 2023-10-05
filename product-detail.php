@@ -211,15 +211,17 @@
 
                         <?php
                          $spid = $_GET['id'];
-                             $danhgia = "SELECT danhgiasp.EMAIL,danhgiasp.NOIDUNGDG, danhgiasp.LINKANHDG, danhgiasp.CHATLUONGSP,danhgiasp.TGDANHGIA FROM
+                             $danhgia = "SELECT danhgiasp.EMAIL,danhgiasp.NOIDUNGDG, danhgiasp.CHATLUONGSP,danhgiasp.TGDANHGIA FROM
                              danhgiasp, chitiethoadon WHERE danhgiasp.MAHOADON = chitiethoadon.MAHOADON
                              AND chitiethoadon.MASP = '$spid' Limit 6";
                             $rs_danhgia = $conn->query($danhgia);
+                            //echo ' <p>'. $danhgia.'</p>';
                                 while( $dgia = $rs_danhgia -> fetch_assoc()) {           
                         ?>
                         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 shadow-sm p-3 mb-5 bg-body rounded"
                             style=" border: 1px solid #f1f1f1 ;box-shadow: 10px 10px 10px #f1f1f1; margin-top: 2rem; padding: 1rem;">
                             <div>
+
                                 <b>
                                     <span>
                                         <i class="fa-solid fa-circle-user" style="font-size:5rem ;"></i>
