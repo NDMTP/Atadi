@@ -72,7 +72,7 @@
                                         </thead>
                                         <tbody class="dg">
                                             <?php
-                                        $cthd = "SELECT * FROM chitiethoadon WHERE MAHOADON = '".$row['MAHOADON']."' ";;
+                                        $cthd = "SELECT * FROM chitiethoadon WHERE MAHOADON = '".$row['MAHOADON']."' ORDER BY MAHOADON DESC";;
                                         $cthd_result = $conn->query($cthd);
                                 while($row1 = $cthd_result->fetch_assoc() ){
 

@@ -14,7 +14,7 @@ foreach ($uploadedFiles['tmp_name'] as $key => $tempFilePath) {
     $fileName = $uploadedFiles['name'][$key];
     $targetFilePath = $targetDirectory . $fileName;
     if (move_uploaded_file($tempFilePath, $targetFilePath)) {
-        $sql1="INSERT INTO anhdanhgia VALUES ('$fileName','$masp','$email')";
+        $sql1="INSERT INTO anhdanhgia(linkanh,masp,email,mahoadon) VALUES ('$fileName','$masp','$email','$hd')";
         $rs = $conn->query($sql1);
     } 
 }

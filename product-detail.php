@@ -191,9 +191,9 @@
 
                         <?php
                          $spid = $_GET['id'];
-                             $danhgia = "SELECT  danhgiasp.MASP,danhgiasp.EMAIL,danhgiasp.NOIDUNGDG, danhgiasp.CHATLUONGSP,danhgiasp.TGDANHGIA FROM
+                             $danhgia = "SELECT  danhgiasp.MAHOADON,danhgiasp.MASP,danhgiasp.EMAIL,danhgiasp.NOIDUNGDG, danhgiasp.CHATLUONGSP,danhgiasp.TGDANHGIA FROM
                              danhgiasp, chitiethoadon WHERE danhgiasp.MAHOADON = chitiethoadon.MAHOADON
-                             AND chitiethoadon.MASP = '$spid' Limit 6";
+                             AND chitiethoadon.MASP = '$spid' ORDER BY MAHOADON DESC";
                             $rs_danhgia = $conn->query($danhgia);
                                 while( $dgia = $rs_danhgia -> fetch_assoc()) {           
                         ?>
@@ -223,7 +223,7 @@
                             </div>
                             <div class="row" style="margin-top: 2rem;">
                                 <?php
-                                $anh = "SELECT * FROM ANHDANHGIA WHERE MASP = '".$dgia['MASP']."' AND EMAIL = '".$dgia['EMAIL']."'";
+                                $anh = "SELECT * FROM ANHDANHGIA WHERE MASP = '".$dgia['MASP']."' AND EMAIL = '".$dgia['EMAIL']."' AND MAHOADON ='".$dgia['MAHOADON']."'";
                                 $rs_anh = $conn->query($anh);
                                     while( $rowanh = $rs_anh -> fetch_assoc()) {   
                                             
