@@ -121,11 +121,6 @@
                             <?php
                                 }
                             ?>
-
-                            <!-- <div class="shipping-info">
-                            <p class="shipping-day">3-Day Shipping</p>
-                            <p class="for-today">Pree Pickup Today</p>
-                        </div> -->
                             <div class="action-form"
                                 style="width: 100% !important; background-color: white !important;">
                             </div>
@@ -148,16 +143,6 @@
                                 <button type="submit" name="sb_dathang" style="min-width: 100% !important;"
                                     class="btn buy-now-btn">Đặt hàng ngay</button>
                             </div>
-                            <!-- <div class="location-shipping-to">
-                            <span class="title">Ship to:</span>
-                            <select name="shipping_to" class="country">
-                                <option value="-1">Select Country</option>
-                                <option value="america">America</option>
-                                <option value="france">France</option>
-                                <option value="germany">Germany</option>
-                                <option value="japan">Japan</option>
-                            </select>
-                        </div> -->
                             <div class="social-media">
                                 <ul class="social-list">
                                     <li><a href="#" class="social-link"><i class="fa fa-twitter"
@@ -193,13 +178,8 @@
                     } else if (submitButton.name === "sb_dathang") {
                         this.action = "thanhtoan.php"; // Thay đổi trang khi nhấp nút "Submit for Page 2"
                     }
-
-                    // Tiếp tục thực hiện submit form theo action đã thay đổi
                 });
                 </script>
-
-                <!-- =============================DANH GIÁ SP================================ -->
-                <!-- related products -->
                 <div class="product-related-box single-layout">
                     <div class="biolife-title-box lg-margin-bottom-26px-im">
 
@@ -211,11 +191,10 @@
 
                         <?php
                          $spid = $_GET['id'];
-                             $danhgia = "SELECT danhgiasp.EMAIL,danhgiasp.NOIDUNGDG, danhgiasp.CHATLUONGSP,danhgiasp.TGDANHGIA FROM
+                             $danhgia = "SELECT  danhgiasp.MASP,danhgiasp.EMAIL,danhgiasp.NOIDUNGDG, danhgiasp.CHATLUONGSP,danhgiasp.TGDANHGIA FROM
                              danhgiasp, chitiethoadon WHERE danhgiasp.MAHOADON = chitiethoadon.MAHOADON
                              AND chitiethoadon.MASP = '$spid' Limit 6";
                             $rs_danhgia = $conn->query($danhgia);
-                            //echo ' <p>'. $danhgia.'</p>';
                                 while( $dgia = $rs_danhgia -> fetch_assoc()) {           
                         ?>
                         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 shadow-sm p-3 mb-5 bg-body rounded"
@@ -240,31 +219,24 @@
                                 </span>
                             </div>
                             <div style="margin-top: 2rem;">
-                                <?php echo $dgia['NOIDUNGDG'] ?>
+                                <?php echo $dgia['NOIDUNGDG']; ?>
                             </div>
                             <div class="row" style="margin-top: 2rem;">
+                                <?php
+                                $anh = "SELECT * FROM ANHDANHGIA WHERE MASP = '".$dgia['MASP']."' AND EMAIL = '".$dgia['EMAIL']."'";
+                                $rs_anh = $conn->query($anh);
+                                    while( $rowanh = $rs_anh -> fetch_assoc()) {   
+                                            
+                            ?>
                                 <div class="col-sm-4 " style="padding: 1rem; width: 15%;">
                                     <img width="120rem" height="120rem"
-                                        src="assets/images/products/<?php echo $masp."/".$row['LINKANH']?>"
-                                        alt="shipping cart">
+                                        src="assets/images/comment/<?php echo $rowanh['LINKANH']?>" alt="shipping cart">
                                 </div>
-                                <div class="col-sm-4 " style="padding: 1rem; width: 15%;">
-                                    <img width="120rem" height="120rem"
-                                        src="assets/images/products/<?php echo $masp."/".$row['LINKANH']?>"
-                                        alt="shipping cart">
-                                </div>
-                                <div class="col-sm-4 col-md-4 " style="padding: 1rem; width: 15%;">
-                                    <img width="120rem" height="120rem"
-                                        src="assets/images/products/<?php echo $masp."/".$row['LINKANH']?>"
-                                        alt="shipping cart">
-                                </div>
+                                <?php } ?>
                             </div>
 
                         </div>
-
                         <?php } 
-
-                        
                         $tongdg ="SELECT SUM(tongdg) AS Tongdg
                         FROM (
                             SELECT COUNT(*) as tongdg
@@ -355,7 +327,6 @@
                             <div id="barchart_values" style="width: 800px; height: 300px;"></div>
 
                             </script>
-                            <!-- end -->
                             <div id="chart_div"></div>
                         </div>
 
@@ -364,7 +335,6 @@
 
 
                 </div>
-                <!-- =============================END DANH GIÁ SP================================ -->
                 <!-- related products -->
                 <div class="product-related-box single-layout">
                     <div class="biolife-title-box lg-margin-bottom-26px-im">

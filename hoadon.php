@@ -70,11 +70,11 @@
                                                 </span>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody class="dg">
                                             <?php
-                                        $cthd = "SELECT * FROM chitiethoadon WHERE MAHOADON = '".$row['MAHOADON']."'";;
+                                        $cthd = "SELECT * FROM chitiethoadon WHERE MAHOADON = '".$row['MAHOADON']."' ";;
                                         $cthd_result = $conn->query($cthd);
-                                        while($row1 = $cthd_result->fetch_assoc() ){
+                                while($row1 = $cthd_result->fetch_assoc() ){
 
                                             $masp = preg_replace('/[0-9]/', '', $row1['MASP']);
                                             $sp = "SELECT * FROM sanpham WHERE MASP = '".$row1['MASP']."'";
@@ -108,20 +108,92 @@
                                                     <b><?php echo number_format($row1['TONGTIEN']) ?> đ</b>
                                                 </td>
                                             </tr>
-                                            <tr class="dg">
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td class="product-price section_show" style="display:none;">
+                                                    <form action="danhgia.php" method="post" name="forms"
+                                                        style=" padding:2rem;margin-top:2rem;">
+                                                        <a style="float:right" class="close">
+                                                            <i class="fa-solid fa-xmark"></i>
+                                                        </a>
+                                                        <div class="dg1 row" style="margin-top:2rem;">
+                                                            <h3><b>Đánh giá sản phẩm</b>
+                                                            </h3>
+                                                            <div class="col-lg-4">
+                                                                <div>
+                                                                    <img src="assets/images/products/<?php echo $masp."/".$sp['LINKANH']?>"
+                                                                        alt="loi">
+                                                                    <p><?php echo $sp['TENSP'] ?></p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-8">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio"
+                                                                        name="danhgia" value="Kém">
+                                                                    <label class="form-check-label text-danger"
+                                                                        for="flexRadioDefault1">
+                                                                        <b> Kém</b>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check ">
+                                                                    <input class="form-check-input" type="radio"
+                                                                        name="danhgia" value="Trung Bình">
+                                                                    <label class="form-check-label text-warning"
+                                                                        for="flexRadioDefault2">
+                                                                        <b> Trung bình</b>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check ">
+                                                                    <input class="form-check-input" type="radio"
+                                                                        name="danhgia" value="Khá Tốt">
+                                                                    <label class="form-check-label text-info"
+                                                                        for="flexRadioDefault2">
+                                                                        <b>Khá Tốt</b>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check ">
+                                                                    <input class="form-check-input" type="radio"
+                                                                        name="danhgia" value="Tuyệt Vời">
+                                                                    <label class="form-check-label text-success"
+                                                                        for="flexRadioDefault2">
+                                                                        <b> Tuyệt vời</b>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
 
-                                                <td scope="col" style="float:left; border: 2px soild "
-                                                    class="product-thumbnail">
 
-                                                </td>
-                                                <td class="product-price">
+                                                            <div class="form-floating" style="margin-top: 2rem;">
+                                                                <textarea class="nd form-control"
+                                                                    placeholder="Hãy chia sẽ những điều bạn thích về món ăn cho mọi người biết nhé!"
+                                                                    style="height: 100px" name="noidung"></textarea>
 
+                                                            </div>
+                                                            <div>
+                                                                <input type="hidden" name="hoadon" class="hd"
+                                                                    value="<?php echo $row['MAHOADON'] ?>">
+                                                                <input type="hidden" name="masp" class="masp"
+                                                                    value="<?php echo $row1['MASP'] ?>">
+                                                            </div>
+                                                            <div style="margin-top: 2rem; ">
+                                                                <input type="file" multiple="multiple" id="fileToUpload"
+                                                                    class="anh"
+                                                                    style="border: 1px solid #ccc;padding: 1rem;">
+
+                                                                <b class="tb" style=" color:white;">
+                                                                    CẢM ƠN BẠN ĐÃ DÁNH GIÁ
+                                                                </b>
+                                                                <button class="sb btn btn-danger"
+                                                                    style="float: right;">Hoàn
+                                                                    thành</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
                                                 </td>
-                                                <!-- end danh gia -->
-                                                </td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
                                             <?php }?>
-                                            <!-- end lap chi tiet sp -->
                                             <tr>
                                                 <td colspan="3"> </td>
                                                 <td>
@@ -132,108 +204,10 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr class="dg">
-
-                                                <td scope="col" style="float:left; border: 2px soild "
-                                                    class="product-thumbnail">
-
-                                                </td>
-                                                <td class="product-price">
-                                                    
-                                                <section class="section_show" style="display:none;">
-                                                        <div class="card card-body"
-                                                            style="width: 50rem; margin: 2rem ;  ">
-
-                                                            <form action="danhgia.php" method="post"
-                                                                enctype="multipart/form-data"
-                                                                style="border: 1px solid #ccc; height:33rem; padding:2rem">
-                                                                <a style="float:right" class="close">
-                                                                    <i class="fa-solid fa-xmark"></i>
-                                                                </a>
-                                                                <div class="row" style="margin-top:2rem;">
-                                                                    <h3><b>Chất lượng sản phẩm:</b>
-                                                                    </h3>
-                                                                    <div
-                                                                        class="form-check col-lg-3 col-md-12 col-sm-12 col-xs-12">
-                                                                        <input class="form-check-input" type="radio"
-                                                                            name="danhgia" id="flexRadioDefault1"
-                                                                            value="Kém">
-                                                                        <label class="form-check-label text-danger"
-                                                                            for="flexRadioDefault1">
-                                                                            <b> Kém</b>
-                                                                        </label>
-                                                                    </div>
-                                                                    <div
-                                                                        class="form-check col-lg-3 col-md-12 col-sm-12 col-xs-12">
-                                                                        <input class="form-check-input" type="radio"
-                                                                            name="danhgia" id="flexRadioDefault2"
-                                                                            value="Trung Bình">
-                                                                        <label class="form-check-label text-warning"
-                                                                            for="flexRadioDefault2">
-                                                                            <b> Trung bình</b>
-                                                                        </label>
-                                                                    </div>
-                                                                    <div
-                                                                        class="form-check col-lg-3 col-md-12 col-sm-12 col-xs-12">
-                                                                        <input class="form-check-input" type="radio"
-                                                                            name="danhgia" id="flexRadioDefault2"
-                                                                            value="Khá Tốt">
-                                                                        <label class="form-check-label text-info"
-                                                                            for="flexRadioDefault2">
-                                                                            <b>Khá Tốt</b>
-                                                                        </label>
-                                                                    </div>
-                                                                    <div
-                                                                        class="form-check col-lg-3 col-md-12 col-sm-12 col-xs-12">
-                                                                        <input class="form-check-input" type="radio"
-                                                                            name="danhgia" id="flexRadioDefault2"
-                                                                            checked value="Tuyệt Vời">
-                                                                        <label class="form-check-label text-success"
-                                                                            for="flexRadioDefault2">
-                                                                            <b> Tuyệt vời</b>
-                                                                        </label>
-                                                                    </div>
-
-                                                                </div>
-
-                                                                <div class="form-floating" style="margin-top: 2rem;">
-                                                                    <textarea class="form-control"
-                                                                        placeholder="Hãy chia sẽ những điều bạn thích về món ăn cho mọi người biết nhé!"
-                                                                        id="floatingTextarea2" style="height: 100px"
-                                                                        name="noidung"></textarea>
-
-                                                                </div>
-                                                                <div>
-
-                                                                    <input type="hidden" name="email"
-                                                                        value="<?php echo $_SESSION['email'] ?>">
-                                                                    <input type="hidden" name="hoadon"
-                                                                        value="<?php echo $row['MAHOADON'] ?>">
-                                                                    <input type="hidden" name="masp"
-                                                                        value="<?php echo $row1['MASP'] ?>">
-                                                                </div>
-                                                                <div style="margin-top: 2rem;">
-                                                                    <button type="button" class="btn btn-outline-danger"
-                                                                        style="float: 0";>
-                                                                        <i class="fa-solid fa-camera"></i>
-                                                                        <input type="file" name="fileToUpload"
-                                                                            id="fileToUpload">
-                                                                    </button>
-
-
-
-                                                                    <button type="submit" class="btn btn-danger"
-                                                                        name="submit" style="float: right;">Hoàn
-                                                                        thành</button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </section>
-                                                </td>
-
-                                                <td class="product-quantity">
-
-                                                </td>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                                 <td scope="col">
                                                     <section style="text-align: right; padding: 1rem">
 
@@ -243,46 +217,45 @@
                                                         </button>
 
                                                         <?php
-                            $sql1 = "SELECT * FROM danhgiasp WHERE MAHOADON ='".$row['MAHOADON']."'";
-                            $result1 = $conn->query($sql1);
-                            $kttt = $result1->fetch_assoc();
-                            $kt= " "  ;           
-                             if($result1->num_rows>0){
-                                $kt ="Đã đánh giá";
-                                    echo '
+                                                        $sql1 = "SELECT * FROM danhgiasp WHERE MAHOADON ='".$row['MAHOADON']."'";
+                                                        $result1 = $conn->query($sql1);
+                                                        $kttt = $result1->fetch_assoc();
+                                                        $kt= " "  ;           
+                                                        if($result1->num_rows>0){
+                                                            $kt ="Đã đánh giá";
+                                                                echo '
                                                     <button type="button" class="btn" style=" background: black; color:white ">
                                                     '.$kt.'
                                                     </button>
-                                    ';
+                                                        ';
                                                                                    
-                                }    
-                              else{
-                                $sql3 = "SELECT * FROM hoadon WHERE MAHOADON ='".$row['MAHOADON']."'";
-                                    $result3 = $conn->query($sql3);
-                                    $kttt = $result3->fetch_assoc();
-                                 if($kttt['TRANGTHAIHOADON']==-1){
-                                    $kt ="Đơn hàng đã được hủy";
-                                    echo '
-                                    <button type="button" class="btn btn-outline-secondary">
-                                    '.$kt.'
-                                    </button>
-                                    ';
-                                 } else{
-                                    $kt ="Đánh giá";
-                                 echo '
-                                    <button type="button" class="btn_check btn" style=" background: black; color:white ">
-                                    '.$kt.'
-                                    </button>
-                                    ';
-                                 }
-                                }      
+                                                        }    
+                                                    else{
+                                                        $sql3 = "SELECT * FROM hoadon WHERE MAHOADON ='".$row['MAHOADON']."'";
+                                                            $result3 = $conn->query($sql3);
+                                                            $kttt = $result3->fetch_assoc();
+                                                        if($kttt['TRANGTHAIHOADON']==-1){
+                                                            $kt ="Đơn hàng đã được hủy";
+                                                            echo '
+                                                            <button type="button" class="btn btn-outline-secondary">
+                                                            '.$kt.'
+                                                            </button>
+                                                            ';
+                                                        } else{
+                                                            $kt ="Đánh giá";
+                                                        echo '
+                                                            <button type="button" class="btn_check btn" style=" background: black; color:white ">
+                                                            '.$kt.'
+                                                            </button>
+                                                            ';
+                                                        }
+                                                        }      
 
-                                                    ?>
+                                                                            ?>
 
                                                     </section>
 
                                                 </td>
-
                                             </tr>
                                         </tbody>
                                     </table>
@@ -318,6 +291,52 @@
             var e = $(this).closest(".dg").find(".section_show");
             e.css("display", "none");
         });
+        $(".anh").change(function() {
+            var fileList = [];
+            var files = $(this)[0].files;
+            for (var i = 0; i < files.length; i++) {
+                fileList.push(files[i].name);
+            }
+        });
+        $(".sb").click(function(event) {
+            event.preventDefault();
+            var cl = document.getElementsByName("danhgia");
+            var cl1 = " ";
+            for (var i = 0; i < cl.length; i++) {
+                if (cl[i].checked) {
+                    cl1 = cl[i].value;
+                    break;
+                }
+            }
+            var nd = $(this).closest(".dg1").find(".nd").val();
+            var hienthi = $(this).closest(".dg1").find(".tb");
+            var masp = $(this).closest(".dg1").find(".masp").val();
+            var hd = $(this).closest(".dg1").find(".hd").val();
+            var selectedFiles = $(this).closest(".dg1").find(".anh")[0].files;
+            var formData = new FormData();
+            formData.append("nd", nd);
+            formData.append("masp", masp);
+            formData.append("hd", hd);
+            formData.append("cl1", cl1);
+            for (var i = 0; i < selectedFiles.length; i++) {
+                formData.append("selectedFiles[]", selectedFiles[i]);
+            }
+            $.ajax({
+                url: "danhgia.php",
+                type: "POST",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                    if (data == 1) {
+                        hienthi.css("color", "green");
+                    } else {
+                        alert('LỖIIIIIIIIIII')
+                    }
+                }
+            });
+        });
+
     });
     </script>
     <!-- FOOTER -->
