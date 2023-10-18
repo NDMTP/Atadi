@@ -71,10 +71,12 @@
         $_SESSION['cart'] = array();
         $_SESSION['slsp'] = 0;
     
-        // Về trang chủ
-        header("Refresh: 5; url=index.php");
+        if ($payment==1){
+            // Về trang chủ
+            header("Refresh: 5; url=index.php");
+        }
     } else {
-        echo "Looix r";
+        echo "Error";
     }
 
 ?>
@@ -83,19 +85,68 @@
 
 <div style="width: 100%; height: 100%; background-color: #ff9702 !important;">
     <div class="noti">
-        <i style="color: green; font-size: 50px; margin-top: 9px; margin-right: 15px;"
+        <i style="color: green; font-size: 50px; margin-top: 15px; margin-right: 15px;"
             class="fas fa-check-circle fa-lg"></i>
-        <h1>Đặt hàng thành công !</h1>
+        <h1 >Đặt hàng thành công !</h1>
         <a href="chitiethoadon.php?hdid=<?php echo $nextId ?>">
             <h4>Xem chi tiết đơn mua hàng</h4>
         </a>
-        <p>Tự động quay về trang chủ sau 5s...</p>
         <a href="index.php"><button class="return-btn">Về trang chủ</button></a>
+        <?php
+            switch ($payment) {
+                case '1':
+                    echo '<p class="mt-3">Tự động quay về trang chủ sau 5s...</p>';
+                    break;
+                
+                case '2':
+                    echo '<p class="text" style="margin-top: 2rem;"><strong>Vui lòng chuyển khoản theo thông tin bên dưới</strong></p>';
+                    echo '<p class="text">Tên tài khoản: <strong>MI CAY ATADI</strong></p>';
+                    echo '<p class="text">Ngân hàng: <strong>MBBANK</strong> - Số tài khoản: <strong>9999999902002</strong></p>';
+                    echo '<p class="text">Nội dung chuyển khoản: <strong>ATADI_BANKING_'.$nextId.' </strong></p>';
+                    break;
+
+                case '3':
+                    ?>
+                        <span style="margin-top: 20px;">
+                            <strong>
+                                Vui lòng thanh toán qua các ví sau:
+                            </strong>
+                        </span>
+                        <div class="row" style="margin-top: 2rem">
+                            <div class="col-sm-6 col-md-6 vdt">
+                                <p class="mt-2 text"><strong>Momo:</strong></p><img style="width: 200px" src="assets/images/momo.jpg" alt="">;
+                                <p class="text">Nội dung: <strong>ATADI_MOMO_<?php echo $nextId ?></strong></p>
+                            </div>
+                            <div class="col-sm-6 col-md-6 vdt">
+                                <p class="mt-2 text"><strong>VNPAY:</strong></p><img style="width: 200px" src="assets/images/vnpay.jpg" alt="">; 
+                                <p class="text">Nội dung: <strong>ATADI_VNPAY_<?php echo $nextId ?></strong></p>
+                            </div>
+                        </div>
+                    <?php
+                    break;
+ 
+                default:
+                    # code...
+                    break;
+            }
+        ?>
     </div>
 </div>
 <!-- </html> -->
 
 <style>
+
+.vdt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text{
+    font-size: 15px;
+}
+
 .noti {
     position: fixed;
     top: 50%;
