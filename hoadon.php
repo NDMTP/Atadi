@@ -37,12 +37,16 @@
                                        $status= " "  ;           
                             while ($row = $result->fetch_assoc()) {
                                               if($row["TRANGTHAIHOADON"]==1){
-                                                $status ="Đã Thanh toán";
+                                                $status ="Đang giao hàng";
                                                 $text_col = "#11d12e";
                                               } 
                                               elseif($row["TRANGTHAIHOADON"]==0){
-                                                $status ="Chưa Thanh toán";
+                                                $status ="Đang duyệt đơn";
                                                 $text_col = "#ff7300";
+                                              }  
+                                              elseif($row["TRANGTHAIHOADON"]==2){
+                                                $status ="Giao hàng thành công";
+                                                $text_col = "#11d12e";
                                               }   
                                               else{
                                                 $status ="Đã Hủy";
@@ -241,12 +245,24 @@
                                                             '.$kt.'
                                                             </button>
                                                             ';
-                                                        } else{
+                                                        }  if($kttt['TRANGTHAIHOADON']==2){
                                                             $kt ="Đánh giá";
                                                         echo '
                                                             <button type="button" class="btn_check btn" style=" background: black; color:white ">
                                                             '.$kt.'
                                                             </button>
+                                                            ';
+                                                        }
+                                                        if($kttt['TRANGTHAIHOADON']==0){
+                                                            $kt ="Hủy Đơn";
+                                                        echo '
+                                                        <form action="hoadon_huy.php" method="GET">
+                                                                <input type="hidden" value="'.$row['MAHOADON'].'" name="mahd">
+                                                                <button type="submit" class="btn_check btn" style=" background: red; color:white ">
+                                                                '.$kt.'
+                                                                </button>
+                                                        </form>
+                                                          
                                                             ';
                                                         }
                                                         }      
