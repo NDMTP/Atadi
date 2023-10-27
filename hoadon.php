@@ -331,7 +331,7 @@
                     if (data == 1) {
                         hienthi.css("color", "green");
                     } else {
-                        alert('LỖIIIIIIIIIII')
+                        alert(data);
                     }
                 }
             });
