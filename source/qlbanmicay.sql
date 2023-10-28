@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 12, 2023 at 07:34 AM
+-- Generation Time: Oct 28, 2023 at 09:20 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -29,9 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `anhdanhgia` (
   `MAANH` int NOT NULL,
-  `LINKANH` varchar(70) COLLATE utf8mb4_general_ci NOT NULL,
-  `MASP` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
-  `EMAIL` varchar(70) COLLATE utf8mb4_general_ci NOT NULL,
+  `LINKANH` varchar(70) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `MASP` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `EMAIL` varchar(70) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `MAHOADON` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -48,7 +48,22 @@ INSERT INTO `anhdanhgia` (`MAANH`, `LINKANH`, `MASP`, `EMAIL`, `MAHOADON`) VALUE
 (6, 'm8.jpg', 'CT1', 'duybii922002@gmail.com', 17),
 (7, 'm7.jpg', 'CT1', 'duybii922002@gmail.com', 17),
 (8, 'm6.jpg', 'CT1', 'duybii922002@gmail.com', 17),
-(9, 'm5.jpg', 'CT1', 'duybii922002@gmail.com', 17);
+(9, 'm5.jpg', 'CT1', 'duybii922002@gmail.com', 17),
+(10, 'M2.jpg', 'L2', 'aib2011957@student.ctu.edu.vn', 2),
+(11, 'MY1.jpg', 'L2', 'aib2011957@student.ctu.edu.vn', 2),
+(12, 'm3.jpg', 'CT3', 'aib2011957@student.ctu.edu.vn', 18),
+(13, 'M2.jpg', 'CT3', 'aib2011957@student.ctu.edu.vn', 18),
+(14, 'm6.jpg', 'CT4', 'aib2011957@student.ctu.edu.vn', 19),
+(15, 'm5.jpg', 'CT4', 'aib2011957@student.ctu.edu.vn', 19),
+(16, 'm4.jpg', 'CT4', 'aib2011957@student.ctu.edu.vn', 19),
+(17, 'mc3.jpg', 'CT4', 'aib2011957@student.ctu.edu.vn', 19),
+(18, 'mc2.jpg', 'CT4', 'aib2011957@student.ctu.edu.vn', 19),
+(19, 'mycay1.jpg', 'CT4', 'aib2011957@student.ctu.edu.vn', 19),
+(20, 'mc3.jpg', 'CT4', 'aib2011957@student.ctu.edu.vn', 19),
+(21, 'mc2.jpg', 'CT4', 'aib2011957@student.ctu.edu.vn', 19),
+(22, 'mc2.jpg', 'CT4', 'aib2011957@student.ctu.edu.vn', 19),
+(23, 'mc3.jpg', 'CT1', 'aib2011957@student.ctu.edu.vn', 20),
+(24, 'mc2.jpg', 'CT1', 'aib2011957@student.ctu.edu.vn', 20);
 
 -- --------------------------------------------------------
 
@@ -58,10 +73,10 @@ INSERT INTO `anhdanhgia` (`MAANH`, `LINKANH`, `MASP`, `EMAIL`, `MAHOADON`) VALUE
 
 CREATE TABLE `chitiethoadon` (
   `MAHOADON` int NOT NULL,
-  `MASP` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
-  `MASIZE` varchar(5) COLLATE utf8mb4_general_ci NOT NULL,
+  `MASP` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `MASIZE` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `SOLUONGSP` int DEFAULT NULL,
-  `DOCAY` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `DOCAY` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `DONGIABAN` int DEFAULT NULL,
   `TONGTIEN` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -100,7 +115,11 @@ INSERT INTO `chitiethoadon` (`MAHOADON`, `MASP`, `MASIZE`, `SOLUONGSP`, `DOCAY`,
 (15, 'CT2', 'Vừa', 1, '', 35000, 35000),
 (16, 'CT1', 'Lớn', 1, '', 37000, 37000),
 (17, 'CT1', 'Vừa', 1, '', 30000, 30000),
-(18, 'CT3', 'Vừa', 1, '', 25000, 25000);
+(18, 'CT3', 'Vừa', 1, '', 25000, 25000),
+(19, 'CT4', 'Vừa', 4, '', 30000, 120000),
+(20, 'CT1', 'Vừa', 1, '', 30000, 30000),
+(21, 'CT1', 'Vừa', 4, '', 30000, 120000),
+(22, 'CT2', 'Vừa', 1, '', 35000, 35000);
 
 -- --------------------------------------------------------
 
@@ -109,11 +128,11 @@ INSERT INTO `chitiethoadon` (`MAHOADON`, `MASP`, `MASIZE`, `SOLUONGSP`, `DOCAY`,
 --
 
 CREATE TABLE `danhgiasp` (
-  `EMAIL` varchar(70) COLLATE utf8mb4_general_ci NOT NULL,
-  `MASP` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `EMAIL` varchar(70) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `MASP` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `MAHOADON` int NOT NULL,
-  `NOIDUNGDG` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `CHATLUONGSP` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `NOIDUNGDG` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `CHATLUONGSP` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `TGDANHGIA` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -127,6 +146,8 @@ INSERT INTO `danhgiasp` (`EMAIL`, `MASP`, `MAHOADON`, `NOIDUNGDG`, `CHATLUONGSP`
 ('aib2011957@student.ctu.edu.vn', 'CT1', 14, 'KHONG NGONNNNN', 'Kém', '2023-10-06 19:18:09'),
 ('aib2011957@student.ctu.edu.vn', 'CT2', 7, '10 ĐIỂMMMMMMMMM 10 ĐIỂMMMMMMMMM 10 ĐIỂMMMMMMMMM', 'Tuyệt Vời', '2023-10-06 09:56:17'),
 ('aib2011957@student.ctu.edu.vn', 'CT3', 8, '10 ĐIÊM 10 ĐIÊM 10 ĐIÊM 10 ĐIÊM10 ĐIÊM KHÔNG NHƯNG))))', 'Khá Tốt', '2023-10-06 09:54:09'),
+('aib2011957@student.ctu.edu.vn', 'CT3', 18, 'Ngon', 'Trung Bình', '2023-10-13 07:41:19'),
+('aib2011957@student.ctu.edu.vn', 'L2', 2, 'Ngon', 'Trung Bình', '2023-10-13 07:38:56'),
 ('aib2011957@student.ctu.edu.vn', 'L2', 3, 'NGON LẮMMMMMMMMMMMMM', 'Tuyệt Vời', '2023-10-06 09:59:03'),
 ('duybii922002@gmail.com', 'CT1', 10, 'Tuyệt vời, ngon lắm', 'Tuyệt Vời', '2023-10-06 10:22:41'),
 ('duybii922002@gmail.com', 'CT1', 15, 'phucj vuj khoong tot', 'Kém', '2023-10-06 19:22:09'),
@@ -148,10 +169,10 @@ INSERT INTO `danhgiasp` (`EMAIL`, `MASP`, `MAHOADON`, `NOIDUNGDG`, `CHATLUONGSP`
 --
 
 CREATE TABLE `giaohang` (
-  `MAKHUVUC` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `MAKHUVUC` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `MAHOADON` int NOT NULL,
   `PHIGIAO` int DEFAULT NULL,
-  `GHICHU` varchar(70) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `GHICHU` varchar(70) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -164,6 +185,8 @@ INSERT INTO `giaohang` (`MAKHUVUC`, `MAHOADON`, `PHIGIAO`, `GHICHU`) VALUES
 ('BT8', 5, 5000, 'aaaaa'),
 ('NK10', 12, 5000, '12a'),
 ('NK10', 16, 5000, '12a'),
+('NK10', 22, 5000, '12a'),
+('NK11', 21, 0, '12a'),
 ('NK3', 15, 0, '12a'),
 ('NK6', 17, 0, '12a'),
 ('NK7', 7, 0, '12a'),
@@ -173,6 +196,8 @@ INSERT INTO `giaohang` (`MAKHUVUC`, `MAHOADON`, `PHIGIAO`, `GHICHU`) VALUES
 ('NK7', 11, 0, '12a'),
 ('NK7', 14, 0, '12a'),
 ('NK7', 18, 0, '12a'),
+('NK7', 19, 0, '12a'),
+('NK7', 20, 0, '12a'),
 ('NK8', 13, 0, '12a');
 
 -- --------------------------------------------------------
@@ -183,11 +208,11 @@ INSERT INTO `giaohang` (`MAKHUVUC`, `MAHOADON`, `PHIGIAO`, `GHICHU`) VALUES
 
 CREATE TABLE `hoadon` (
   `MAHOADON` int NOT NULL,
-  `EMAIL` varchar(70) COLLATE utf8mb4_general_ci NOT NULL,
-  `MAKM` varchar(10) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `MAPT` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `EMAIL` varchar(70) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `MAKM` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `MAPT` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `NGAYLAP` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `TRANGTHAIHOADON` varchar(5) COLLATE utf8mb4_general_ci DEFAULT '0',
+  `TRANGTHAIHOADON` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '0',
   `TONGTIEN` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -197,23 +222,27 @@ CREATE TABLE `hoadon` (
 
 INSERT INTO `hoadon` (`MAHOADON`, `EMAIL`, `MAKM`, `MAPT`, `NGAYLAP`, `TRANGTHAIHOADON`, `TONGTIEN`) VALUES
 (1, 'aib2011957@student.ctu.edu.vn', NULL, NULL, '2023-09-18 13:51:44', '-1', 2260000),
-(2, 'aib2011957@student.ctu.edu.vn', NULL, NULL, NULL, '1', 1420000),
-(3, 'aib2011957@student.ctu.edu.vn', NULL, NULL, NULL, '1', 840000),
-(4, 'vinh@gmail.com', '100KM5', '1', '2023-09-28 10:36:29', '0', 129000),
-(5, 'vinh@gmail.com', '100KM5', '2', '2023-09-28 10:37:25', '0', 56000),
-(6, 'vinh@gmail.com', NULL, '2', '2023-09-28 11:21:23', '0', 71000),
-(7, 'aib2011957@student.ctu.edu.vn', '100KM5', '1', '2023-10-05 19:51:33', '0', 99750),
-(8, 'aib2011957@student.ctu.edu.vn', '100KM5', '1', '2023-10-05 19:53:42', '0', 133000),
-(9, 'vinh@gmail.com', '100KM5', '2', '2023-10-06 10:11:05', '0', 114000),
-(10, 'duybii922002@gmail.com', NULL, '2', '2023-10-06 10:22:11', '0', 65000),
-(11, 'duybii922002@gmail.com', NULL, '1', '2023-10-06 10:34:42', '0', 25000),
-(12, 'duybii922002@gmail.com', '200KM10', '1', '2023-10-06 10:35:44', '0', 403200),
-(13, 'aib2011957@student.ctu.edu.vn', NULL, '1', '2023-10-06 19:14:27', '0', 90000),
-(14, 'aib2011957@student.ctu.edu.vn', NULL, '1', '2023-10-06 19:15:01', '0', 30000),
-(15, 'duybii922002@gmail.com', NULL, '1', '2023-10-06 19:21:40', '0', 65000),
-(16, 'duybii922002@gmail.com', NULL, '1', '2023-10-06 19:27:40', '0', 37000),
-(17, 'duybii922002@gmail.com', NULL, '1', '2023-10-06 19:36:32', '0', 30000),
-(18, 'aib2011957@student.ctu.edu.vn', NULL, '1', '2023-10-10 16:12:42', '0', 25000);
+(2, 'aib2011957@student.ctu.edu.vn', NULL, NULL, '2023-10-27 22:18:22', '2', 1420000),
+(3, 'aib2011957@student.ctu.edu.vn', NULL, NULL, '2023-10-27 22:18:10', '2', 840000),
+(4, 'vinh@gmail.com', '100KM5', '1', '2023-10-27 22:18:16', '2', 129000),
+(5, 'vinh@gmail.com', '100KM5', '2', '2023-10-27 22:18:05', '2', 56000),
+(6, 'vinh@gmail.com', NULL, '2', '2023-10-27 22:17:59', '2', 71000),
+(7, 'aib2011957@student.ctu.edu.vn', '100KM5', '1', '2023-10-27 22:17:53', '2', 99750),
+(8, 'aib2011957@student.ctu.edu.vn', '100KM5', '1', '2023-10-27 22:17:47', '2', 133000),
+(9, 'vinh@gmail.com', '100KM5', '2', '2023-10-27 22:17:39', '2', 114000),
+(10, 'duybii922002@gmail.com', NULL, '2', '2023-10-27 22:17:33', '2', 65000),
+(11, 'duybii922002@gmail.com', NULL, '1', '2023-09-27 22:17:28', '2', 25000),
+(12, 'duybii922002@gmail.com', '200KM10', '1', '2023-09-27 22:17:22', '2', 403200),
+(13, 'aib2011957@student.ctu.edu.vn', NULL, '1', '2023-10-27 22:17:16', '2', 90000),
+(14, 'aib2011957@student.ctu.edu.vn', NULL, '1', '2023-10-27 22:17:10', '2', 30000),
+(15, 'duybii922002@gmail.com', NULL, '1', '2023-10-27 22:17:04', '2', 65000),
+(16, 'duybii922002@gmail.com', NULL, '1', '2023-10-27 22:16:57', '2', 37000),
+(17, 'duybii922002@gmail.com', NULL, '1', '2023-10-27 22:16:48', '2', 30000),
+(18, 'aib2011957@student.ctu.edu.vn', NULL, '1', '2023-09-27 22:16:37', '2', 25000),
+(19, 'aib2011957@student.ctu.edu.vn', '100KM5', '1', '2023-10-27 22:16:43', '2', 114000),
+(20, 'aib2011957@student.ctu.edu.vn', NULL, '1', '2023-10-27 22:29:33', '-1', 30000),
+(21, 'aib2011957@student.ctu.edu.vn', NULL, '2', '2023-10-28 00:07:19', '2', 120000),
+(22, 'aib2011957@student.ctu.edu.vn', NULL, '2', '2023-10-27 22:13:18', '0', 35000);
 
 -- --------------------------------------------------------
 
@@ -222,8 +251,8 @@ INSERT INTO `hoadon` (`MAHOADON`, `EMAIL`, `MAKM`, `MAPT`, `NGAYLAP`, `TRANGTHAI
 --
 
 CREATE TABLE `khuvuc` (
-  `MAKHUVUC` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `TENKHUVUC` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `MAKHUVUC` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `TENKHUVUC` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `PHIGIAO` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -266,7 +295,7 @@ INSERT INTO `khuvuc` (`MAKHUVUC`, `TENKHUVUC`, `PHIGIAO`) VALUES
 --
 
 CREATE TABLE `khuyenmai` (
-  `MAKM` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `MAKM` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `PHANTRAMKM` int DEFAULT NULL,
   `DIEUKIENKM` int DEFAULT NULL,
   `NGAYBD` date DEFAULT NULL,
@@ -288,8 +317,8 @@ INSERT INTO `khuyenmai` (`MAKM`, `PHANTRAMKM`, `DIEUKIENKM`, `NGAYBD`, `NGAYKT`)
 --
 
 CREATE TABLE `loaisanpham` (
-  `MALOAI` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
-  `TENLOAI` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `MALOAI` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `TENLOAI` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -313,12 +342,12 @@ INSERT INTO `loaisanpham` (`MALOAI`, `TENLOAI`) VALUES
 --
 
 CREATE TABLE `nguoidung` (
-  `EMAIL` varchar(70) COLLATE utf8mb4_general_ci NOT NULL,
-  `MATKHAU` varchar(70) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `DIACHI` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `TEN` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `SDT` varchar(12) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `PHANQUYEN` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `EMAIL` varchar(70) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `MATKHAU` varchar(70) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `DIACHI` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `TEN` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `SDT` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `PHANQUYEN` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'khachhang'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -326,11 +355,11 @@ CREATE TABLE `nguoidung` (
 --
 
 INSERT INTO `nguoidung` (`EMAIL`, `MATKHAU`, `DIACHI`, `TEN`, `SDT`, `PHANQUYEN`) VALUES
-('aib2011957@student.ctu.edu.vn', '202cb962ac59075b964b07152d234b70', '', '', '', NULL),
-('dinh@gmail.com', '202cb962ac59075b964b07152d234b70', 'A213', 'Dinh', '0298837625', NULL),
-('duybii922002@gmail.com', '202cb962ac59075b964b07152d234b70 ', 'Vĩnh Long', 'Yii', '09398260244', NULL),
-('qnhu@gmail.com', '202cb962ac59075b964b07152d234b70', 'Vĩnh Long', 'Nguyễn Quỳnh Như', '0123456789', NULL),
-('vinh@gmail.com', '202cb962ac59075b964b07152d234b70', 'Cần Thơ', 'Nguyễn Đỗ Phúc Vinh', '0123456789', NULL);
+('aib2011957@student.ctu.edu.vn', '202cb962ac59075b964b07152d234b70', '120/20A Trần Quang Khải, Cái khế, ninh kiều, Cần Thơ', 'Huỳnh Thị Mỹ Ái', '0932019822', 'Admin'),
+('dinh@gmail.com', '202cb962ac59075b964b07152d234b70', 'A213', 'Dinh', '0298837625', 'nhanvien'),
+('duybii922002@gmail.com', '202cb962ac59075b964b07152d234b70 ', 'Vĩnh Long', 'Yii', '09398260244', 'khachhang'),
+('qnhu@gmail.com', '202cb962ac59075b964b07152d234b70', 'Vĩnh Long', 'Nguyễn Quỳnh Như', '0123456789', 'khachhang'),
+('vinh@gmail.com', '202cb962ac59075b964b07152d234b70', 'Cần Thơ', 'Nguyễn Đỗ Phúc Vinh', '0123456789', 'khachhang');
 
 -- --------------------------------------------------------
 
@@ -339,8 +368,8 @@ INSERT INTO `nguoidung` (`EMAIL`, `MATKHAU`, `DIACHI`, `TEN`, `SDT`, `PHANQUYEN`
 --
 
 CREATE TABLE `phuongthuctt` (
-  `MAPT` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `TENPT` varchar(40) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `MAPT` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `TENPT` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -360,11 +389,11 @@ INSERT INTO `phuongthuctt` (`MAPT`, `TENPT`) VALUES
 --
 
 CREATE TABLE `sanpham` (
-  `MASP` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
-  `MALOAI` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
-  `TENSP` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `MOTA` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `LINKANH` varchar(200) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `MASP` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `MALOAI` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `TENSP` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `MOTA` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `LINKANH` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -419,7 +448,7 @@ INSERT INTO `sanpham` (`MASP`, `MALOAI`, `TENSP`, `MOTA`, `LINKANH`) VALUES
 --
 
 CREATE TABLE `size` (
-  `MASIZE` varchar(5) COLLATE utf8mb4_general_ci NOT NULL
+  `MASIZE` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -441,8 +470,8 @@ INSERT INTO `size` (`MASIZE`) VALUES
 --
 
 CREATE TABLE `sizecuasanpham` (
-  `MASP` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
-  `MASIZE` varchar(5) COLLATE utf8mb4_general_ci NOT NULL,
+  `MASP` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `MASIZE` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `DONGIASP` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -633,7 +662,7 @@ ALTER TABLE `sizecuasanpham`
 -- AUTO_INCREMENT for table `anhdanhgia`
 --
 ALTER TABLE `anhdanhgia`
-  MODIFY `MAANH` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `MAANH` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Constraints for dumped tables
