@@ -16,12 +16,12 @@
             <?php 
         include('navbar.php');
         if($_SESSION['PHANQUYEN']=='Admin'){
-          include('sidebar.php');
-      }
-      if($_SESSION['PHANQUYEN']=='nhanvien'){
-          include('sidebar_nv.php');
-          
-      }
+            include('sidebar.php');
+        }
+        if($_SESSION['PHANQUYEN']=='nhanvien'){
+            include('sidebar_nv.php');
+            
+        }
       ?>
             <!-- Main Content -->
             <div class="main-content">
@@ -31,7 +31,7 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4>Danh sách sản phẩm</h4>
+                                        <h4>Danh sách đơn hàng chưa duyệt</h4>
                                     </div>
                                     <div class="card-body">
                                         <div class="table-responsive">
@@ -39,88 +39,56 @@
                                                 style="width:100%;">
                                                 <tbody>
                                                     <?php
-                        $servername = "localhost";
-                        $username = "root";
-                        $password = "";
-                        $dbname = "qlbanmicay"; // 
+                           
 
-                        // Tạo kết nối đến cơ sở dữ liệu
-                        $conn = new mysqli($servername, $username, $password, $dbname);
-                        if ($conn->connect_error) {
-                            die("Connection failed: " . $conn->connect_error);
-                        }
+                            $sql = "SELECT hoadon.MAHOADON,hoadon.NGAYLAP,hoadon.TONGTIEN, phuongthuctt.TENPT FROM hoadon, phuongthuctt WHERE hoadon.MAPT=phuongthuctt.MAPT AND hoadon.TRANGTHAIHOADON = 0;";
+                            $result = $conn->query($sql);
 
-                        // Truy vấn SQL để lấy danh sách sản phẩm với tên loại sản phẩm
-                        $sql = "SELECT sanpham.masp, loaisanpham.tenloai, sanpham.tensp, sanpham.mota, sanpham.linkanh 
-                                FROM sanpham 
-                                INNER JOIN loaisanpham ON sanpham.maloai = loaisanpham.maloai";
-                        $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                                echo '<table class="table table-striped table-hover" id="tableExport" style="width:100%;">';
+                                echo '<thead>';
+                                echo '<tr>';
+                                echo '<th>Mã đơn hàng</th>';
+                                echo '<th>Ngày lập</th>';
+                                echo '<th>Tổng tiền</th>';
+                                echo '<th>Phương thức thanh toán</th>';
+                                echo '<th>Duyệt đơn</th>';
+                                echo '<th></th>';
+                                echo '</tr>';
+                                echo '</thead>';
+                                echo '<tbody>';
+                                
+                                while ($row = $result->fetch_assoc()) {
+                                    echo "<tr>
+                                            <td>" . $row["MAHOADON"] . "</td>
+                                            <td>" . $row["NGAYLAP"] . "</td>
+                                            <td>" . number_format($row["TONGTIEN"])  . "</td>
+                                            <td>" . $row["TENPT"] . "</td>"
+                                          ?>
+                                                    <td>
+                                                        <form action="hd_sua.php" method="get">
+                                                            <input type="hidden" name="mahd"
+                                                                value="<?php echo $row["MAHOADON"] ?>">
+                                                            <button class="btn btn-link"><i
+                                                                    class="fas fa-edit"></i></button>
+                                                        </form>
+                                                    </td>
 
-                        if ($result->num_rows > 0) {
-                            echo '<table class="table table-striped table-hover" id="tableExport" style="width:100%;">';
-                            echo '<thead>';
-                            echo '<tr>';
-                            echo '<th>Mã sản phẩm</th>';
-                            echo '<th>Tên loại</th>';
-                            echo '<th>Tên sản phẩm</th>';
-                            echo '<th>Mô tả</th>';
-                            echo '<th>Link ảnh</th>';
-                            echo '<th></th>';
-                            echo '<th></th>';
-                            echo '</tr>';
-                            echo '</thead>';
-                            echo '<tbody>';
-
-                            $totalProducts = 0; // Khởi tạo biến tổng số sản phẩm
-
-                            while ($row = $result->fetch_assoc()) {
-                                echo "<tr>
-                                        <td>" . $row["masp"] . "</td>
-                                        <td>" . $row["tenloai"] . "</td>
-                                        <td>" . $row["tensp"] . "</td>
-                                        <td>" . $row["mota"] . "</td>
-                                        <td>" . $row["linkanh"] . "</td>
-                                        <td>";
-                                        ?>
-                                                    <form action="sanpham_sua.php" method="get">
-                                                        <input type="hidden" name="spid"
-                                                            value="<?php echo $row["masp"] ?>">
-                                                        <button class="btn btn-link" href="sanpham_sua.php"><i
-                                                                class="fas fa-edit"></i></button>
-                                                    </form>
                                                     <?php
-                                echo "</td>
-                                      <td>";
-                                        ?>
+                                          "</tr>";
+                                }
 
-                                                    <form action="sanpham_xoa.php" method="get">
-                                                        <input type="hidden" name="spid"
-                                                            value="<?php echo $row["masp"] ?>">
-                                                        <button class="btn btn-link"><i
-                                                                class="fas fa-trash-alt"></i></button>
-                                                    </form>
-                                                    <?php
-                                        
-                                echo "</td>
-                                      </td>
-                                      </tr>";
-
-                                $totalProducts++; // Tăng tổng số sản phẩm lên 1
+                                echo '</tbody>';
+                                echo '</table>';
+                                
+                                $totalEmployees = $result->num_rows; // Đếm tổng số nhân viên
+                                echo "<h5>Tổng số đơn hàng: $totalEmployees</h5>"; // Hiển thị tổng số nhân viên
+                            } else {
+                                echo "Không có đơn hàng.";
                             }
 
-                            echo '</tbody>';
-                            echo '</table>';
-
-                            echo "<p>Tổng số sản phẩm: $totalProducts</p>"; // Hiển thị tổng số sản phẩm
-                        } else {
-                            echo "Không có dữ liệu sản phẩm.";
-                        }
-
-                        $conn->close();
-                        ?>
-
-
-
+                            $conn->close();
+                            ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -226,7 +194,27 @@
                     </div>
                 </div>
             </div>
-            <?php 
-        require 'settingSide.php';
-        require 'footer.php';
-      ?>
+            <footer class="main-footer">
+                <div class="footer-left">
+                    <a href="templateshub.net">Templateshub</a></a>
+                </div>
+                <div class="footer-right">
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- General JS Scripts -->
+    <script src="assets/js/app.min.js"></script>
+    <!-- JS Libraies -->
+    <!-- Page Specific JS File -->
+    <script src="assets/js/page/chat.js"></script>
+    <!-- Template JS File -->
+    <script src="assets/js/scripts.js"></script>
+    <!-- Custom JS File -->
+    <script src="assets/js/custom.js"></script>
+</body>
+
+
+<!-- chat.html  21 Nov 2019 03:50:12 GMT -->
+
+</html>

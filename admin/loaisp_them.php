@@ -2,7 +2,7 @@
 <html lang="en">
 
 
-<!-- chat.html  21 Nov 2019 03:50:11 GMT -->
+<!-- email-inbox.html  21 Nov 2019 03:50:57 GMT -->
 <?php
   include("connect.php");
   include('head.php');
@@ -28,107 +28,55 @@
                 <section class="section">
                     <div class="section-body">
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-lg-3"></div>
+                            <div class="col-6 col-md-6 col-lg-6">
                                 <div class="card">
-                                    <div class="card-header">
-                                        <h4>Danh sách sản phẩm</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="table-responsive">
-                                            <table class="table table-striped table-hover" id="tableExport"
-                                                style="width:100%;">
-                                                <tbody>
-                                                    <?php
-                        $servername = "localhost";
-                        $username = "root";
-                        $password = "";
-                        $dbname = "qlbanmicay"; // 
-
-                        // Tạo kết nối đến cơ sở dữ liệu
-                        $conn = new mysqli($servername, $username, $password, $dbname);
-                        if ($conn->connect_error) {
-                            die("Connection failed: " . $conn->connect_error);
-                        }
-
-                        // Truy vấn SQL để lấy danh sách sản phẩm với tên loại sản phẩm
-                        $sql = "SELECT sanpham.masp, loaisanpham.tenloai, sanpham.tensp, sanpham.mota, sanpham.linkanh 
-                                FROM sanpham 
-                                INNER JOIN loaisanpham ON sanpham.maloai = loaisanpham.maloai";
-                        $result = $conn->query($sql);
-
-                        if ($result->num_rows > 0) {
-                            echo '<table class="table table-striped table-hover" id="tableExport" style="width:100%;">';
-                            echo '<thead>';
-                            echo '<tr>';
-                            echo '<th>Mã sản phẩm</th>';
-                            echo '<th>Tên loại</th>';
-                            echo '<th>Tên sản phẩm</th>';
-                            echo '<th>Mô tả</th>';
-                            echo '<th>Link ảnh</th>';
-                            echo '<th></th>';
-                            echo '<th></th>';
-                            echo '</tr>';
-                            echo '</thead>';
-                            echo '<tbody>';
-
-                            $totalProducts = 0; // Khởi tạo biến tổng số sản phẩm
-
-                            while ($row = $result->fetch_assoc()) {
-                                echo "<tr>
-                                        <td>" . $row["masp"] . "</td>
-                                        <td>" . $row["tenloai"] . "</td>
-                                        <td>" . $row["tensp"] . "</td>
-                                        <td>" . $row["mota"] . "</td>
-                                        <td>" . $row["linkanh"] . "</td>
-                                        <td>";
-                                        ?>
-                                                    <form action="sanpham_sua.php" method="get">
-                                                        <input type="hidden" name="spid"
-                                                            value="<?php echo $row["masp"] ?>">
-                                                        <button class="btn btn-link" href="sanpham_sua.php"><i
-                                                                class="fas fa-edit"></i></button>
-                                                    </form>
-                                                    <?php
-                                echo "</td>
-                                      <td>";
-                                        ?>
-
-                                                    <form action="sanpham_xoa.php" method="get">
-                                                        <input type="hidden" name="spid"
-                                                            value="<?php echo $row["masp"] ?>">
-                                                        <button class="btn btn-link"><i
-                                                                class="fas fa-trash-alt"></i></button>
-                                                    </form>
-                                                    <?php
-                                        
-                                echo "</td>
-                                      </td>
-                                      </tr>";
-
-                                $totalProducts++; // Tăng tổng số sản phẩm lên 1
-                            }
-
-                            echo '</tbody>';
-                            echo '</table>';
-
-                            echo "<p>Tổng số sản phẩm: $totalProducts</p>"; // Hiển thị tổng số sản phẩm
-                        } else {
-                            echo "Không có dữ liệu sản phẩm.";
-                        }
-
-                        $conn->close();
-                        ?>
-
-
-
-                                                </tbody>
-                                            </table>
+                                    <form method="GET" action="loaisp_crud.php">
+                                        <div class="card-header">
+                                            <h4>Thêm loại sản phẩm</h4>
                                         </div>
-                                    </div>
+                                        <?php
+                                            $sql = "SELECT COUNT(*) AS loai FROM loaisanpham ";
+                                            $result = $conn->query($sql);
+                                            $pn=0;
+                                            if ($result->num_rows > 0) {
+                                                $row = $result->fetch_assoc();
+                                                $pn = $row["loai"];
+                                            }
+                                            $maloai = "LOAI" . ($pn + 1);
+                                        ?>
+                                        <div class="card-body">
+                                            <form action="lsp_crud.php" method="get">
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="basic-icon-default-fullname">Mã
+                                                        loại</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <span id="basic-icon-default-fullname2"
+                                                            class="input-group-text"></span>
+                                                        <input type="text" value="<?php echo $maloai ?>" name="ma"
+                                                            class="form-control" id="basic-icon-default-fullname"
+                                                            placeholder="ABC" aria-label="John Doe"
+                                                            aria-describedby="basic-icon-default-fullname2" />
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="basic-icon-default-company">Tên
+                                                        loại</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <span id="basic-icon-default-fullname2"
+                                                            class="input-group-text"></span>
+                                                        <input type="text" name="ten" class="form-control"
+                                                            id="basic-icon-default-fullname" aria-label="John Doe"
+                                                            aria-describedby="basic-icon-default-fullname2" />
+                                                    </div>
+                                                </div>
+                                                <button type="submit" name="add" class="btn btn-primary">Thêm</button>
+                                            </form>
+                                        </div>
                                 </div>
+                                <div class="col-lg-3"></div>
                             </div>
                         </div>
-                    </div>
                 </section>
                 <div class="settingSidebar">
                     <a href="javascript:void(0)" class="settingPanelToggle"> <i class="fa fa-spin fa-cog"></i>
@@ -226,7 +174,26 @@
                     </div>
                 </div>
             </div>
-            <?php 
-        require 'settingSide.php';
-        require 'footer.php';
-      ?>
+            <footer class="main-footer">
+                <div class="footer-left">
+                    <a href="templateshub.net">Templateshub</a></a>
+                </div>
+                <div class="footer-right">
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- General JS Scripts -->
+    <script src="assets/js/app.min.js"></script>
+    <!-- JS Libraies -->
+    <!-- Page Specific JS File -->
+    <!-- Template JS File -->
+    <script src="assets/js/scripts.js"></script>
+    <!-- Custom JS File -->
+    <script src="assets/js/custom.js"></script>
+</body>
+
+
+<!-- email-inbox.html  21 Nov 2019 03:50:58 GMT -->
+
+</html>
