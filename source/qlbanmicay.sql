@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Oct 28, 2023 at 09:20 AM
--- Server version: 8.0.30
--- PHP Version: 8.1.10
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th10 07, 2023 lúc 04:50 AM
+-- Phiên bản máy phục vụ: 10.4.28-MariaDB
+-- Phiên bản PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,71 +18,27 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `qlbanmicay`
+-- Cơ sở dữ liệu: `qlbanmicay`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `anhdanhgia`
---
-
-CREATE TABLE `anhdanhgia` (
-  `MAANH` int NOT NULL,
-  `LINKANH` varchar(70) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `MASP` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `EMAIL` varchar(70) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `MAHOADON` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `anhdanhgia`
---
-
-INSERT INTO `anhdanhgia` (`MAANH`, `LINKANH`, `MASP`, `EMAIL`, `MAHOADON`) VALUES
-(1, 'm6.jpg', 'CT1', 'duybii922002@gmail.com', 11),
-(2, 'm9.jpg', 'CT2', 'duybii922002@gmail.com', 11),
-(3, 'm8.jpg', 'CT1', 'duybii922002@gmail.com', 16),
-(4, 'm7.jpg', 'CT1', 'duybii922002@gmail.com', 16),
-(5, 'm9.jpg', 'CT1', 'duybii922002@gmail.com', 17),
-(6, 'm8.jpg', 'CT1', 'duybii922002@gmail.com', 17),
-(7, 'm7.jpg', 'CT1', 'duybii922002@gmail.com', 17),
-(8, 'm6.jpg', 'CT1', 'duybii922002@gmail.com', 17),
-(9, 'm5.jpg', 'CT1', 'duybii922002@gmail.com', 17),
-(10, 'M2.jpg', 'L2', 'aib2011957@student.ctu.edu.vn', 2),
-(11, 'MY1.jpg', 'L2', 'aib2011957@student.ctu.edu.vn', 2),
-(12, 'm3.jpg', 'CT3', 'aib2011957@student.ctu.edu.vn', 18),
-(13, 'M2.jpg', 'CT3', 'aib2011957@student.ctu.edu.vn', 18),
-(14, 'm6.jpg', 'CT4', 'aib2011957@student.ctu.edu.vn', 19),
-(15, 'm5.jpg', 'CT4', 'aib2011957@student.ctu.edu.vn', 19),
-(16, 'm4.jpg', 'CT4', 'aib2011957@student.ctu.edu.vn', 19),
-(17, 'mc3.jpg', 'CT4', 'aib2011957@student.ctu.edu.vn', 19),
-(18, 'mc2.jpg', 'CT4', 'aib2011957@student.ctu.edu.vn', 19),
-(19, 'mycay1.jpg', 'CT4', 'aib2011957@student.ctu.edu.vn', 19),
-(20, 'mc3.jpg', 'CT4', 'aib2011957@student.ctu.edu.vn', 19),
-(21, 'mc2.jpg', 'CT4', 'aib2011957@student.ctu.edu.vn', 19),
-(22, 'mc2.jpg', 'CT4', 'aib2011957@student.ctu.edu.vn', 19),
-(23, 'mc3.jpg', 'CT1', 'aib2011957@student.ctu.edu.vn', 20),
-(24, 'mc2.jpg', 'CT1', 'aib2011957@student.ctu.edu.vn', 20);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `chitiethoadon`
+-- Cấu trúc bảng cho bảng `chitiethoadon`
 --
 
 CREATE TABLE `chitiethoadon` (
-  `MAHOADON` int NOT NULL,
-  `MASP` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `MASIZE` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `SOLUONGSP` int DEFAULT NULL,
-  `DOCAY` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `DONGIABAN` int DEFAULT NULL,
-  `TONGTIEN` int NOT NULL
+  `MAHOADON` int(11) NOT NULL,
+  `MASP` varchar(10) NOT NULL,
+  `MASIZE` varchar(5) NOT NULL,
+  `SOLUONGSP` int(11) DEFAULT NULL,
+  `DOCAY` varchar(20) DEFAULT NULL,
+  `DONGIABAN` int(11) DEFAULT NULL,
+  `TONGTIEN` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `chitiethoadon`
+-- Đang đổ dữ liệu cho bảng `chitiethoadon`
 --
 
 INSERT INTO `chitiethoadon` (`MAHOADON`, `MASP`, `MASIZE`, `SOLUONGSP`, `DOCAY`, `DONGIABAN`, `TONGTIEN`) VALUES
@@ -124,20 +80,20 @@ INSERT INTO `chitiethoadon` (`MAHOADON`, `MASP`, `MASIZE`, `SOLUONGSP`, `DOCAY`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `danhgiasp`
+-- Cấu trúc bảng cho bảng `danhgiasp`
 --
 
 CREATE TABLE `danhgiasp` (
-  `EMAIL` varchar(70) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `MASP` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `MAHOADON` int NOT NULL,
-  `NOIDUNGDG` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `CHATLUONGSP` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `TGDANHGIA` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `EMAIL` varchar(70) NOT NULL,
+  `MASP` varchar(10) NOT NULL,
+  `MAHOADON` int(11) NOT NULL,
+  `NOIDUNGDG` varchar(300) DEFAULT NULL,
+  `CHATLUONGSP` varchar(30) NOT NULL,
+  `TGDANHGIA` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `danhgiasp`
+-- Đang đổ dữ liệu cho bảng `danhgiasp`
 --
 
 INSERT INTO `danhgiasp` (`EMAIL`, `MASP`, `MAHOADON`, `NOIDUNGDG`, `CHATLUONGSP`, `TGDANHGIA`) VALUES
@@ -165,18 +121,18 @@ INSERT INTO `danhgiasp` (`EMAIL`, `MASP`, `MAHOADON`, `NOIDUNGDG`, `CHATLUONGSP`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `giaohang`
+-- Cấu trúc bảng cho bảng `giaohang`
 --
 
 CREATE TABLE `giaohang` (
-  `MAKHUVUC` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `MAHOADON` int NOT NULL,
-  `PHIGIAO` int DEFAULT NULL,
-  `GHICHU` varchar(70) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
+  `MAKHUVUC` varchar(20) NOT NULL,
+  `MAHOADON` int(11) NOT NULL,
+  `PHIGIAO` int(11) DEFAULT NULL,
+  `GHICHU` varchar(70) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `giaohang`
+-- Đang đổ dữ liệu cho bảng `giaohang`
 --
 
 INSERT INTO `giaohang` (`MAKHUVUC`, `MAHOADON`, `PHIGIAO`, `GHICHU`) VALUES
@@ -203,21 +159,21 @@ INSERT INTO `giaohang` (`MAKHUVUC`, `MAHOADON`, `PHIGIAO`, `GHICHU`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hoadon`
+-- Cấu trúc bảng cho bảng `hoadon`
 --
 
 CREATE TABLE `hoadon` (
-  `MAHOADON` int NOT NULL,
-  `EMAIL` varchar(70) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `MAKM` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `MAPT` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `NGAYLAP` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `TRANGTHAIHOADON` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '0',
-  `TONGTIEN` int NOT NULL
+  `MAHOADON` int(11) NOT NULL,
+  `EMAIL` varchar(70) NOT NULL,
+  `MAKM` varchar(10) DEFAULT NULL,
+  `MAPT` varchar(20) DEFAULT NULL,
+  `NGAYLAP` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `TRANGTHAIHOADON` varchar(5) DEFAULT '0',
+  `TONGTIEN` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `hoadon`
+-- Đang đổ dữ liệu cho bảng `hoadon`
 --
 
 INSERT INTO `hoadon` (`MAHOADON`, `EMAIL`, `MAKM`, `MAPT`, `NGAYLAP`, `TRANGTHAIHOADON`, `TONGTIEN`) VALUES
@@ -247,17 +203,17 @@ INSERT INTO `hoadon` (`MAHOADON`, `EMAIL`, `MAKM`, `MAPT`, `NGAYLAP`, `TRANGTHAI
 -- --------------------------------------------------------
 
 --
--- Table structure for table `khuvuc`
+-- Cấu trúc bảng cho bảng `khuvuc`
 --
 
 CREATE TABLE `khuvuc` (
-  `MAKHUVUC` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `TENKHUVUC` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `PHIGIAO` int NOT NULL
+  `MAKHUVUC` varchar(20) NOT NULL,
+  `TENKHUVUC` varchar(100) DEFAULT NULL,
+  `PHIGIAO` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `khuvuc`
+-- Đang đổ dữ liệu cho bảng `khuvuc`
 --
 
 INSERT INTO `khuvuc` (`MAKHUVUC`, `TENKHUVUC`, `PHIGIAO`) VALUES
@@ -291,67 +247,71 @@ INSERT INTO `khuvuc` (`MAKHUVUC`, `TENKHUVUC`, `PHIGIAO`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `khuyenmai`
+-- Cấu trúc bảng cho bảng `khuyenmai`
 --
 
 CREATE TABLE `khuyenmai` (
-  `MAKM` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `PHANTRAMKM` int DEFAULT NULL,
-  `DIEUKIENKM` int DEFAULT NULL,
+  `MAKM` varchar(10) NOT NULL,
+  `PHANTRAMKM` int(11) DEFAULT NULL,
+  `DIEUKIENKM` int(11) DEFAULT NULL,
   `NGAYBD` date DEFAULT NULL,
-  `NGAYKT` date DEFAULT NULL
+  `NGAYKT` date DEFAULT NULL,
+  `KM_TT` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `khuyenmai`
+-- Đang đổ dữ liệu cho bảng `khuyenmai`
 --
 
-INSERT INTO `khuyenmai` (`MAKM`, `PHANTRAMKM`, `DIEUKIENKM`, `NGAYBD`, `NGAYKT`) VALUES
-('100KM5', 5, 100000, '2023-09-01', '2023-10-18'),
-('200KM10', 10, 200000, '2023-09-01', '2023-10-18');
+INSERT INTO `khuyenmai` (`MAKM`, `PHANTRAMKM`, `DIEUKIENKM`, `NGAYBD`, `NGAYKT`, `KM_TT`) VALUES
+('100KM5', 5, 100000, '2023-09-01', '2023-12-31', 1),
+('200KM10', 10, 200000, '2023-09-01', '2023-12-31', 1),
+('300KM15', 15, 300000, '2023-11-06', '2023-12-22', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `loaisanpham`
+-- Cấu trúc bảng cho bảng `loaisanpham`
 --
 
 CREATE TABLE `loaisanpham` (
-  `MALOAI` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `TENLOAI` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
+  `MALOAI` varchar(10) NOT NULL,
+  `TENLOAI` varchar(50) DEFAULT NULL,
+  `LOAITT` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `loaisanpham`
+-- Đang đổ dữ liệu cho bảng `loaisanpham`
 --
 
-INSERT INTO `loaisanpham` (`MALOAI`, `TENLOAI`) VALUES
-('01', 'Mì cay'),
-('02', 'Lẩu'),
-('03', 'Miến Trộn'),
-('04', 'Món Hàn '),
-('05', 'Cơm trộn'),
-('07', 'Nước giải khác'),
-('08', 'Nướng'),
-('09', 'Sushi');
+INSERT INTO `loaisanpham` (`MALOAI`, `TENLOAI`, `LOAITT`) VALUES
+('01', 'Mì cay', 1),
+('02', 'Lẩu', 1),
+('03', 'Miến Trộn', 1),
+('04', 'Món Hàn ', 1),
+('05', 'Cơm trộn', 1),
+('07', 'Nước giải khác', 1),
+('08', 'Nướng', 1),
+('09', 'Sushi', 1),
+('LOAI9', 'Trà Hoa Cúc', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `nguoidung`
+-- Cấu trúc bảng cho bảng `nguoidung`
 --
 
 CREATE TABLE `nguoidung` (
-  `EMAIL` varchar(70) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `MATKHAU` varchar(70) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `DIACHI` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `TEN` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `SDT` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `PHANQUYEN` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'khachhang'
+  `EMAIL` varchar(70) NOT NULL,
+  `MATKHAU` varchar(70) DEFAULT NULL,
+  `DIACHI` varchar(100) DEFAULT NULL,
+  `TEN` varchar(50) DEFAULT NULL,
+  `SDT` varchar(12) DEFAULT NULL,
+  `PHANQUYEN` varchar(20) DEFAULT 'khachhang'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `nguoidung`
+-- Đang đổ dữ liệu cho bảng `nguoidung`
 --
 
 INSERT INTO `nguoidung` (`EMAIL`, `MATKHAU`, `DIACHI`, `TEN`, `SDT`, `PHANQUYEN`) VALUES
@@ -364,16 +324,16 @@ INSERT INTO `nguoidung` (`EMAIL`, `MATKHAU`, `DIACHI`, `TEN`, `SDT`, `PHANQUYEN`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `phuongthuctt`
+-- Cấu trúc bảng cho bảng `phuongthuctt`
 --
 
 CREATE TABLE `phuongthuctt` (
-  `MAPT` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `TENPT` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
+  `MAPT` varchar(20) NOT NULL,
+  `TENPT` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `phuongthuctt`
+-- Đang đổ dữ liệu cho bảng `phuongthuctt`
 --
 
 INSERT INTO `phuongthuctt` (`MAPT`, `TENPT`) VALUES
@@ -385,19 +345,19 @@ INSERT INTO `phuongthuctt` (`MAPT`, `TENPT`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sanpham`
+-- Cấu trúc bảng cho bảng `sanpham`
 --
 
 CREATE TABLE `sanpham` (
-  `MASP` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `MALOAI` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `TENSP` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `MOTA` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `LINKANH` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
+  `MASP` varchar(10) NOT NULL,
+  `MALOAI` varchar(10) NOT NULL,
+  `TENSP` varchar(100) DEFAULT NULL,
+  `MOTA` varchar(300) DEFAULT NULL,
+  `LINKANH` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `sanpham`
+-- Đang đổ dữ liệu cho bảng `sanpham`
 --
 
 INSERT INTO `sanpham` (`MASP`, `MALOAI`, `TENSP`, `MOTA`, `LINKANH`) VALUES
@@ -444,15 +404,15 @@ INSERT INTO `sanpham` (`MASP`, `MALOAI`, `TENSP`, `MOTA`, `LINKANH`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `size`
+-- Cấu trúc bảng cho bảng `size`
 --
 
 CREATE TABLE `size` (
-  `MASIZE` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+  `MASIZE` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `size`
+-- Đang đổ dữ liệu cho bảng `size`
 --
 
 INSERT INTO `size` (`MASIZE`) VALUES
@@ -466,17 +426,17 @@ INSERT INTO `size` (`MASIZE`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sizecuasanpham`
+-- Cấu trúc bảng cho bảng `sizecuasanpham`
 --
 
 CREATE TABLE `sizecuasanpham` (
-  `MASP` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `MASIZE` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `DONGIASP` int DEFAULT NULL
+  `MASP` varchar(10) NOT NULL,
+  `MASIZE` varchar(5) NOT NULL,
+  `DONGIASP` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `sizecuasanpham`
+-- Đang đổ dữ liệu cho bảng `sizecuasanpham`
 --
 
 INSERT INTO `sizecuasanpham` (`MASP`, `MASIZE`, `DONGIASP`) VALUES
@@ -560,20 +520,11 @@ INSERT INTO `sizecuasanpham` (`MASP`, `MASIZE`, `DONGIASP`) VALUES
 ('N9', 'M', 12000);
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `anhdanhgia`
---
-ALTER TABLE `anhdanhgia`
-  ADD PRIMARY KEY (`MAANH`),
-  ADD KEY `anhanh_pk1` (`MAHOADON`),
-  ADD KEY `anhanh_pk2` (`MASP`),
-  ADD KEY `anhanh_pk3` (`EMAIL`);
-
---
--- Indexes for table `chitiethoadon`
+-- Chỉ mục cho bảng `chitiethoadon`
 --
 ALTER TABLE `chitiethoadon`
   ADD PRIMARY KEY (`MAHOADON`,`MASP`,`MASIZE`),
@@ -581,7 +532,7 @@ ALTER TABLE `chitiethoadon`
   ADD KEY `FK_sp1` (`MASP`);
 
 --
--- Indexes for table `danhgiasp`
+-- Chỉ mục cho bảng `danhgiasp`
 --
 ALTER TABLE `danhgiasp`
   ADD PRIMARY KEY (`EMAIL`,`MASP`,`MAHOADON`),
@@ -589,14 +540,14 @@ ALTER TABLE `danhgiasp`
   ADD KEY `MASP` (`MASP`);
 
 --
--- Indexes for table `giaohang`
+-- Chỉ mục cho bảng `giaohang`
 --
 ALTER TABLE `giaohang`
   ADD PRIMARY KEY (`MAKHUVUC`,`MAHOADON`),
   ADD KEY `FK_HOADON_GIAOHANG` (`MAHOADON`);
 
 --
--- Indexes for table `hoadon`
+-- Chỉ mục cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
   ADD PRIMARY KEY (`MAHOADON`),
@@ -605,101 +556,83 @@ ALTER TABLE `hoadon`
   ADD KEY `FK_REFERENCE_13` (`MAPT`);
 
 --
--- Indexes for table `khuvuc`
+-- Chỉ mục cho bảng `khuvuc`
 --
 ALTER TABLE `khuvuc`
   ADD PRIMARY KEY (`MAKHUVUC`);
 
 --
--- Indexes for table `khuyenmai`
+-- Chỉ mục cho bảng `khuyenmai`
 --
 ALTER TABLE `khuyenmai`
   ADD PRIMARY KEY (`MAKM`);
 
 --
--- Indexes for table `loaisanpham`
+-- Chỉ mục cho bảng `loaisanpham`
 --
 ALTER TABLE `loaisanpham`
   ADD PRIMARY KEY (`MALOAI`);
 
 --
--- Indexes for table `nguoidung`
+-- Chỉ mục cho bảng `nguoidung`
 --
 ALTER TABLE `nguoidung`
   ADD PRIMARY KEY (`EMAIL`);
 
 --
--- Indexes for table `phuongthuctt`
+-- Chỉ mục cho bảng `phuongthuctt`
 --
 ALTER TABLE `phuongthuctt`
   ADD PRIMARY KEY (`MAPT`);
 
 --
--- Indexes for table `sanpham`
+-- Chỉ mục cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
   ADD PRIMARY KEY (`MASP`),
   ADD KEY `FK_LOAICUASP` (`MALOAI`);
 
 --
--- Indexes for table `size`
+-- Chỉ mục cho bảng `size`
 --
 ALTER TABLE `size`
   ADD PRIMARY KEY (`MASIZE`);
 
 --
--- Indexes for table `sizecuasanpham`
+-- Chỉ mục cho bảng `sizecuasanpham`
 --
 ALTER TABLE `sizecuasanpham`
   ADD PRIMARY KEY (`MASP`,`MASIZE`),
   ADD KEY `FK_SIZE_SIZECUASP` (`MASIZE`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `anhdanhgia`
---
-ALTER TABLE `anhdanhgia`
-  MODIFY `MAANH` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `anhdanhgia`
---
-ALTER TABLE `anhdanhgia`
-  ADD CONSTRAINT `anhanh_pk1` FOREIGN KEY (`MAHOADON`) REFERENCES `chitiethoadon` (`MAHOADON`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `anhanh_pk2` FOREIGN KEY (`MASP`) REFERENCES `chitiethoadon` (`MASP`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `anhanh_pk3` FOREIGN KEY (`EMAIL`) REFERENCES `nguoidung` (`EMAIL`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-
---
--- Constraints for table `chitiethoadon`
+-- Các ràng buộc cho bảng `chitiethoadon`
 --
 ALTER TABLE `chitiethoadon`
   ADD CONSTRAINT `FK_GIOHANG_CTGIOHANG` FOREIGN KEY (`MAHOADON`) REFERENCES `hoadon` (`MAHOADON`),
-  ADD CONSTRAINT `FK_sp1` FOREIGN KEY (`MASP`) REFERENCES `sizecuasanpham` (`MASP`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `FK_sp1` FOREIGN KEY (`MASP`) REFERENCES `sizecuasanpham` (`MASP`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `danhgiasp`
+-- Các ràng buộc cho bảng `danhgiasp`
 --
 ALTER TABLE `danhgiasp`
-  ADD CONSTRAINT `danhgia1` FOREIGN KEY (`MASP`) REFERENCES `chitiethoadon` (`MASP`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `danhgia2` FOREIGN KEY (`EMAIL`) REFERENCES `nguoidung` (`EMAIL`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `danhgia3` FOREIGN KEY (`MAHOADON`) REFERENCES `chitiethoadon` (`MAHOADON`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `danhgia1` FOREIGN KEY (`MASP`) REFERENCES `chitiethoadon` (`MASP`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `danhgia2` FOREIGN KEY (`EMAIL`) REFERENCES `nguoidung` (`EMAIL`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `danhgia3` FOREIGN KEY (`MAHOADON`) REFERENCES `chitiethoadon` (`MAHOADON`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `giaohang`
+-- Các ràng buộc cho bảng `giaohang`
 --
 ALTER TABLE `giaohang`
   ADD CONSTRAINT `FK_HOADON_GIAOHANG` FOREIGN KEY (`MAHOADON`) REFERENCES `hoadon` (`MAHOADON`),
   ADD CONSTRAINT `FK_KHUVUC_GIAOHANG` FOREIGN KEY (`MAKHUVUC`) REFERENCES `khuvuc` (`MAKHUVUC`);
 
 --
--- Constraints for table `hoadon`
+-- Các ràng buộc cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
   ADD CONSTRAINT `FK_GIOHANGCUAKHACH` FOREIGN KEY (`EMAIL`) REFERENCES `nguoidung` (`EMAIL`),
@@ -707,13 +640,13 @@ ALTER TABLE `hoadon`
   ADD CONSTRAINT `FK_REFERENCE_13` FOREIGN KEY (`MAPT`) REFERENCES `phuongthuctt` (`MAPT`);
 
 --
--- Constraints for table `sanpham`
+-- Các ràng buộc cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
   ADD CONSTRAINT `FK_LOAICUASP` FOREIGN KEY (`MALOAI`) REFERENCES `loaisanpham` (`MALOAI`);
 
 --
--- Constraints for table `sizecuasanpham`
+-- Các ràng buộc cho bảng `sizecuasanpham`
 --
 ALTER TABLE `sizecuasanpham`
   ADD CONSTRAINT `FK_SIZE_SANPHAM` FOREIGN KEY (`MASP`) REFERENCES `sanpham` (`MASP`),
