@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 07, 2023 lúc 04:50 AM
+-- Thời gian đã tạo: Th10 07, 2023 lúc 05:52 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -255,18 +255,17 @@ CREATE TABLE `khuyenmai` (
   `PHANTRAMKM` int(11) DEFAULT NULL,
   `DIEUKIENKM` int(11) DEFAULT NULL,
   `NGAYBD` date DEFAULT NULL,
-  `NGAYKT` date DEFAULT NULL,
-  `KM_TT` tinyint(1) NOT NULL DEFAULT 0
+  `NGAYKT` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `khuyenmai`
 --
 
-INSERT INTO `khuyenmai` (`MAKM`, `PHANTRAMKM`, `DIEUKIENKM`, `NGAYBD`, `NGAYKT`, `KM_TT`) VALUES
-('100KM5', 5, 100000, '2023-09-01', '2023-12-31', 1),
-('200KM10', 10, 200000, '2023-09-01', '2023-12-31', 1),
-('300KM15', 15, 300000, '2023-11-06', '2023-12-22', 1);
+INSERT INTO `khuyenmai` (`MAKM`, `PHANTRAMKM`, `DIEUKIENKM`, `NGAYBD`, `NGAYKT`) VALUES
+('100KM5', 5, 100000, '2023-09-01', '2023-12-31'),
+('200KM10', 10, 200000, '2023-09-01', '2023-10-31'),
+('300KM15', 15, 300000, '2023-11-06', '2023-12-22');
 
 -- --------------------------------------------------------
 

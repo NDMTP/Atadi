@@ -7,7 +7,7 @@
 ?>
 
 <body>
-    <div class="loader"></div>
+    <!-- <div class="loader"></div> -->
     <div id="app">
         <div class="main-wrapper main-wrapper-1">
             <div class="navbar-bg"></div>
@@ -61,7 +61,7 @@
                             echo '<th>Điều kiện khuyến mãi</th>';
                             echo '<th>Ngày bắt đầu</th>';
                             echo '<th>Ngày kết thúc</th>';
-                            echo '<th>Bật</th>';
+                            echo '<th>Trạng thái</th>';
                             echo '<th></th>';
                             echo '</tr>';
                             echo '</thead>';
@@ -74,7 +74,16 @@
                                         <td>" . $row["DIEUKIENKM"] . "</td>
                                         <td>" . $row["NGAYBD"] . "</td>
                                         <td>" . $row["NGAYKT"] . "</td>
-                                        <td>"?> <input class="mt-2" type="checkbox" name="isOn" id="isOn" <?php if ($row["KM_TT"]==1) echo 'checked'; ?>> <?php "</td>
+                                        <td>"; 
+                                        $endDate = $row["NGAYKT"];
+                                        $curDate = date("Y-m-d");
+                                        if ($endDate >= $curDate) {
+                                
+                                            echo '<span class="badge badge-success">Hoạt động</span>';
+                                        } else {
+                                            echo '<span class="badge badge-danger">Hết hạn</span>';
+                                        }
+                                echo "</td>
                                         <td>";
                                         ?>
                                             <button class="btn btn-link float-right" href="sanpham_sua.php"><i class="fas fa-edit"></i></button>
