@@ -37,7 +37,7 @@
                             $sql = "SELECT nguoidung.email, nguoidung.ten, nguoidung.diachi, nguoidung.sdt, COUNT(hoadon.mahoadon) AS solanmuahang
                                     FROM nguoidung 
                                     LEFT JOIN hoadon ON nguoidung.email = hoadon.email
-                                    WHERE nguoidung.phanquyen = 2
+                                    WHERE nguoidung.phanquyen = 'nhanvien'
                                     GROUP BY nguoidung.email, nguoidung.ten, nguoidung.diachi, nguoidung.sdt";
                             $result = $conn->query($sql);
 
