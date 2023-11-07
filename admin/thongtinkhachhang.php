@@ -9,7 +9,7 @@
 ?>
 
 <body>
-  <div class="loader"></div>
+  <!-- <div class="loader"></div> -->
   <div id="app">
     <div class="main-wrapper main-wrapper-1">
       <div class="navbar-bg"></div>
@@ -205,7 +205,7 @@
                             $sql = "SELECT nguoidung.email, nguoidung.ten, nguoidung.diachi, nguoidung.sdt, COUNT(hoadon.mahoadon) AS solanmuahang
                                     FROM nguoidung 
                                     LEFT JOIN hoadon ON nguoidung.email = hoadon.email
-                                    WHERE nguoidung.phanquyen = 3
+                                    WHERE nguoidung.phanquyen = 'khachhang'
                                     GROUP BY nguoidung.email, nguoidung.ten, nguoidung.diachi, nguoidung.sdt";
                             $result = $conn->query($sql);
 

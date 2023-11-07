@@ -186,7 +186,7 @@
                       </div>
                       <div class="form-group">
                         <label>Họ và tên</label>
-                        <input type="text" class="form-control" id="ho_ten" name="ho_ten" pattern="[A-Za-z\s]+" required="">
+                        <input type="text" class="form-control" id="ho_ten" name="ho_ten"  required="">
                       </div>
                       <div class="form-group">
                         <label>Số điện thoại</label>
@@ -199,9 +199,9 @@
                       <div class="form-group">
                         <label>Phân quyền giai cấp</label>
                         <select class="form-control selectric" name="phanquyen">
-                        <option value="1">Admin</option>
-                        <option value="2">Nhân Viên</option>
-                        <option value="3">Khách Hàng</option>
+                        <option value="Admin">Admin</option>
+                        <option value="nhanvien">Nhân Viên</option>
+                        <option value="khachhang">Khách Hàng</option>
                         </select>
                       </div>
                     </div>
@@ -257,24 +257,24 @@
                         <?php
                           if ($pq!=""){
                             switch ($pq) {
-                              case '1':
+                              case 'Admin':
                                 $tpq = "Admin";
                                 break;
 
-                              case '2':
+                              case 'nhanvien':
                                 $tpq = "Nhân viên";
                                 break;
                               
-                              case '3':
+                              case 'khachhang':
                                 $tpq = "Khách hàng";
                                 break;
                             }
                           }
                           echo '<option selected value="'.$pq.'">'.$tpq.'</option>';
                         ?>
-                        <option value="1">Admin</option>
-                        <option value="2">Nhân Viên</option>
-                        <option value="3">Khách Hàng</option>
+                        <option value="Admin">Admin</option>
+                        <option value="nhanvien">Nhân Viên</option>
+                        <option value="khachhang">Khách Hàng</option>
                         </select>
                       </div>
                     </div>
