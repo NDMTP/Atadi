@@ -213,12 +213,13 @@
                                                 <td></td>
                                                 <td></td>
                                                 <td scope="col">
-                                                    <section style="text-align: right; padding: 1rem">
-
-                                                        <button type="submit" class="btn"
-                                                            style="margin-right:1rem; background-color: #ff7300; color: white">
-                                                            Mua Lại
-                                                        </button>
+                                                    <section class="d-flex" style="text-align: right; padding: 1rem">
+                                                        <a href="mualai.php?hoadon=<?php echo $row['MAHOADON'] ?>">
+                                                            <button class="btn"
+                                                                style="margin-right:1rem; background-color: #ff7300; color: white">
+                                                                Mua Lại
+                                                            </button>
+                                                        </a>
 
                                                         <?php
                                                         $sql1 = "SELECT * FROM danhgiasp WHERE MAHOADON ='".$row['MAHOADON']."'";
@@ -256,12 +257,12 @@
                                                         if($kttt['TRANGTHAIHOADON']==0){
                                                             $kt ="Hủy Đơn";
                                                         echo '
-                                                        <form action="hoadon_huy.php" method="GET">
-                                                                <input type="hidden" value="'.$row['MAHOADON'].'" name="mahd">
-                                                                <button type="submit" class="btn_check btn" style=" background: red; color:white ">
+                                                       
+                                                        <a href="hoadon_huy.php?mahd='.$row['MAHOADON'].'">
+                                                            <button type="submit" class="btn_check btn" style=" background: red; color:white ">
                                                                 '.$kt.'
-                                                                </button>
-                                                        </form>
+                                                            </button>
+                                                        </a>
                                                           
                                                             ';
                                                         }

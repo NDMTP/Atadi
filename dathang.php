@@ -88,7 +88,7 @@
         <i style="color: green; font-size: 50px; margin-top: 15px; margin-right: 15px;"
             class="fas fa-check-circle fa-lg"></i>
         <h1 >Đặt hàng thành công !</h1>
-        <a href="chitiethoadon.php?hdid=<?php echo $nextId ?>">
+        <a href="chitiethoadon.php?hdid=<?php echo $nextId ?>" target="_blank">
             <h4>Xem chi tiết đơn mua hàng</h4>
         </a>
         <a href="index.php"><button class="return-btn">Về trang chủ</button></a>
