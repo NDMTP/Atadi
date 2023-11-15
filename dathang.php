@@ -3,7 +3,7 @@
     require 'head.php';
 
     // Lấy ID lớn nhất
-    $getMaxId = "select count(*) as maxid from hoadon";
+    $getMaxId = "select max(MAHOADON) as maxid from hoadon";
     $result = $conn->query($getMaxId);
     $row = $result->fetch_assoc();
     $nextId = $row['maxid']+1;
@@ -38,7 +38,10 @@
            
 
             $addBillDetail = "insert into chitiethoadon values ($nextId,'$masp','$masize',$soluong,'$docay',$dongia,$tongtien);";
-            if($conn->query($addBillDetail)) $ok=1;
+            echo $addBillDetail;
+            if($conn->query($addBillDetail)){
+                $ok=1;
+            } 
             else{
                 $ok=0;
                 break;
