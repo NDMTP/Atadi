@@ -31,7 +31,7 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4>Danh sách đơn hàng chưa duyệt</h4>
+                                        <h4>Danh sách đơn hàng đang giao</h4>
                                     </div>
                                     <div class="card-body">
                                         <div class="table-responsive">
