@@ -13,8 +13,8 @@
                         </div>
                         <div class="form-group ml-2">
                             <label>Đến</label>
-                            <input name="kt" class="form-control" type="date"
-                                value="<?php echo $_SESSION['ngaykt'] ?>" id="ketthuc" />
+                            <input name="kt" class="form-control" type="date" value="<?php echo $_SESSION['ngaykt'] ?>"
+                                id="ketthuc" />
                         </div>
                         <button type="submit" style="height: 2.5rem;" class="btn btn-primary ml-3">Chọn</button>
                     </div>
@@ -44,7 +44,7 @@
                                             if ($conn->connect_error) {
                                                 die("Connection failed: " . $conn->connect_error);
                                             }
-                                            $tongkh = "SELECT COUNT(MAHOADON) AS TONGDH FROM hoadon where NGAYLAP BETWEEN '".$_SESSION['ngaybd']."' AND '".$_SESSION['ngaykt']."'";
+                                            $tongkh = "SELECT COUNT(MAHOADON) AS TONGDH FROM hoadon where NGAYLAP BETWEEN '" . $_SESSION['ngaybd'] . "' AND '" . $_SESSION['ngaykt'] . "'";
                                             $result = mysqli_query($conn, $tongkh);
                                             $tong1 = $result->fetch_assoc();
                                             echo $tong1["TONGDH"];
@@ -109,7 +109,7 @@
                                     <div class="card-content">
                                         <h5 class="font-15">Lượt đánh giá</h5>
                                         <h2 class="mb-3 font-25">
-                                        <?php
+                                            <?php
                                             $servername = "localhost";
                                             $username = "root";
                                             $password = "";
@@ -118,7 +118,7 @@
                                             if ($conn->connect_error) {
                                                 die("Connection failed: " . $conn->connect_error);
                                             }
-                                            $tongkh = "SELECT COUNT(*) AS TONGDG FROM danhgiasp where TGDANHGIA BETWEEN '".$_SESSION['ngaybd']."' AND '".$_SESSION['ngaykt']."'";
+                                            $tongkh = "SELECT COUNT(*) AS TONGDG FROM danhgiasp where TGDANHGIA BETWEEN '" . $_SESSION['ngaybd'] . "' AND '" . $_SESSION['ngaykt'] . "'";
                                             $result = mysqli_query($conn, $tongkh);
                                             $tong1 = $result->fetch_assoc();
                                             echo $tong1["TONGDG"];
@@ -145,7 +145,7 @@
                                     <div class="card-content">
                                         <h5 class="font-15">Doanh Thu</h5>
                                         <h2 class="mb-3 font-25">
-                                        <?php
+                                            <?php
                                             $servername = "localhost";
                                             $username = "root";
                                             $password = "";
@@ -154,10 +154,10 @@
                                             if ($conn->connect_error) {
                                                 die("Connection failed: " . $conn->connect_error);
                                             }
-                                            $tongkh = "SELECT SUM(TONGTIEN) AS TONGT FROM hoadon where NGAYLAP BETWEEN '".$_SESSION['ngaybd']."' AND '".$_SESSION['ngaykt']."'";
+                                            $tongkh = "SELECT SUM(TONGTIEN) AS TONGT FROM hoadon where trangthaihoadon=2 and NGAYLAP BETWEEN '" . $_SESSION['ngaybd'] . "' AND '" . $_SESSION['ngaykt'] . "'";
                                             $result = mysqli_query($conn, $tongkh);
                                             $tong1 = $result->fetch_assoc();
-                                            echo number_format($tong1["TONGT"])."đ";
+                                            echo number_format($tong1["TONGT"]) . "đ";
                                             ?>
                                         </h2>
                                     </div>
@@ -174,22 +174,32 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-sm-12 col-lg-12">
+            <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="card ">
                     <div class="card-header">
                         <h4>Doanh thu theo tháng</h4>
-
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-lg-9">
-                                <div class="col-12-md-8" id="columnchart_values" style="width: 950px; height: 380px;">
-                                </div>
-                            </div>
+                            <div id="columnchart_values"></div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- <div class="col-lg-5 col-md-5 col-sm-12">
+                <div class="card ">
+                    <div class="card-header">
+                        <h4>Tỉ lệ đánh giá</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="recent-report__chart">
+                                <div id="donutChart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
         </div>
         <?php
         $doanhthu = "
@@ -236,7 +246,7 @@
                     2
                 ]);
                 var options = {
-                    width: 1000,
+                    width: 1400,
                     height: 380,
                     padding: 2,
                     bar: {
