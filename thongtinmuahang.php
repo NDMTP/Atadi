@@ -90,7 +90,7 @@ include "connect.php"
                                     </select>
                                 </p>
                                 <p class="form-row">
-                                    <label for="fid-note">Ghi chú:*<span class="requite"></span></label>
+                                    <label for="fid-note">Địa chỉ cụ thể:*<span class="requite"></span></label>
                                     <input required type="text" id="fid-note" name="note"
                                         value="" class="txt-input" placeholder="Số nhà, đường,...">
                                 </p>

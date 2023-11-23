@@ -51,7 +51,7 @@
                         }
 
                         // Truy vấn SQL để lấy danh sách sản phẩm với tên loại sản phẩm
-                        $sql = "SELECT sanpham.masp, loaisanpham.tenloai, sanpham.tensp, sanpham.mota, sanpham.linkanh 
+                        $sql = "SELECT sanpham.masp, loaisanpham.tenloai, sanpham.tensp, sanpham.mota, sanpham.linkanh
                                 FROM sanpham 
                                 INNER JOIN loaisanpham ON sanpham.maloai = loaisanpham.maloai";
                         $result = $conn->query($sql);
@@ -60,11 +60,11 @@
                             echo '<table class="table table-striped table-hover" id="tableExport" style="width:100%;">';
                             echo '<thead>';
                             echo '<tr>';
+                            echo '<th>Hình ảnh</th>';
                             echo '<th>Mã sản phẩm</th>';
                             echo '<th>Tên loại</th>';
                             echo '<th>Tên sản phẩm</th>';
                             echo '<th>Mô tả</th>';
-                            echo '<th>Link ảnh</th>';
                             echo '<th></th>';
                             echo '<th></th>';
                             echo '</tr>';
@@ -74,12 +74,14 @@
                             $totalProducts = 0; // Khởi tạo biến tổng số sản phẩm
 
                             while ($row = $result->fetch_assoc()) {
+                                preg_match('/^[A-Za-z]+/', $row['masp'], $matches);
+                                $spImgDir = $matches[0];
                                 echo "<tr>
+                                        <td><img style='width: 4rem;' src='../assets/images/products/".$spImgDir."/" . $row["linkanh"] . "'/></td>
                                         <td>" . $row["masp"] . "</td>
                                         <td>" . $row["tenloai"] . "</td>
                                         <td>" . $row["tensp"] . "</td>
                                         <td>" . $row["mota"] . "</td>
-                                        <td>" . $row["linkanh"] . "</td>
                                         <td>";
                                         ?>
                                                     <form action="sanpham_sua.php" method="get">
