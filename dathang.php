@@ -38,7 +38,6 @@
            
 
             $addBillDetail = "insert into chitiethoadon values ($nextId,'$masp','$masize',$soluong,'$docay',$dongia,$tongtien);";
-            echo $addBillDetail;
             if($conn->query($addBillDetail)){
                 $ok=1;
             } 

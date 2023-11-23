@@ -141,6 +141,36 @@
                                     </form>
                                 </div>
                             </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Thay đổi khuyến mãi</h4>
+                                </div>
+                                <div class="card-body">
+                                    <form action="khuyenmai_sua.php" method="get">
+                                        <div class="form-group row align-items-center">
+                                            <label class="col-3" for="">Mã khuyến mãi</label>    
+                                            <input type="text" name="makm" id="" class="form-control col-9" placeholder="Nhập mã khuyến mãi cần sửa">
+                                        </div>
+                                        <div class="form-group row align-items-center">
+                                            <label class="col-3" for="">Phần trăm</label>    
+                                            <input type="text" name="tile" id="" class="form-control col-9" placeholder="Tỉ lệ thay đổi">
+                                        </div>
+                                        <div class="form-group row align-items-center">
+                                            <label class="col-3" for="">Điều kiện</label>    
+                                            <input type="text" name="dk" id="" class="form-control col-9" placeholder="Điều kiện thay đổi">
+                                        </div>
+                                        <div class="form-group row align-items-center">
+                                            <label class="col-3" for="">Từ</label>    
+                                            <input type="date" name="tu" id="" class="form-control col-9">
+                                        </div>
+                                        <div class="form-group row align-items-center">
+                                            <label class="col-3" for="">Đến</label>    
+                                            <input type="date" name="den" id="" class="form-control col-9">
+                                        </div>
+                                        <button class="btn btn-success float-right" type="submit">Sửa</button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
