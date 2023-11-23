@@ -62,7 +62,6 @@
                             echo '<th>Ngày bắt đầu</th>';
                             echo '<th>Ngày kết thúc</th>';
                             echo '<th>Trạng thái</th>';
-                            echo '<th></th>';
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
@@ -83,11 +82,6 @@
                                         } else {
                                             echo '<span class="badge badge-danger">Hết hạn</span>';
                                         }
-                                echo "</td>
-                                        <td>";
-                                        ?>
-                                            <button class="btn btn-link float-right" href="sanpham_sua.php"><i class="fas fa-edit"></i></button>
-                                        <?php
                                 echo "</td>
                                     </tr>";
                             }
