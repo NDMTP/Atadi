@@ -228,9 +228,25 @@
                                             <td>" . $row["ten"] . "</td>
                                             <td>" . $row["diachi"] . "</td>
                                             <td>" . $row["sdt"] . "</td>
-                                            <td>" . $row["solanmuahang"] . "</td>
-                                          </tr>";
+                                            <td>" . $row["solanmuahang"] . "</td>"
+                                          
+                                          ?>
+                                            <td>
+                                              <form action="capnhat.php" method="post">
+                                                <input type="hidden" name="email" value="<?php echo $row["email"] ?>">
+                                                <button class="btn btn-link"><i class="fas fa-edit"></i></button>
+                                              </form>
+                                            </td>
+                                            <td>
+                                              <form action="xoanguoidung.php" method="post">
+                                                <input type="hidden" name="email" value="<?php echo $row["email"] ?>">
+                                                <button class="btn btn-link"><i class="fas fa-trash-alt"></i></button>
+                                              </form>
+                                            </td>
+                                            <?php
+                                            "</tr>"; 
                                 }
+                                
 
                                 echo '</tbody>';
                                 echo '</table>';

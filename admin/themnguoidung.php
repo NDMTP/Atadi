@@ -35,7 +35,7 @@ if ( $result) {
   echo '<script language="javascript">
   alert("Thêm thành công!");
     </script>';
-  header('Location: thongtinkhachhang.php');
+  header('Location: thongtinnhanvien.php');
 } else {
     echo "Thêm nhân viên thất bại: " . $conn->error;
 }
