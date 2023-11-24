@@ -7,7 +7,7 @@
     $tu = $_GET['tu'];
     $den = $_GET['den'];
 
-    $sql= "insert into khuyenmai values ('$makm',$tile,$dk,'$tu','$den',true)";
+    $sql= "insert into khuyenmai values ('$makm',$tile,$dk,'$tu','$den')";
 
     $conn->query($sql);
 

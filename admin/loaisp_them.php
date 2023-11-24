@@ -43,7 +43,7 @@
                                                 $row = $result->fetch_assoc();
                                                 $pn = $row["loai"];
                                             }
-                                            $maloai = "LOAI" . ($pn + 1);
+                                            $maloai = ($pn + 1);
                                         ?>
                                         <div class="card-body">
                                             <form action="lsp_crud.php" method="get">

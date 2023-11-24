@@ -197,7 +197,7 @@
                         <input type="text" class="form-control" id="dia_chi" name="dia_chi" required>
                       </div>
                       <div class="form-group">
-                        <label>Phân quyền giai cấp</label>
+                        <label>Chức vụ</label>
                         <select class="form-control selectric" name="phanquyen">
                         <option value="Admin">Admin</option>
                         <option value="nhanvien">Nhân Viên</option>
@@ -252,7 +252,7 @@
                         <input type="text" class="form-control" id="dia_chi" name="dia_chi" required <?php echo $dc ?>>
                       </div>
                       <div class="form-group">
-                        <label>Phân quyền giai cấp</label>
+                        <label>Chức vụ</label>
                         <select class="form-control selectric" name="phanquyen">
                         <?php
                           if ($pq!=""){

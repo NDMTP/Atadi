@@ -41,7 +41,7 @@ if(isset($_FILES['pdimg'])){
   $filename = $file['name'];
   move_uploaded_file($file['tmp_name'],$tar_dir.$filename);
   $pdimg = $filename;
-}
+} 
 
 $motasp = $_GET["mota"];
 
@@ -97,7 +97,7 @@ if ($_GET["Combo"]!=""){
 if ( $result) {
   echo '<script language="javascript">
   alert("Thêm thành công!");
-    </script>';
+    </>';
   header('Location: danhsachsanpham.php');
 } else {
     echo "Thêm sản phẩm thất bại: " . $conn->error;

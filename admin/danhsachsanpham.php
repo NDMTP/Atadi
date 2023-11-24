@@ -66,7 +66,6 @@
                             echo '<th>Tên sản phẩm</th>';
                             echo '<th>Mô tả</th>';
                             echo '<th></th>';
-                            echo '<th></th>';
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
@@ -92,20 +91,7 @@
                                                     </form>
                                                     <?php
                                 echo "</td>
-                                      <td>";
-                                        ?>
-
-                                                    <form action="sanpham_xoa.php" method="get">
-                                                        <input type="hidden" name="spid"
-                                                            value="<?php echo $row["masp"] ?>">
-                                                        <button class="btn btn-link"><i
-                                                                class="fas fa-trash-alt"></i></button>
-                                                    </form>
-                                                    <?php
-                                        
-                                echo "</td>
-                                      </td>
-                                      </tr>";
+                                    </tr>";
 
                                 $totalProducts++; // Tăng tổng số sản phẩm lên 1
                             }

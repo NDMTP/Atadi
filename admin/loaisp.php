@@ -78,9 +78,9 @@
                                 echo '</table>';
                                 
                                 $totalEmployees = $result->num_rows; // Đếm tổng số nhân viên
-                                echo "<h5>Tổng số đơn hàng: $totalEmployees</h5>"; // Hiển thị tổng số nhân viên
+                                echo "<h5>Tổng số loại: $totalEmployees</h5>"; // Hiển thị tổng số nhân viên
                             } else {
-                                echo "Không có đơn hàng.";
+                                echo "Không có loại nào.";
                             }
 
                             $conn->close();
