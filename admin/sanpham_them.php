@@ -31,7 +31,7 @@
               <div class="col-lg-3"></div>
               <div class="col-6 col-md-6 col-lg-6">
                 <div class="card">
-                  <form method="GET" action="themsanpham.php">
+                  <form method="GET" action="themsanpham.php" enctype="multipart/form-data">
                     <div class="card-header">
                       <h4>Thêm sản phẩm</h4>
                     </div>
@@ -90,9 +90,9 @@
                         <input type="text" class="form-control" id="mota" name="mota" >
                       </div>
                       <div class="form-group">
-                        <label>Link ảnh sản phẩm</label><br>
+                        <label>Ảnh sản phẩm</label><br>
                         <div class="text-center">
-                          <input type="file" name="pdimg" id="">
+                          <input type="file" name="pdimg" id="" accept="image/*">
                         </div>
                       </div>
                     </div>

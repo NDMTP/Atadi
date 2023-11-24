@@ -230,7 +230,7 @@
                             ?>
                                 <div class="col-sm-4 " style="padding: 1rem; width: 15%;">
                                     <img width="120rem" height="120rem"
-                                        src="assets/images/comment/<?php echo $rowanh['LINKANH']?>" alt="shipping cart">
+                                        src="assets/images/comment<?php echo $rowanh['LINKANH']?>" alt="shipping cart">
                                 </div>
                                 <?php } ?>
                             </div>

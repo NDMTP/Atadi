@@ -34,10 +34,19 @@ $kytu = $matches[1];
 
 $nextid = $kytu.$maxid;
 
+$pdimg = "default.png";
+$tar_dir = '../assets/images/products/'.$kytu.'/';
+if(isset($_FILES['pdimg'])){
+  $file = $_FILES['pdimg'];
+  $filename = $file['name'];
+  move_uploaded_file($file['tmp_name'],$tar_dir.$filename);
+  $pdimg = $filename;
+}
+
 $motasp = $_GET["mota"];
 
-    $sql = "INSERT INTO sanpham (MASP,MALOAI,TENSP,MOTA,LINKANH)
-    VALUES ('$nextid', '$maloai', '$tensp', '$motasp', null); ";
+$sql = "INSERT INTO sanpham (MASP,MALOAI,TENSP,MOTA,LINKANH)
+VALUES ('$nextid', '$maloai', '$tensp', '$motasp', '$pdimg'); ";
 
  $result = $conn->query($sql);
 
