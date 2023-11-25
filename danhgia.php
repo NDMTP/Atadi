@@ -5,7 +5,7 @@ $noidung= $_POST['nd'];
 $chatluong= $_POST['cl1'];
 $hd= $_POST['hd'];
 $masp= $_POST['masp'];
-$targetDirectory = 'assets/images/comment/';
+$targetDirectory = '../assets/images/comment/';
 $sql = "INSERT INTO danhgiasp(MASP,EMAIL, MAHOADON, NOIDUNGDG, CHATLUONGSP) 
 VALUES ('$masp','$email','$hd','$noidung','$chatluong')";
 $result = $conn->query($sql);

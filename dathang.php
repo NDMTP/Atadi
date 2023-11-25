@@ -19,7 +19,7 @@
 
     // Tạo chi tiết hoá đơn
     $tonghd=0;
-    if (isset($_SESSION['cart']) && !empty($_SESSION['cart']) && $ok=1) {
+    if (isset($_SESSION['cart_temp']) && !empty($_SESSION['cart_temp']) && $ok=1) {
         foreach ($_SESSION['cart'] as $item) {
             $sql = "select * from sanpham s 
                 join sizecuasanpham sz on sz.MASP=s.MASP

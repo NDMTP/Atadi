@@ -157,7 +157,29 @@
                                             $tongkh = "SELECT SUM(TONGTIEN) AS TONGT FROM hoadon where trangthaihoadon=2 and NGAYLAP BETWEEN '" . $_SESSION['ngaybd'] . "' AND '" . $_SESSION['ngaykt'] . "'";
                                             $result = mysqli_query($conn, $tongkh);
                                             $tong1 = $result->fetch_assoc();
-                                            echo number_format($tong1["TONGT"]) . "đ";
+                                            $tong1 = "
+                                            
+
+SELECT loaisanpham.TENLOAI, SUM(tongsp.doanhthu) as TONGDOANHTHU
+FROM loaisanpham JOIN (SELECT DISTINCT sanpham.MALOAI, SUM(chitiethoadon.TONGTIEN) AS doanhthu
+FROM chitiethoadon
+JOIN sanpham ON sanpham.MASP = chitiethoadon.MASP
+JOIN hoadon ON hoadon.MAHOADON = chitiethoadon.MAHOADON
+WHERE hoadon.NGAYLAP BETWEEN '2023-11-24' AND '2023-11-25'
+AND hoadon.TRANGTHAIHOADON = 2
+GROUP BY sanpham.MALOAI) as tongsp ON loaisanpham.MALOAI = tongsp.MALOAI GROUP BY loaisanpham.TENLOAI;
+
+";
+
+                                            $result1 = mysqli_query($conn, $tong1);
+                                            $tongdt = 0;
+                                            if ($result1->num_rows > 0) {
+                                                while ($row = $result1->fetch_assoc()) {
+                                                    $tongdt = $tongdt + $row['TONGDOANHTHU'];
+                                                }
+                                            }
+                                            echo number_format($tongdt) . "đ";
+
                                             ?>
                                         </h2>
                                     </div>
@@ -203,11 +225,18 @@
         </div>
         <?php
         $doanhthu = "
-                    SELECT loaisanpham.TENLOAI, COALESCE(SUM(tongsp.doanhthu), 0) as TONGDOANHTHU
-                    FROM loaisanpham LEFT JOIN (SELECT sanpham.MALOAI, SUM(hoadon.TONGTIEN) as doanhthu
-                    FROM chitiethoadon JOIN sanpham ON sanpham.MASP = chitiethoadon.MASP
-                    JOIN hoadon ON hoadon.MAHOADON = chitiethoadon.MAHOADON WHERE hoadon.NGAYLAP BETWEEN '" . $_SESSION['ngaybd'] . "' AND '" . $_SESSION['ngaykt'] . "'
-                    AND hoadon.TRANGTHAIHOADON = 2 GROUP BY sanpham.MALOAI) as tongsp ON loaisanpham.MALOAI = tongsp.MALOAI GROUP BY loaisanpham.TENLOAI;";
+        
+
+SELECT loaisanpham.TENLOAI, SUM(tongsp.doanhthu) as TONGDOANHTHU
+FROM loaisanpham JOIN (SELECT DISTINCT sanpham.MALOAI, SUM(chitiethoadon.TONGTIEN) AS doanhthu
+FROM chitiethoadon
+JOIN sanpham ON sanpham.MASP = chitiethoadon.MASP
+JOIN hoadon ON hoadon.MAHOADON = chitiethoadon.MAHOADON
+WHERE hoadon.NGAYLAP BETWEEN '2023-11-24' AND '2023-11-25'
+AND hoadon.TRANGTHAIHOADON = 2
+GROUP BY sanpham.MALOAI) as tongsp ON loaisanpham.MALOAI = tongsp.MALOAI GROUP BY loaisanpham.TENLOAI;
+
+";
         $result_dt = $conn->query($doanhthu); ?>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript">

@@ -89,12 +89,12 @@
                         <label>Mô tả</label>
                         <input type="text" class="form-control" id="mota" name="mota" >
                       </div>
-                      <div class="form-group">
+                      <!-- <div class="form-group">
                         <label>Ảnh sản phẩm</label><br>
                         <div class="text-center">
                           <input type="file" name="pdimg" id="" accept="image/*">
                         </div>
-                      </div>
+                      </div> -->
                     </div>
                     <div class="card-footer text-right">
                       <button class="btn btn-primary" class="mt-2">Thêm sản phẩm</button>

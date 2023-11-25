@@ -230,7 +230,7 @@
                             ?>
                                 <div class="col-sm-4 " style="padding: 1rem; width: 15%;">
                                     <img width="120rem" height="120rem"
-                                        src="assets/images/comment<?php echo $rowanh['LINKANH']?>" alt="shipping cart">
+                                        src="assets/images/comment/<?php echo $rowanh['LINKANH']?>" alt="shipping cart">
                                 </div>
                                 <?php } ?>
                             </div>
@@ -255,7 +255,7 @@
                         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12"
                             style="border: 1px solid #f1f1f1 ;box-shadow: 10px 10px 10px #f1f1f1; padding:2rem;transform: scale(0.8) translate(112rem, -8%);position: absolute;">
                             <div>
-                                <h3> <b><span><?php echo $tong['Tongdg']?></span> đánh giá được chia sẽ</b></h3>
+                                <h3> <b><span><?php echo $tong['Tongdg']?></span> đánh giá được chia sẻ</b></h3>
                                 <hr>
                                 <?php
                                      $chatluongsp = "SELECT COUNT(*) as sl,CHATLUONGSP FROM danhgiasp,chitiethoadon 
